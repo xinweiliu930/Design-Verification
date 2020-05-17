@@ -1,0 +1,51 @@
+
+ddr32.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e3a03004 	mov	r3, #4
+   4:	e59f006c 	ldr	r0, [pc, #108]	; 78 <AdrRanNum>
+
+00000008 <mainl>:
+   8:	e5901000 	ldr	r1, [r0]
+   c:	e1a01601 	lsl	r1, r1, #12
+  10:	e59f8064 	ldr	r8, [pc, #100]	; 7c <DDRBase>
+  14:	e0888001 	add	r8, r8, r1
+  18:	e3a090ff 	mov	r9, #255	; 0xff
+  1c:	e4c89001 	strb	r9, [r8], #1
+  20:	e2599001 	subs	r9, r9, #1
+  24:	1afffffc 	bne	1c <mainl+0x14>
+  28:	e59f804c 	ldr	r8, [pc, #76]	; 7c <DDRBase>
+  2c:	e0888001 	add	r8, r8, r1
+  30:	e3a090ff 	mov	r9, #255	; 0xff
+  34:	e4d87001 	ldrb	r7, [r8], #1
+  38:	e1570009 	cmp	r7, r9
+  3c:	13a0a00a 	movne	sl, #10
+  40:	1a000004 	bne	58 <testfail>
+  44:	e2599001 	subs	r9, r9, #1
+  48:	1afffff9 	bne	34 <mainl+0x2c>
+  4c:	e2533001 	subs	r3, r3, #1
+  50:	1affffec 	bne	8 <mainl>
+  54:	ea000002 	b	64 <testpass>
+
+00000058 <testfail>:
+  58:	e59fb014 	ldr	fp, [pc, #20]	; 74 <AdrTestStatus>
+  5c:	e58ba000 	str	sl, [fp]
+  60:	eafffffc 	b	58 <testfail>
+
+00000064 <testpass>:
+  64:	e59fb008 	ldr	fp, [pc, #8]	; 74 <AdrTestStatus>
+  68:	e3a0a011 	mov	sl, #17
+  6c:	e58ba000 	str	sl, [fp]
+  70:	eafffffb 	b	64 <testpass>
+
+00000074 <AdrTestStatus>:
+  74:	f0000000 	.word	0xf0000000
+
+00000078 <AdrRanNum>:
+  78:	f0000100 	.word	0xf0000100
+
+0000007c <DDRBase>:
+  7c:	00100000 	.word	0x00100000

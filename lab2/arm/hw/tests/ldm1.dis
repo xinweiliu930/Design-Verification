@@ -1,0 +1,144 @@
+
+ldm1.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e59fe170 	ldr	lr, [pc, #368]	; 178 <StaticEnd>
+   4:	e83e1fff 	ldmda	lr!, {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip}
+   8:	e59fd168 	ldr	sp, [pc, #360]	; 178 <StaticEnd>
+   c:	e24dd034 	sub	sp, sp, #52	; 0x34
+  10:	e15d000e 	cmp	sp, lr
+  14:	13a0a00a 	movne	sl, #10
+  18:	1a00004c 	bne	150 <testfail>
+  1c:	e3a0d005 	mov	sp, #5
+  20:	e15d0000 	cmp	sp, r0
+  24:	13a0a014 	movne	sl, #20
+  28:	1a000048 	bne	150 <testfail>
+  2c:	e3a0d006 	mov	sp, #6
+  30:	e15d0001 	cmp	sp, r1
+  34:	13a0a01e 	movne	sl, #30
+  38:	1a000044 	bne	150 <testfail>
+  3c:	e3a0d007 	mov	sp, #7
+  40:	e15d0002 	cmp	sp, r2
+  44:	13a0a028 	movne	sl, #40	; 0x28
+  48:	1a000040 	bne	150 <testfail>
+  4c:	e3a0d008 	mov	sp, #8
+  50:	e15d0003 	cmp	sp, r3
+  54:	13a0a032 	movne	sl, #50	; 0x32
+  58:	1a00003c 	bne	150 <testfail>
+  5c:	e3a0d009 	mov	sp, #9
+  60:	e15d0004 	cmp	sp, r4
+  64:	13a0a03c 	movne	sl, #60	; 0x3c
+  68:	1a000038 	bne	150 <testfail>
+  6c:	e3a0d00a 	mov	sp, #10
+  70:	e15d0005 	cmp	sp, r5
+  74:	13a0a046 	movne	sl, #70	; 0x46
+  78:	1a000034 	bne	150 <testfail>
+  7c:	e3a0d00b 	mov	sp, #11
+  80:	e15d0006 	cmp	sp, r6
+  84:	13a0a050 	movne	sl, #80	; 0x50
+  88:	1a000030 	bne	150 <testfail>
+  8c:	e3a0d00c 	mov	sp, #12
+  90:	e15d0007 	cmp	sp, r7
+  94:	13a0a05a 	movne	sl, #90	; 0x5a
+  98:	1a00002c 	bne	150 <testfail>
+  9c:	e3a0d00d 	mov	sp, #13
+  a0:	e15d0008 	cmp	sp, r8
+  a4:	13a0a064 	movne	sl, #100	; 0x64
+  a8:	1a000028 	bne	150 <testfail>
+  ac:	e3a0d00e 	mov	sp, #14
+  b0:	e15d0009 	cmp	sp, r9
+  b4:	13a0a06e 	movne	sl, #110	; 0x6e
+  b8:	1a000024 	bne	150 <testfail>
+  bc:	e3a0d00f 	mov	sp, #15
+  c0:	e15d000a 	cmp	sp, sl
+  c4:	13a0a078 	movne	sl, #120	; 0x78
+  c8:	1a000020 	bne	150 <testfail>
+  cc:	e3a0d010 	mov	sp, #16
+  d0:	e15d000b 	cmp	sp, fp
+  d4:	13a0a082 	movne	sl, #130	; 0x82
+  d8:	1a00001c 	bne	150 <testfail>
+  dc:	e3a0d011 	mov	sp, #17
+  e0:	e15d000c 	cmp	sp, ip
+  e4:	13a0a08c 	movne	sl, #140	; 0x8c
+  e8:	1a000018 	bne	150 <testfail>
+  ec:	e59f007c 	ldr	r0, [pc, #124]	; 170 <StoreBase>
+  f0:	e59f10cc 	ldr	r1, [pc, #204]	; 1c4 <Data18+0x4>
+  f4:	e5801000 	str	r1, [r0]
+  f8:	e8908000 	ldm	r0, {pc}
+  fc:	ea000013 	b	150 <testfail>
+ 100:	ea000012 	b	150 <testfail>
+ 104:	ea000011 	b	150 <testfail>
+ 108:	ea000010 	b	150 <testfail>
+
+0000010c <jump2>:
+ 10c:	eaffffff 	b	110 <start3>
+
+00000110 <start3>:
+ 110:	e59f0058 	ldr	r0, [pc, #88]	; 170 <StoreBase>
+ 114:	e3a01011 	mov	r1, #17
+ 118:	e4801004 	str	r1, [r0], #4
+ 11c:	e59f10a4 	ldr	r1, [pc, #164]	; 1c8 <Data18+0x8>
+ 120:	e5801000 	str	r1, [r0]
+ 124:	e59f0044 	ldr	r0, [pc, #68]	; 170 <StoreBase>
+ 128:	e8908020 	ldm	r0, {r5, pc}
+ 12c:	ea000007 	b	150 <testfail>
+ 130:	ea000006 	b	150 <testfail>
+ 134:	ea000005 	b	150 <testfail>
+ 138:	ea000004 	b	150 <testfail>
+
+0000013c <jump3>:
+ 13c:	e3a07011 	mov	r7, #17
+ 140:	e1550007 	cmp	r5, r7
+ 144:	13a0a0c8 	movne	sl, #200	; 0xc8
+ 148:	1a000000 	bne	150 <testfail>
+ 14c:	ea000002 	b	15c <testpass>
+
+00000150 <testfail>:
+ 150:	e59fb014 	ldr	fp, [pc, #20]	; 16c <AdrTestStatus>
+ 154:	e58ba000 	str	sl, [fp]
+ 158:	eafffffc 	b	150 <testfail>
+
+0000015c <testpass>:
+ 15c:	e59fb008 	ldr	fp, [pc, #8]	; 16c <AdrTestStatus>
+ 160:	e3a0a011 	mov	sl, #17
+ 164:	e58ba000 	str	sl, [fp]
+ 168:	eafffffb 	b	15c <testpass>
+
+0000016c <AdrTestStatus>:
+ 16c:	f0000000 	.word	0xf0000000
+
+00000170 <StoreBase>:
+ 170:	00000800 	.word	0x00000800
+
+00000174 <StaticBase>:
+ 174:	0000017c 	.word	0x0000017c
+
+00000178 <StaticEnd>:
+ 178:	000001c0 	.word	0x000001c0
+
+0000017c <Data1>:
+ 17c:	00000000 	.word	0x00000000
+ 180:	00000001 	.word	0x00000001
+ 184:	00000002 	.word	0x00000002
+ 188:	00000003 	.word	0x00000003
+ 18c:	00000004 	.word	0x00000004
+ 190:	00000005 	.word	0x00000005
+ 194:	00000006 	.word	0x00000006
+ 198:	00000007 	.word	0x00000007
+ 19c:	00000008 	.word	0x00000008
+ 1a0:	00000009 	.word	0x00000009
+ 1a4:	0000000a 	.word	0x0000000a
+ 1a8:	0000000b 	.word	0x0000000b
+ 1ac:	0000000c 	.word	0x0000000c
+ 1b0:	0000000d 	.word	0x0000000d
+ 1b4:	0000000e 	.word	0x0000000e
+ 1b8:	0000000f 	.word	0x0000000f
+ 1bc:	00000010 	.word	0x00000010
+
+000001c0 <Data18>:
+ 1c0:	00000011 	.word	0x00000011
+ 1c4:	0000010c 	.word	0x0000010c
+ 1c8:	0000013c 	.word	0x0000013c

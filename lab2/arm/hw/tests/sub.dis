@@ -1,0 +1,55 @@
+
+sub.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e59f0078 	ldr	r0, [pc, #120]	; 80 <Data2+0x4>
+   4:	e59f6070 	ldr	r6, [pc, #112]	; 7c <Data2>
+   8:	e59fe074 	ldr	lr, [pc, #116]	; 84 <Data2+0x8>
+   c:	e1a0f00e 	mov	pc, lr
+  10:	e5903000 	ldr	r3, [r0]
+  14:	e2532001 	subs	r2, r3, #1
+  18:	21520006 	cmpcs	r2, r6
+  1c:	23a03000 	movcs	r3, #0
+  20:	e3530000 	cmp	r3, #0
+  24:	13a0a00a 	movne	sl, #10
+  28:	1a000008 	bne	50 <testfail>
+  2c:	e59f103c 	ldr	r1, [pc, #60]	; 70 <MaxPos>
+  30:	e3a02001 	mov	r2, #1
+  34:	e0423001 	sub	r3, r2, r1
+  38:	e59f4034 	ldr	r4, [pc, #52]	; 74 <MaxNeg>
+  3c:	e2844002 	add	r4, r4, #2
+  40:	e1540003 	cmp	r4, r3
+  44:	13a0a014 	movne	sl, #20
+  48:	1a000000 	bne	50 <testfail>
+  4c:	ea000002 	b	5c <testpass>
+
+00000050 <testfail>:
+  50:	e59fb014 	ldr	fp, [pc, #20]	; 6c <AdrTestStatus>
+  54:	e58ba000 	str	sl, [fp]
+  58:	eafffffc 	b	50 <testfail>
+
+0000005c <testpass>:
+  5c:	e59fb008 	ldr	fp, [pc, #8]	; 6c <AdrTestStatus>
+  60:	e3a0a011 	mov	sl, #17
+  64:	e58ba000 	str	sl, [fp]
+  68:	eafffffb 	b	5c <testpass>
+
+0000006c <AdrTestStatus>:
+  6c:	f0000000 	.word	0xf0000000
+
+00000070 <MaxPos>:
+  70:	7fffffff 	.word	0x7fffffff
+
+00000074 <MaxNeg>:
+  74:	80000000 	.word	0x80000000
+
+00000078 <Data1>:
+  78:	03000000 	.word	0x03000000
+
+0000007c <Data2>:
+  7c:	020febed 	.word	0x020febed
+  80:	00000078 	.word	0x00000078
+  84:	00000010 	.word	0x00000010

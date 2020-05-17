@@ -1,0 +1,96 @@
+
+undefined_ins.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	ea000006 	b	20 <start>
+   4:	ea00001a 	b	74 <service_undefined_instruction>
+   8:	ea000030 	b	d0 <testfail>
+   c:	ea00002f 	b	d0 <testfail>
+  10:	ea00002e 	b	d0 <testfail>
+  14:	ea00002d 	b	d0 <testfail>
+  18:	ea00002c 	b	d0 <testfail>
+  1c:	ea00002b 	b	d0 <testfail>
+
+00000020 <start>:
+  20:	e3a00000 	mov	r0, #0
+  24:	e3a08000 	mov	r8, #0
+  28:	e3500001 	cmp	r0, #1
+  2c:	e59f30c8 	ldr	r3, [pc, #200]	; fc <PCMask>
+  30:	e1a0400f 	mov	r4, pc
+  34:	e1c44003 	bic	r4, r4, r3
+  38:	ecfca102 	.word	0xecfca102
+
+0000003c <pos1>:
+  3c:	ecac8b11 	.word	0xecac8b11
+
+00000040 <pos2>:
+  40:	0ceca102 	.word	0x0ceca102
+  44:	e2888007 	add	r8, r8, #7
+  48:	02888003 	addeq	r8, r8, #3
+  4c:	eee11a10 	.word	0xeee11a10
+
+00000050 <pos3>:
+  50:	e350000c 	cmp	r0, #12
+  54:	13a0a078 	movne	sl, #120	; 0x78
+  58:	1a00001c 	bne	d0 <testfail>
+  5c:	e3580007 	cmp	r8, #7
+  60:	13a0a082 	movne	sl, #130	; 0x82
+  64:	1a000019 	bne	d0 <testfail>
+  68:	ea00001b 	b	dc <testpass>
+  6c:	ea000017 	b	d0 <testfail>
+  70:	ea000016 	b	d0 <testfail>
+
+00000074 <service_undefined_instruction>:
+  74:	e59f1084 	ldr	r1, [pc, #132]	; 100 <PCMask+0x4>
+  78:	e0811000 	add	r1, r1, r0
+  7c:	e5912000 	ldr	r2, [r1]
+  80:	e59fd074 	ldr	sp, [pc, #116]	; fc <PCMask>
+  84:	e00dd00e 	and	sp, sp, lr
+  88:	e152000d 	cmp	r2, sp
+  8c:	11a0a000 	movne	sl, r0
+  90:	1a00000e 	bne	d0 <testfail>
+  94:	e59fd060 	ldr	sp, [pc, #96]	; fc <PCMask>
+  98:	e1ce500d 	bic	r5, lr, sp
+  9c:	e1540005 	cmp	r4, r5
+  a0:	13a0a064 	movne	sl, #100	; 0x64
+  a4:	1a000009 	bne	d0 <testfail>
+  a8:	e1a0600f 	mov	r6, pc
+  ac:	e2066003 	and	r6, r6, #3
+  b0:	e3560003 	cmp	r6, #3
+  b4:	13a0a06e 	movne	sl, #110	; 0x6e
+  b8:	1a000004 	bne	d0 <testfail>
+  bc:	e2800004 	add	r0, r0, #4
+  c0:	e1b0f00e 	movs	pc, lr
+  c4:	ea000001 	b	d0 <testfail>
+  c8:	ea000000 	b	d0 <testfail>
+  cc:	eaffffff 	b	d0 <testfail>
+
+000000d0 <testfail>:
+  d0:	e59fb014 	ldr	fp, [pc, #20]	; ec <AdrTestStatus>
+  d4:	e58ba000 	str	sl, [fp]
+  d8:	eafffffc 	b	d0 <testfail>
+
+000000dc <testpass>:
+  dc:	e59fb008 	ldr	fp, [pc, #8]	; ec <AdrTestStatus>
+  e0:	e3a0a011 	mov	sl, #17
+  e4:	e58ba000 	str	sl, [fp]
+  e8:	eafffffb 	b	dc <testpass>
+
+000000ec <AdrTestStatus>:
+  ec:	f0000000 	.word	0xf0000000
+
+000000f0 <Adrpos1>:
+  f0:	0000003c 	.word	0x0000003c
+
+000000f4 <Adrpos2>:
+  f4:	00000040 	.word	0x00000040
+
+000000f8 <Adrpos3>:
+  f8:	00000050 	.word	0x00000050
+
+000000fc <PCMask>:
+  fc:	03fffffc 	.word	0x03fffffc
+ 100:	000000f0 	.word	0x000000f0

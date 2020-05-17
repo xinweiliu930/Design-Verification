@@ -1,0 +1,2103 @@
+# do run.do
+# Model Technology ModelSim SE-64 vlog 10.6 Compiler 2016.12 Dec 13 2016
+# Start time: 19:33:08 on May 10,2019
+# vlog ../dut/ALU_netlist.v ../lib/gscl45nm.v 
+# -- Compiling module add_unsigned_6
+# -- Compiling module add_unsigned_carry_1
+# -- Compiling module add_unsigned_carry_28
+# -- Compiling module add_unsigned_carry
+# -- Compiling module gt_signed
+# -- Compiling module geq_signed
+# -- Compiling module increment_unsigned
+# -- Compiling module lt_signed
+# -- Compiling module leq_signed
+# -- Compiling module shift_left_vlog_unsigned
+# -- Compiling module shift_left_vlog_unsigned_1
+# -- Compiling module shift_right_vlog_unsigned
+# -- Compiling module shift_right_vlog_unsigned_623
+# -- Compiling module shift_right_vlog_unsigned_784
+# -- Compiling module shift_right_vlog_unsigned_784_1
+# -- Compiling module ALU
+# -- Compiling module AND2X1
+# -- Compiling module AND2X2
+# -- Compiling module AOI21X1
+# -- Compiling module AOI22X1
+# -- Compiling module BUFX2
+# -- Compiling module BUFX4
+# -- Compiling module CLKBUF1
+# -- Compiling module CLKBUF2
+# -- Compiling module CLKBUF3
+# -- Compiling module DFFNEGX1
+# -- Compiling module DFFPOSX1
+# -- Compiling module DFFSR
+# -- Compiling module FAX1
+# -- Compiling module HAX1
+# -- Compiling module INVX1
+# -- Compiling module INVX2
+# -- Compiling module INVX4
+# -- Compiling module INVX8
+# -- Compiling module LATCH
+# -- Compiling module MUX2X1
+# -- Compiling module NAND2X1
+# -- Compiling module NAND3X1
+# -- Compiling module NOR2X1
+# -- Compiling module NOR3X1
+# -- Compiling module OAI21X1
+# -- Compiling module OAI22X1
+# -- Compiling module OR2X1
+# -- Compiling module OR2X2
+# -- Compiling module TBUFX1
+# -- Compiling module TBUFX2
+# -- Compiling module XNOR2X1
+# -- Compiling module XOR2X1
+# -- Compiling UDP udp_dff
+# -- Compiling UDP udp_tlat
+# -- Compiling UDP udp_rslat
+# -- Compiling UDP udp_mux2
+# 
+# Top level modules:
+# 	ALU
+# 	AND2X2
+# 	BUFX4
+# 	CLKBUF1
+# 	CLKBUF2
+# 	CLKBUF3
+# 	DFFNEGX1
+# 	DFFSR
+# 	INVX2
+# 	INVX4
+# 	INVX8
+# 	LATCH
+# 	OAI22X1
+# 	TBUFX1
+# 	TBUFX2
+# End time: 19:33:09 on May 10,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 10.6 Compiler 2016.12 Dec 13 2016
+# Start time: 19:33:09 on May 10,2019
+# vlog "+cover" -sv ../tb/interfaces.sv ../tb/sequences.sv ../tb/coverage.sv ../tb/scoreboard.sv ../tb/modules.sv ../tb/tests.sv ../tb/tb.sv 
+# -- Compiling interface dut_in
+# -- Compiling interface dut_out
+# ** Note: (vlog-2286) ../tb/sequences.sv(1): Using implicit +incdir+/misc/linuxws/packages/mentor_2016/modelsim10.6/modeltech/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+# -- Compiling package sequences
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Compiling package coverage
+# -- Importing package sequences
+# -- Compiling package scoreboard
+# -- Compiling package modules_pkg
+# -- Importing package coverage
+# -- Importing package scoreboard
+# -- Compiling package tests
+# -- Importing package modules_pkg
+# -- Compiling package tb_sv_unit
+# -- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+# -- Importing package modules_pkg
+# -- Importing package sequences
+# -- Importing package coverage
+# -- Importing package scoreboard
+# -- Importing package tests
+# -- Compiling module dut
+# -- Compiling module top
+# 
+# Top level modules:
+# 	top
+# End time: 19:33:10 on May 10,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# vsim -c top 
+# Start time: 19:33:10 on May 10,2019
+# ** Note: (vsim-3812) Design is being optimized...
+# //  ModelSim SE-64 10.6 Dec 13 2016Linux 2.6.32-754.9.1.el6.x86_64
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Loading sv_std.std
+# Loading work.dut_in(fast)
+# Loading work.dut_out(fast)
+# Loading mtiUvm.uvm_pkg
+# Loading work.sequences(fast)
+# Loading work.scoreboard(fast)
+# Loading work.coverage(fast)
+# Loading work.modules_pkg(fast)
+# Loading work.tests(fast)
+# Loading work.tb_sv_unit(fast)
+# Loading work.top(fast)
+# Loading work.ALU(fast)
+# Loading work.INVX1(fast)
+# Loading work.HAX1(fast)
+# Loading work.AOI21X1(fast)
+# Loading work.AND2X1(fast)
+# Loading work.BUFX2(fast)
+# Loading work.FAX1(fast)
+# Loading work.XOR2X1(fast)
+# Loading work.OAI21X1(fast)
+# Loading work.AOI22X1(fast)
+# Loading work.NAND2X1(fast)
+# Loading work.NOR2X1(fast)
+# Loading work.OR2X1(fast)
+# Loading work.NAND3X1(fast)
+# Loading work.MUX2X1(fast)
+# Loading work.NOR3X1(fast)
+# Loading work.XNOR2X1(fast)
+# Loading work.DFFPOSX1(fast)
+# Loading work.OR2X2(fast)
+# Loading mtiUvm.questa_uvm_pkg(fast)
+# Loading /misc/linuxws/packages/mentor_2016/modelsim10.6/modeltech/uvm-1.1d/linux_x86_64/uvm_dpi.so
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test test1...
+# hello
+# hello
+# UVM_INFO @ 35000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 00000000, Operand B = 7dded8f0, Opcode = 00010, CIN = 0
+# UVM_INFO @ 35000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7dded8f0, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 155000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = b34b8995, Operand B = 80000000, Opcode = 00010, CIN = 1
+# UVM_INFO @ 155000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = b34b8995, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 205000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 80000000, Operand B = cff2bb2d, Opcode = 00010, CIN = 0
+# UVM_INFO @ 205000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = cff2bb2d, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 245000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 5a5a5a5a, Operand B = 33277b66, Opcode = 00010, CIN = 0
+# UVM_INFO @ 245000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7b7f7b7e, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 315000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = d18a5ad9, Operand B = 80000000, Opcode = 00010, CIN = 0
+# UVM_INFO @ 315000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = d18a5ad9, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 375000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 7fffffff, Operand B = 9e35c519, Opcode = 00010, CIN = 0
+# UVM_INFO @ 375000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# UVM_INFO @ 395000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 55555555, Operand B = 3e13334e, Opcode = 00010, CIN = 1
+# UVM_INFO @ 395000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7f57775f, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 485000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 901a1154, Operand B = 00000001, Opcode = 00010, CIN = 1
+# UVM_INFO @ 485000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 901a1155, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 555000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 55555555, Operand B = 840da6ea, Opcode = 00010, CIN = 0
+# UVM_INFO @ 555000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = d55df7ff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 585000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = ffffffff, Operand B = 26c9aae8, Opcode = 00010, CIN = 0
+# UVM_INFO @ 585000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 635000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = c34f9350, Operand B = 80000000, Opcode = 00010, CIN = 1
+# UVM_INFO @ 635000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = c34f9350, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 645000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 13b71996, Operand B = 00000001, Opcode = 00010, CIN = 0
+# UVM_INFO @ 645000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 13b71997, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 735000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 0a050a05, Operand B = 4a04583e, Opcode = 00010, CIN = 0
+# UVM_INFO @ 735000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 4a055a3f, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 815000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 00000000, Operand B = 00000000, Opcode = 00010, CIN = 0
+# UVM_INFO @ 815000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 00000000, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 925000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 7e78e356, Operand B = 7fffffff, Opcode = 00010, CIN = 0
+# UVM_INFO @ 925000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7fffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 965000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 2d463444, Operand B = 00000001, Opcode = 00010, CIN = 1
+# UVM_INFO @ 965000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 2d463445, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 1165000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 80000000, Operand B = 8acd01ee, Opcode = 00010, CIN = 1
+# UVM_INFO @ 1165000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 8acd01ee, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 1225000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = ffffffff, Operand B = dd62535e, Opcode = 00010, CIN = 1
+# UVM_INFO @ 1225000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 1285000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = a8d054d4, Operand B = 00000001, Opcode = 00010, CIN = 0
+# UVM_INFO @ 1285000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = a8d054d5, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 1425000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 1fee519d, Operand B = 050a050a, Opcode = 00010, CIN = 1
+# UVM_INFO @ 1425000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 1fee559f, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 1485000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 80000000, Operand B = 37ef0558, Opcode = 00010, CIN = 0
+# UVM_INFO @ 1485000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = b7ef0558, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 1565000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 8d485419, Operand B = 7fffffff, Opcode = 00010, CIN = 0
+# UVM_INFO @ 1565000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 1645000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 80000000, Operand B = 0aeb72f0, Opcode = 00010, CIN = 0
+# UVM_INFO @ 1645000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 8aeb72f0, COUT = 1, VOUT = 1
+# hello
+# hello
+# UVM_INFO @ 1665000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = aaaaaaaa, Operand B = 210f0d3b, Opcode = 00010, CIN = 0
+# UVM_INFO @ 1665000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = abafafbb, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 1765000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 8011e023, Operand B = 00000001, Opcode = 00010, CIN = 0
+# UVM_INFO @ 1765000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 8011e023, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 1945000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 34d15f43, Operand B = b858e0a9, Opcode = 00010, CIN = 1
+# UVM_INFO @ 1945000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = bcd9ffeb, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 2125000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 80000000, Operand B = bc8921f2, Opcode = 00010, CIN = 1
+# UVM_INFO @ 2125000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = bc8921f2, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 2245000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 7bddc7d1, Operand B = 00000001, Opcode = 00010, CIN = 0
+# UVM_INFO @ 2245000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7bddc7d1, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 2455000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 7fffffff, Operand B = 6ef1deb5, Opcode = 00010, CIN = 1
+# UVM_INFO @ 2455000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7fffffff, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 2465000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = aaaaaaaa, Operand B = b927a189, Opcode = 00010, CIN = 0
+# UVM_INFO @ 2465000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = bbafabab, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 2565000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 3e7fb618, Operand B = 00000001, Opcode = 00010, CIN = 1
+# UVM_INFO @ 2565000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 3e7fb619, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 2715000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = c8f49d79, Operand B = 80000000, Opcode = 00010, CIN = 1
+# UVM_INFO @ 2715000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = c8f49d79, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 2725000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = a91dc15d, Operand B = 00000001, Opcode = 00010, CIN = 0
+# UVM_INFO @ 2725000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = a91dc15d, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 2735000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 00000000, Operand B = 00000000, Opcode = 00010, CIN = 0
+# UVM_INFO @ 2735000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 00000000, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 3065000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 612197fa, Operand B = 1fbfd508, Opcode = 00010, CIN = 0
+# UVM_INFO @ 3065000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7fbfd7fa, COUT = 1, VOUT = 1
+# hello
+# hello
+# UVM_INFO @ 3085000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 80000000, Operand B = 5127fc56, Opcode = 00010, CIN = 1
+# UVM_INFO @ 3085000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = d127fc56, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 3125000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 5a5a5a5a, Operand B = 6dd117b9, Opcode = 00010, CIN = 1
+# UVM_INFO @ 3125000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7fdb5ffb, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 3155000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 3831a7b4, Operand B = aaaaaaaa, Opcode = 00010, CIN = 1
+# UVM_INFO @ 3155000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = babbafbe, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 3465000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = ffffffff, Operand B = a4378f1f, Opcode = 00010, CIN = 1
+# UVM_INFO @ 3465000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 3775000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 0a050a05, Operand B = 6cc2576a, Opcode = 00010, CIN = 0
+# UVM_INFO @ 3775000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 6ec75f6f, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 3825000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 2bd28701, Operand B = 050a050a, Opcode = 00010, CIN = 1
+# UVM_INFO @ 3825000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 2fda870b, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 3915000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 55555555, Operand B = fdfe6265, Opcode = 00010, CIN = 1
+# UVM_INFO @ 3915000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = fdff7775, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 3955000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 10605bc5, Operand B = aaaaaaaa, Opcode = 00010, CIN = 1
+# UVM_INFO @ 3955000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = baeafbef, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 3985000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 38e971b8, Operand B = 050a050a, Opcode = 00010, CIN = 0
+# UVM_INFO @ 3985000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 3deb75ba, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 4095000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 0a050a05, Operand B = 0ba4ef70, Opcode = 00010, CIN = 1
+# UVM_INFO @ 4095000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 0ba5ef75, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 4255000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 0a050a05, Operand B = fedbd650, Opcode = 00010, CIN = 1
+# UVM_INFO @ 4255000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = fedfde55, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 4285000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 32b9522f, Operand B = 7fffffff, Opcode = 00010, CIN = 0
+# UVM_INFO @ 4285000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7fffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 4405000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 5a5a5a5a, Operand B = 645847db, Opcode = 00010, CIN = 1
+# UVM_INFO @ 4405000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7e5a5fdb, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 4695000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 7fffffff, Operand B = 88ca09ff, Opcode = 00010, CIN = 1
+# UVM_INFO @ 4695000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 4745000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = ffffffff, Operand B = 43eebdbb, Opcode = 00010, CIN = 0
+# UVM_INFO @ 4745000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 5375000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 0a050a05, Operand B = 7f3151ed, Opcode = 00010, CIN = 1
+# UVM_INFO @ 5375000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7f355bed, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 5495000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 7fffffff, Operand B = 2df4d2e0, Opcode = 00010, CIN = 1
+# UVM_INFO @ 5495000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7fffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 5525000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 5a5a5a5a, Operand B = 7cabbb73, Opcode = 00010, CIN = 0
+# UVM_INFO @ 5525000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7efbfb7b, COUT = 1, VOUT = 1
+# hello
+# hello
+# UVM_INFO @ 5545000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = ffffffff, Operand B = 27307775, Opcode = 00010, CIN = 0
+# UVM_INFO @ 5545000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 5605000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 19b1754a, Operand B = 00000001, Opcode = 00010, CIN = 0
+# UVM_INFO @ 5605000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 19b1754b, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 5705000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = ffffffff, Operand B = f3091b16, Opcode = 00010, CIN = 1
+# UVM_INFO @ 5705000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# UVM_INFO @ 5725000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = d3ffefa6, Operand B = 7fffffff, Opcode = 00010, CIN = 1
+# UVM_INFO @ 5725000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 5795000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 00000000, Operand B = 647770b7, Opcode = 00010, CIN = 0
+# UVM_INFO @ 5795000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 647770b7, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 5835000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 55555555, Operand B = 18a4cfa2, Opcode = 00010, CIN = 0
+# UVM_INFO @ 5835000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 5df5dff7, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 5965000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 80000000, Operand B = 54c01ea2, Opcode = 00010, CIN = 0
+# UVM_INFO @ 5965000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = d4c01ea2, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 6105000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 19a62142, Operand B = 0f851c7c, Opcode = 00010, CIN = 0
+# UVM_INFO @ 6105000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 1fa73d7e, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 6175000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 0a050a05, Operand B = e257d052, Opcode = 00010, CIN = 0
+# UVM_INFO @ 6175000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ea57da57, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 6475000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 55555555, Operand B = 639c77d8, Opcode = 00010, CIN = 1
+# UVM_INFO @ 6475000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 77dd77dd, COUT = 1, VOUT = 1
+# hello
+# hello
+# UVM_INFO @ 6495000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 0a050a05, Operand B = 258d0f07, Opcode = 00010, CIN = 0
+# UVM_INFO @ 6495000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 2f8d0f07, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 6555000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 9b2d67e5, Operand B = 80000000, Opcode = 00010, CIN = 0
+# UVM_INFO @ 6555000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 9b2d67e5, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 6595000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 00000000, Operand B = 04bc22a7, Opcode = 00010, CIN = 1
+# UVM_INFO @ 6595000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 04bc22a7, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 6725000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 18171c24, Operand B = 00000001, Opcode = 00010, CIN = 0
+# UVM_INFO @ 6725000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 18171c25, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 6885000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = f6f30fa8, Operand B = 00000001, Opcode = 00010, CIN = 1
+# UVM_INFO @ 6885000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = f6f30fa9, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 6895000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 00000000, Operand B = 00000000, Opcode = 00010, CIN = 0
+# UVM_INFO @ 6895000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 00000000, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 6985000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = ffffffff, Operand B = 87a7a4bb, Opcode = 00010, CIN = 0
+# UVM_INFO @ 6985000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 7105000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = aaaaaaaa, Operand B = 441daea9, Opcode = 00010, CIN = 1
+# UVM_INFO @ 7105000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = eebfaeab, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 7245000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 80000000, Operand B = e89ce3db, Opcode = 00010, CIN = 1
+# UVM_INFO @ 7245000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = e89ce3db, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 7275000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 55555555, Operand B = 70af9ab4, Opcode = 00010, CIN = 1
+# UVM_INFO @ 7275000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 75ffdff5, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 7315000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 47f61b69, Operand B = aaaaaaaa, Opcode = 00010, CIN = 0
+# UVM_INFO @ 7315000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = effebbeb, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 7345000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 9a7c0366, Operand B = 050a050a, Opcode = 00010, CIN = 1
+# UVM_INFO @ 7345000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 9f7e076e, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 7375000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 00000000, Operand B = 00000000, Opcode = 00010, CIN = 1
+# UVM_INFO @ 7375000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 00000000, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 7425000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = aaaaaaaa, Operand B = e927b95b, Opcode = 00010, CIN = 1
+# UVM_INFO @ 7425000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ebafbbfb, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 7645000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 1f20dbb8, Operand B = 7fffffff, Opcode = 00010, CIN = 0
+# UVM_INFO @ 7645000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7fffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 8025000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = fbc9a36f, Operand B = d508fe18, Opcode = 00010, CIN = 0
+# UVM_INFO @ 8025000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffc9ff7f, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 8035000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 00000000, Operand B = f6c91e1f, Opcode = 00010, CIN = 1
+# UVM_INFO @ 8035000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = f6c91e1f, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 8225000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = aaaaaaaa, Operand B = 9cb24ed8, Opcode = 00010, CIN = 1
+# UVM_INFO @ 8225000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = bebaeefa, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 8235000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 55555555, Operand B = 6e7d9ccc, Opcode = 00010, CIN = 1
+# UVM_INFO @ 8235000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7f7ddddd, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 8265000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = ffffffff, Operand B = 0e74403d, Opcode = 00010, CIN = 0
+# UVM_INFO @ 8265000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# UVM_INFO @ 8285000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 3e1ea10e, Operand B = 7fffffff, Opcode = 00010, CIN = 0
+# UVM_INFO @ 8285000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7fffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 8355000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 00000000, Operand B = cd775efc, Opcode = 00010, CIN = 1
+# UVM_INFO @ 8355000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = cd775efc, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 8385000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = aaaaaaaa, Operand B = b3a5363e, Opcode = 00010, CIN = 0
+# UVM_INFO @ 8385000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = bbafbebe, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 8525000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 80000000, Operand B = e3fcc896, Opcode = 00010, CIN = 0
+# UVM_INFO @ 8525000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = e3fcc896, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 8555000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 55555555, Operand B = 250296cf, Opcode = 00010, CIN = 1
+# UVM_INFO @ 8555000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7557d7df, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 8735000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 0a050a05, Operand B = da94ac5c, Opcode = 00010, CIN = 0
+# UVM_INFO @ 8735000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = da95ae5d, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 8845000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 80000000, Operand B = 10742a72, Opcode = 00010, CIN = 1
+# UVM_INFO @ 8845000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 90742a72, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 8855000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 7fffffff, Operand B = a3bd5c5b, Opcode = 00010, CIN = 1
+# UVM_INFO @ 8855000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 8955000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = f80949bb, Operand B = 80000000, Opcode = 00010, CIN = 1
+# UVM_INFO @ 8955000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = f80949bb, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 9205000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 5a5a5a5a, Operand B = 85ba4019, Opcode = 00010, CIN = 1
+# UVM_INFO @ 9205000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = dffa5a5b, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 9215000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 0a050a05, Operand B = 3c1e5869, Opcode = 00010, CIN = 1
+# UVM_INFO @ 9215000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 3e1f5a6d, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 9425000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 1a007f0a, Operand B = 050a050a, Opcode = 00010, CIN = 0
+# UVM_INFO @ 9425000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 1f0a7f0a, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 9655000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 7fffffff, Operand B = 14122df0, Opcode = 00010, CIN = 1
+# UVM_INFO @ 9655000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7fffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 9885000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 25e8399f, Operand B = 7fffffff, Opcode = 00010, CIN = 1
+# UVM_INFO @ 9885000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7fffffff, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 9895000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = fedc7a22, Operand B = ffffffff, Opcode = 00010, CIN = 1
+# UVM_INFO @ 9895000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 9925000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 365b4c6f, Operand B = 00000001, Opcode = 00010, CIN = 1
+# UVM_INFO @ 9925000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 365b4c6f, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 10065000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 03ef897a, Operand B = 050a050a, Opcode = 00010, CIN = 1
+# UVM_INFO @ 10065000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 07ef8d7a, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 10275000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 00000000, Operand B = 8aae2067, Opcode = 00010, CIN = 1
+# UVM_INFO @ 10275000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 8aae2067, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 10305000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = aaaaaaaa, Operand B = 2e366f3f, Opcode = 00010, CIN = 1
+# UVM_INFO @ 10305000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = aebeefbf, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 10425000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 9a522976, Operand B = 7804cc8b, Opcode = 00010, CIN = 0
+# UVM_INFO @ 10425000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = fa56edff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 10465000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = aaaaaaaa, Operand B = b568acda, Opcode = 00010, CIN = 1
+# UVM_INFO @ 10465000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = bfeaaefa, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 10765000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 80000000, Operand B = 36fa66aa, Opcode = 00010, CIN = 0
+# UVM_INFO @ 10765000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = b6fa66aa, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 10995000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 78ac15b5, Operand B = aaaaaaaa, Opcode = 00010, CIN = 0
+# UVM_INFO @ 10995000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = faaebfbf, COUT = 1, VOUT = 1
+# hello
+# hello
+# UVM_INFO @ 11015000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 04a8ffcf, Operand B = ffffffff, Opcode = 00010, CIN = 1
+# UVM_INFO @ 11015000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 11095000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 7fffffff, Operand B = 7c90a508, Opcode = 00010, CIN = 0
+# UVM_INFO @ 11095000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7fffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 11155000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 0637bdc2, Operand B = aaaaaaaa, Opcode = 00010, CIN = 0
+# UVM_INFO @ 11155000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = aebfbfea, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 11165000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = d3807c9e, Operand B = 7fffffff, Opcode = 00010, CIN = 0
+# UVM_INFO @ 11165000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 11175000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 1a72084d, Operand B = ffffffff, Opcode = 00010, CIN = 1
+# UVM_INFO @ 11175000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 11505000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 59f18e5d, Operand B = 050a050a, Opcode = 00010, CIN = 1
+# UVM_INFO @ 11505000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 5dfb8f5f, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 11845000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 0565a030, Operand B = 00000001, Opcode = 00010, CIN = 0
+# UVM_INFO @ 11845000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 0565a031, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 11975000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 9fa93e62, Operand B = ffffffff, Opcode = 00010, CIN = 1
+# UVM_INFO @ 11975000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# UVM_INFO @ 11995000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 3da7fd21, Operand B = 80000000, Opcode = 00010, CIN = 0
+# UVM_INFO @ 11995000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = bda7fd21, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 12025000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 735e50e3, Operand B = 36c53225, Opcode = 00010, CIN = 1
+# UVM_INFO @ 12025000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 77df72e7, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 12075000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 55555555, Operand B = a759b859, Opcode = 00010, CIN = 1
+# UVM_INFO @ 12075000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = f75dfd5d, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 12185000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 039e4f82, Operand B = 86756c30, Opcode = 00010, CIN = 0
+# UVM_INFO @ 12185000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 87ff6fb2, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 12555000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 55555555, Operand B = e09a5fd5, Opcode = 00010, CIN = 0
+# UVM_INFO @ 12555000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = f5df5fd5, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 12695000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 7fffffff, Operand B = d1389c45, Opcode = 00010, CIN = 0
+# UVM_INFO @ 12695000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 12825000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = de45d631, Operand B = 9536535c, Opcode = 00010, CIN = 0
+# UVM_INFO @ 12825000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = df77d77d, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 12855000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 7fffffff, Operand B = 6547e682, Opcode = 00010, CIN = 1
+# UVM_INFO @ 12855000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7fffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 12915000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 71464155, Operand B = aaaaaaaa, Opcode = 00010, CIN = 1
+# UVM_INFO @ 12915000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = fbeeebff, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 12925000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 7dff81b2, Operand B = 7fffffff, Opcode = 00010, CIN = 0
+# UVM_INFO @ 12925000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7fffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 12985000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 3e9bc52e, Operand B = be45f955, Opcode = 00010, CIN = 1
+# UVM_INFO @ 12985000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = bedffd7f, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 13145000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 1b82d91b, Operand B = e36a2a22, Opcode = 00010, CIN = 0
+# UVM_INFO @ 13145000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = fbeafb3b, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 13335000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 7fffffff, Operand B = 8587b87f, Opcode = 00010, CIN = 0
+# UVM_INFO @ 13335000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 13565000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = b4eb0509, Operand B = 7fffffff, Opcode = 00010, CIN = 1
+# UVM_INFO @ 13565000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 13685000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 5a5a5a5a, Operand B = 70f6fa40, Opcode = 00010, CIN = 0
+# UVM_INFO @ 13685000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7afefa5a, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 13745000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 4f3605ea, Operand B = 050a050a, Opcode = 00010, CIN = 1
+# UVM_INFO @ 13745000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 4f3e05ea, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 13785000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = ffa44da3, Operand B = 126ec517, Opcode = 00010, CIN = 0
+# UVM_INFO @ 13785000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffeecdb7, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 13885000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 967ce8a0, Operand B = 7fffffff, Opcode = 00010, CIN = 1
+# UVM_INFO @ 13885000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 13895000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 6b3ff127, Operand B = ffffffff, Opcode = 00010, CIN = 1
+# UVM_INFO @ 13895000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 13935000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 00000000, Operand B = 00000000, Opcode = 00010, CIN = 1
+# UVM_INFO @ 13935000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 00000000, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 13985000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = aaaaaaaa, Operand B = 08e9a364, Opcode = 00010, CIN = 1
+# UVM_INFO @ 13985000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = aaebabee, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 14185000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = ffffffff, Operand B = c01d611f, Opcode = 00010, CIN = 1
+# UVM_INFO @ 14185000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 14225000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = d63bab4b, Operand B = 050a050a, Opcode = 00010, CIN = 1
+# UVM_INFO @ 14225000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = d73baf4b, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 14265000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 93471a12, Operand B = 3d6ce8f1, Opcode = 00010, CIN = 1
+# UVM_INFO @ 14265000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = bf6ffaf3, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 14295000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 7fffffff, Operand B = 7cf0f2e3, Opcode = 00010, CIN = 0
+# UVM_INFO @ 14295000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7fffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 14415000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 00000000, Operand B = 00000000, Opcode = 00010, CIN = 0
+# UVM_INFO @ 14415000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 00000000, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 14555000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 0b9564b1, Operand B = 80000000, Opcode = 00010, CIN = 0
+# UVM_INFO @ 14555000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 8b9564b1, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 14715000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 4fb39969, Operand B = 80000000, Opcode = 00010, CIN = 1
+# UVM_INFO @ 14715000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = cfb39969, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 14955000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 55555555, Operand B = 19d4938c, Opcode = 00010, CIN = 0
+# UVM_INFO @ 14955000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 5dd5d7dd, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 15165000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 8fde74be, Operand B = 7fffffff, Opcode = 00010, CIN = 0
+# UVM_INFO @ 15165000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 15175000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 8ecc22fd, Operand B = ffffffff, Opcode = 00010, CIN = 1
+# UVM_INFO @ 15175000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 15265000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = aaaaaaaa, Operand B = 83cf6931, Opcode = 00010, CIN = 1
+# UVM_INFO @ 15265000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = abefebbb, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 15325000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 6c7cb1e6, Operand B = 7fffffff, Opcode = 00010, CIN = 1
+# UVM_INFO @ 15325000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 7fffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 15385000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 82f086b8, Operand B = 2465d7d5, Opcode = 00010, CIN = 1
+# UVM_INFO @ 15385000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = a6f5d7fd, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 15395000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 00000000, Operand B = f5b8b827, Opcode = 00010, CIN = 0
+# UVM_INFO @ 15395000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = f5b8b827, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO @ 15425000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = aaaaaaaa, Operand B = 5e2e6d0e, Opcode = 00010, CIN = 0
+# UVM_INFO @ 15425000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = feaeefae, COUT = 1, VOUT = 1
+# hello
+# UVM_INFO @ 15435000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 55555555, Operand B = 32d854b1, Opcode = 00010, CIN = 0
+# UVM_INFO @ 15435000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 77dd55f5, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 15565000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 80000000, Operand B = 1e344c5a, Opcode = 00010, CIN = 1
+# UVM_INFO @ 15565000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = 9e344c5a, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 15645000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 9f449b20, Operand B = 7fffffff, Opcode = 00010, CIN = 0
+# UVM_INFO @ 15645000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 15875000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = 00000000, Operand B = bb5cef33, Opcode = 00010, CIN = 0
+# UVM_INFO @ 15875000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = bb5cef33, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# hello
+# UVM_INFO @ 15965000: uvm_test_top.alu_env_h.alu_scoreboard_h [Input is: ] Operand A = b729b6fc, Operand B = 7fffffff, Opcode = 00010, CIN = 1
+# UVM_INFO @ 15965000: uvm_test_top.alu_env_h.alu_scoreboard_h [Output is: ] OUT = ffffffff, COUT = 1, VOUT = 1
+# hello
+# hello
+# hello
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 15995000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :  314
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Input is: ]   155
+# [Output is: ]   155
+# [Questa UVM]     2
+# [RNTST]     1
+# [TEST_DONE]     1
+# ** Note: $finish    : /misc/linuxws/packages/mentor_2016/modelsim10.6/modeltech/linux_x86_64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 159950 ns  Iteration: 70  Instance: /top
+# End time: 19:33:22 on May 10,2019, Elapsed time: 0:00:12
+# Errors: 0, Warnings: 0

@@ -1,0 +1,30 @@
+2019-04-09 22:43:57.811779 (17929) main____ INFO    ----------------------------------------
+2019-04-09 22:43:57.812158 (17929) main____ INFO    JasperGold version info
+2019-04-09 22:43:57.812188 (17929) main____ INFO      tool      : JasperGold 2015.09
+2019-04-09 22:43:57.812212 (17929) main____ INFO      version   : 2015.09 FCS 64 bits
+2019-04-09 22:43:57.812228 (17929) main____ INFO      build date: 2015.09.29 22:07:28 PDT
+2019-04-09 22:43:57.812240 (17929) main____ INFO    ----------------------------------------
+2019-04-09 22:43:57.812250 (17929) main____ INFO    Runtime info:
+2019-04-09 22:43:57.812268 (17929) main____ INFO      platform  : Linux 2.6.32-754.9.1.el6.x86_64 x86_64
+2019-04-09 22:43:57.812286 (17929) main____ INFO      hostname  : wario
+2019-04-09 22:43:57.812298 (17929) main____ INFO      pid       : 17929
+2019-04-09 22:43:57.812310 (17929) main____ INFO      arguments : '-style' 'windows' 'jg_cmd_syncfifo.tcl'
+2019-04-09 22:43:57.812321 (17929) main____ INFO    ----------------------------------------
+2019-04-09 22:43:57.815120 (17929) lic__man INFO    Claim 'main' for <ui>.
+2019-04-09 22:43:57.818269 (17929) lic_core INFO    (1) checking out 'jasper_interactive' ...
+2019-04-09 22:43:58.012029 (17929) lic_core INFO    ... (1) checkout succeeded
+2019-04-09 22:43:58.012226 (17929) lic__man INFO    Claim 'fpv' for <ui>.
+2019-04-09 22:43:58.012276 (17929) lic_core INFO    (2) checking out 'jasper_fpv' ...
+2019-04-09 22:43:58.040012 (17929) lic_core INFO    ... (2) checkout succeeded
+2019-04-09 22:43:58.855730 (17929) lic__man INFO    Claim 'fpv' for <ui>.
+2019-04-09 22:43:58.955013 (17929) lic__man INFO    Unclaim 'fpv' for <ui>.
+2019-04-09 22:43:58.955094 (17929) lic__man INFO    Claim 'fpv' for <ui>.
+2019-04-09 22:43:58.967947 (17929) session_ INFO    Starting analysis session with session id 'session_0' ...
+2019-04-09 22:43:58.972022 (17929) session_ INFO    Analysis session with session id 'session_0' started (pid: 17991)
+2019-04-09 22:44:04.401797 (17929) session_ INFO    Analysis session 'session_0' connected to the console (host: 146.6.221.77:45374)
+2019-04-09 22:44:06.037707 (17929) lic__man INFO    Unclaim everything for 'session_0*'.
+2019-04-09 22:44:07.230337 (17929) lic__man INFO    Unclaim everything for 'session_0*'.
+2019-04-09 22:44:07.472184 (17929) lic__man INFO    Claim 'fpv' for 'session_0'.
+2019-04-09 22:44:07.730671 (17929) lic__man INFO    Unclaim everything for 'session_0/prove-0'.
+2019-04-09 22:47:51.029473 (17929) main____ INFO    About to exit: requested from GUI
+2019-04-09 22:47:51.124482 (17929) main____ INFO    Exiting.

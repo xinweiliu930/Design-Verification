@@ -1,0 +1,121 @@
+
+swi.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	ea000006 	b	20 <start>
+   4:	ea000023 	b	98 <testfail>
+   8:	ea000016 	b	68 <service_swi>
+   c:	ea000021 	b	98 <testfail>
+  10:	ea000020 	b	98 <testfail>
+  14:	ea00001f 	b	98 <testfail>
+  18:	ea00001e 	b	98 <testfail>
+  1c:	ea00001d 	b	98 <testfail>
+
+00000020 <start>:
+  20:	e3a00000 	mov	r0, #0
+  24:	e13ff000 	teq	pc, r0
+  28:	e1a0200f 	mov	r2, pc
+  2c:	e2122003 	ands	r2, r2, #3
+  30:	13a0a00a 	movne	sl, #10
+  34:	1a000017 	bne	98 <testfail>
+  38:	0fff8877 	svceq	0x00ff8877
+
+0000003c <pos1>:
+  3c:	ea000018 	b	a4 <testpass>
+  40:	ea000014 	b	98 <testfail>
+  44:	ea000013 	b	98 <testfail>
+
+00000048 <continue>:
+  48:	e3a01003 	mov	r1, #3
+  4c:	e3a02002 	mov	r2, #2
+  50:	e1510002 	cmp	r1, r2
+  54:	03a03011 	moveq	r3, #17
+  58:	0fff1122 	svceq	0x00ff1122
+  5c:	03a0a014 	moveq	sl, #20
+  60:	0a00000c 	beq	98 <testfail>
+  64:	1a00000e 	bne	a4 <testpass>
+
+00000068 <service_swi>:
+  68:	e59f008c 	ldr	r0, [pc, #140]	; fc <Adrpos1>
+  6c:	e59fd060 	ldr	sp, [pc, #96]	; d4 <PCMask>
+  70:	e00ee00d 	and	lr, lr, sp
+  74:	e150000e 	cmp	r0, lr
+  78:	13a0a014 	movne	sl, #20
+  7c:	1a000005 	bne	98 <testfail>
+  80:	e1a0200f 	mov	r2, pc
+  84:	e2022003 	and	r2, r2, #3
+  88:	e3520003 	cmp	r2, #3
+  8c:	13a0a01e 	movne	sl, #30
+  90:	1a000000 	bne	98 <testfail>
+  94:	eaffffeb 	b	48 <continue>
+
+00000098 <testfail>:
+  98:	e59fb038 	ldr	fp, [pc, #56]	; d8 <AdrTestStatus>
+  9c:	e58ba000 	str	sl, [fp]
+  a0:	eafffffc 	b	98 <testfail>
+
+000000a4 <testpass>:
+  a4:	e59fb02c 	ldr	fp, [pc, #44]	; d8 <AdrTestStatus>
+  a8:	e3a0a011 	mov	sl, #17
+  ac:	e58ba000 	str	sl, [fp]
+  b0:	eafffffb 	b	a4 <testpass>
+
+000000b4 <Data1>:
+  b4:	12345678 	.word	0x12345678
+
+000000b8 <Data2>:
+  b8:	ffccbbaa 	.word	0xffccbbaa
+
+000000bc <Data3>:
+  bc:	ffccbbaa 	.word	0xffccbbaa
+
+000000c0 <Data4>:
+  c0:	12345600 	.word	0x12345600
+
+000000c4 <Data5>:
+  c4:	0000ffff 	.word	0x0000ffff
+
+000000c8 <Data6>:
+  c8:	ffff0000 	.word	0xffff0000
+
+000000cc <Data7>:
+  cc:	5678ffff 	.word	0x5678ffff
+
+000000d0 <Data8>:
+  d0:	ffffffff 	.word	0xffffffff
+
+000000d4 <PCMask>:
+  d4:	03fffffc 	.word	0x03fffffc
+
+000000d8 <AdrTestStatus>:
+  d8:	f0000000 	.word	0xf0000000
+
+000000dc <AdrData1>:
+  dc:	000000b4 	.word	0x000000b4
+
+000000e0 <AdrData2>:
+  e0:	000000b8 	.word	0x000000b8
+
+000000e4 <AdrData3>:
+  e4:	000000bc 	.word	0x000000bc
+
+000000e8 <AdrData4>:
+  e8:	000000c0 	.word	0x000000c0
+
+000000ec <AdrData5>:
+  ec:	000000c4 	.word	0x000000c4
+
+000000f0 <AdrData6>:
+  f0:	000000c8 	.word	0x000000c8
+
+000000f4 <AdrData7>:
+  f4:	000000cc 	.word	0x000000cc
+
+000000f8 <AdrData8>:
+  f8:	000000d0 	.word	0x000000d0
+
+000000fc <Adrpos1>:
+  fc:	0000003c 	.word	0x0000003c

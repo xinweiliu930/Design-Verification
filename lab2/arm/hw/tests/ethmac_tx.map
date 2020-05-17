@@ -1,0 +1,63 @@
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+                0x00000000                . = 0x0
+
+.text           0x00000000      0x1ec
+ *(.text)
+ .text          0x00000000      0x1ec ethmac_tx.o
+                0x00000000                main
+
+.plt
+
+.glue_7         0x000001ec        0x0
+
+.glue_7t        0x000001ec        0x0
+
+.data           0x000001ec        0x0
+ *(.data)
+
+.dynamic        0x000001ec       0x80
+ .dynamic       0x000001ec       0x80 ethmac_tx.o
+                0x000001ec                _DYNAMIC
+
+.got            0x0000026c        0x0
+
+.got.plt        0x0000026c        0xc
+ .got.plt       0x0000026c        0xc ethmac_tx.o
+                0x0000026c                _GLOBAL_OFFSET_TABLE_
+
+.bss            0x00000278        0x0
+ *(.bss)
+
+.dynbss         0x00000278        0x0
+
+.stack          0x00000278        0x0
+                0x00000278                __stack = .
+LOAD ethmac_tx.o
+OUTPUT(ethmac_tx.elf elf32-littlearm)
+
+.eh_frame_hdr
+
+.gnu.version_d
+
+.gnu.version
+
+.gnu.version_r
+
+.dynsym         0x00000278      0x130
+ .dynsym        0x00000278      0x130 ethmac_tx.o
+
+.dynstr         0x000003a8       0x35
+ .dynstr        0x000003a8       0x35 ethmac_tx.o
+
+.hash           0x000003e0       0x98
+ .hash          0x000003e0       0x98 ethmac_tx.o
+
+.rel.dyn        0x00000478       0x10
+ .rel.text      0x00000478       0x10 ethmac_tx.o

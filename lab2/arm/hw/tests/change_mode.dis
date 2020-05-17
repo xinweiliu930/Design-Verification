@@ -1,0 +1,67 @@
+
+change_mode.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e3e04001 	mvn	r4, #1
+   4:	e114f00f 	tst	r4, pc
+   8:	e1a0500f 	mov	r5, pc
+   c:	e2055003 	and	r5, r5, #3
+  10:	e3550002 	cmp	r5, #2
+  14:	13a0a032 	movne	sl, #50	; 0x32
+  18:	1a000020 	bne	a0 <testfail>
+  1c:	e1a0600f 	mov	r6, pc
+  20:	e356f001 	cmp	r6, #1
+  24:	e1a0700f 	mov	r7, pc
+  28:	e2078003 	and	r8, r7, #3
+  2c:	e3580001 	cmp	r8, #1
+  30:	13a0a03c 	movne	sl, #60	; 0x3c
+  34:	1a000019 	bne	a0 <testfail>
+  38:	e59f1084 	ldr	r1, [pc, #132]	; c4 <Status1>
+  3c:	e37ff23f 	cmn	pc, #-268435453	; 0xf0000003
+  40:	e1a00000 	nop			; (mov r0, r0)
+  44:	e1a0900f 	mov	r9, pc
+  48:	e59f0070 	ldr	r0, [pc, #112]	; c0 <PCMask>
+  4c:	e1c9d000 	bic	sp, r9, r0
+  50:	e15d0001 	cmp	sp, r1
+  54:	13a0a046 	movne	sl, #70	; 0x46
+  58:	1a000010 	bne	a0 <testfail>
+  5c:	e33ff000 	teq	pc, #0
+  60:	ea000001 	b	6c <main+0x6c>
+  64:	ea00000d 	b	a0 <testfail>
+  68:	ea00000c 	b	a0 <testfail>
+  6c:	e59f004c 	ldr	r0, [pc, #76]	; c0 <PCMask>
+  70:	e1a0100f 	mov	r1, pc
+  74:	e1d11000 	bics	r1, r1, r0
+  78:	13a0a00a 	movne	sl, #10
+  7c:	1a000007 	bne	a0 <testfail>
+  80:	e33ff23f 	teq	pc, #-268435453	; 0xf0000003
+  84:	e3a02000 	mov	r2, #0
+  88:	e182100f 	orr	r1, r2, pc
+  8c:	e1c11000 	bic	r1, r1, r0
+  90:	e351020f 	cmp	r1, #-268435456	; 0xf0000000
+  94:	13a0a014 	movne	sl, #20
+  98:	1a000000 	bne	a0 <testfail>
+  9c:	ea000002 	b	ac <testpass>
+
+000000a0 <testfail>:
+  a0:	e59fb014 	ldr	fp, [pc, #20]	; bc <AdrTestStatus>
+  a4:	e58ba000 	str	sl, [fp]
+  a8:	eafffffc 	b	a0 <testfail>
+
+000000ac <testpass>:
+  ac:	e59fb008 	ldr	fp, [pc, #8]	; bc <AdrTestStatus>
+  b0:	e3a0a011 	mov	sl, #17
+  b4:	e58ba000 	str	sl, [fp]
+  b8:	eafffffb 	b	ac <testpass>
+
+000000bc <AdrTestStatus>:
+  bc:	f0000000 	.word	0xf0000000
+
+000000c0 <PCMask>:
+  c0:	03fffffc 	.word	0x03fffffc
+
+000000c4 <Status1>:
+  c4:	f0000003 	.word	0xf0000003

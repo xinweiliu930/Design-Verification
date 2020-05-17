@@ -1,0 +1,28 @@
+2019-04-09 23:23:26.878378 (32262) main____ INFO    ----------------------------------------
+2019-04-09 23:23:26.878755 (32262) main____ INFO    JasperGold version info
+2019-04-09 23:23:26.878779 (32262) main____ INFO      tool      : JasperGold 2015.09
+2019-04-09 23:23:26.878799 (32262) main____ INFO      version   : 2015.09 FCS 64 bits
+2019-04-09 23:23:26.878813 (32262) main____ INFO      build date: 2015.09.29 22:07:28 PDT
+2019-04-09 23:23:26.878823 (32262) main____ INFO    ----------------------------------------
+2019-04-09 23:23:26.878832 (32262) main____ INFO    Runtime info:
+2019-04-09 23:23:26.878844 (32262) main____ INFO      platform  : Linux 2.6.32-754.9.1.el6.x86_64 x86_64
+2019-04-09 23:23:26.878861 (32262) main____ INFO      hostname  : wario
+2019-04-09 23:23:26.878872 (32262) main____ INFO      pid       : 32262
+2019-04-09 23:23:26.878883 (32262) main____ INFO      arguments : '-style' 'windows' 'jg_cmd_syncfifo.tcl'
+2019-04-09 23:23:26.878893 (32262) main____ INFO    ----------------------------------------
+2019-04-09 23:23:26.883422 (32262) lic__man INFO    Claim 'main' for <ui>.
+2019-04-09 23:23:26.899273 (32262) lic_core INFO    (1) checking out 'jasper_interactive' ...
+2019-04-09 23:23:27.051267 (32262) lic_core INFO    ... (1) checkout succeeded
+2019-04-09 23:23:27.051464 (32262) lic__man INFO    Claim 'fpv' for <ui>.
+2019-04-09 23:23:27.051520 (32262) lic_core INFO    (2) checking out 'jasper_fpv' ...
+2019-04-09 23:23:27.068610 (32262) lic_core INFO    ... (2) checkout succeeded
+2019-04-09 23:23:27.870698 (32262) lic__man INFO    Claim 'fpv' for <ui>.
+2019-04-09 23:23:28.074705 (32262) lic__man INFO    Unclaim 'fpv' for <ui>.
+2019-04-09 23:23:28.074785 (32262) lic__man INFO    Claim 'fpv' for <ui>.
+2019-04-09 23:23:28.087902 (32262) session_ INFO    Starting analysis session with session id 'session_0' ...
+2019-04-09 23:23:28.091977 (32262) session_ INFO    Analysis session with session id 'session_0' started (pid: 32329)
+2019-04-09 23:23:33.521246 (32262) session_ INFO    Analysis session 'session_0' connected to the console (host: 146.6.221.77:42454)
+2019-04-09 23:23:35.151113 (32262) lic__man INFO    Unclaim everything for 'session_0*'.
+2019-04-09 23:23:35.386336 (32262) lic__man INFO    Unclaim everything for 'session_0*'.
+2019-04-09 23:23:35.509355 (32262) lic__man INFO    Claim 'fpv' for 'session_0'.
+2019-04-09 23:23:37.156553 (32262) lic__man INFO    Unclaim everything for 'session_0/prove-0'.

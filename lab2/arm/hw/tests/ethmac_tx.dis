@@ -1,0 +1,161 @@
+
+ethmac_tx.elf:     file format elf32-littlearm
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e59f00f8 	ldr	r0, [pc, #248]	; 100 <AdrEthMacMemBase>
+   4:	e59f1104 	ldr	r1, [pc, #260]	; 110 <TxBufferW0>
+   8:	e5801000 	str	r1, [r0]
+   c:	e59f1104 	ldr	r1, [pc, #260]	; 118 <TxBufferW1>
+  10:	e2811002 	add	r1, r1, #2	; 0x2
+  14:	e5801004 	str	r1, [r0, #4]
+  18:	e59f10f4 	ldr	r1, [pc, #244]	; 114 <RxBufferW0>
+  1c:	e5801200 	str	r1, [r0, #512]
+  20:	e59f10f4 	ldr	r1, [pc, #244]	; 11c <RxBufferW1>
+  24:	e5801204 	str	r1, [r0, #516]
+  28:	e59f00e8 	ldr	r0, [pc, #232]	; 118 <TxBufferW1>
+  2c:	e59f11b0 	ldr	r1, [pc, #432]	; 1e4 <EndTxFrame+0x1c>
+  30:	e59f21b0 	ldr	r2, [pc, #432]	; 1e8 <EndTxFrame+0x20>
+  34:	e8b107f8 	ldmia	r1!, {r3, r4, r5, r6, r7, r8, r9, sl}
+  38:	e8a007f8 	stmia	r0!, {r3, r4, r5, r6, r7, r8, r9, sl}
+  3c:	e1510002 	cmp	r1, r2
+  40:	bafffffb 	blt	34 <main+0x34>
+  44:	e59f0098 	ldr	r0, [pc, #152]	; e4 <AdrEthMacModer>
+  48:	e59f10d0 	ldr	r1, [pc, #208]	; 120 <EthMacModerValue>
+  4c:	e5801000 	str	r1, [r0]
+  50:	e59f00a8 	ldr	r0, [pc, #168]	; 100 <AdrEthMacMemBase>
+  54:	e59f10b4 	ldr	r1, [pc, #180]	; 110 <TxBufferW0>
+  58:	e3811902 	orr	r1, r1, #32768	; 0x8000
+  5c:	e5801000 	str	r1, [r0]
+  60:	e5901200 	ldr	r1, [r0, #512]
+  64:	e2111902 	ands	r1, r1, #32768	; 0x8000
+  68:	1afffffc 	bne	60 <main+0x60>
+  6c:	e3a00014 	mov	r0, #20	; 0x14
+  70:	e2500001 	subs	r0, r0, #1	; 0x1
+  74:	1afffffd 	bne	70 <main+0x70>
+  78:	e59f009c 	ldr	r0, [pc, #156]	; 11c <RxBufferW1>
+  7c:	e2803002 	add	r3, r0, #2	; 0x2
+  80:	e59f115c 	ldr	r1, [pc, #348]	; 1e4 <EndTxFrame+0x1c>
+  84:	e2811004 	add	r1, r1, #4	; 0x4
+  88:	e59f2158 	ldr	r2, [pc, #344]	; 1e8 <EndTxFrame+0x20>
+  8c:	e2422004 	sub	r2, r2, #4	; 0x4
+  90:	e5b04004 	ldr	r4, [r0, #4]!
+  94:	e1a06804 	mov	r6, r4, lsl #16
+  98:	e4935004 	ldr	r5, [r3], #4
+  9c:	e59fc068 	ldr	ip, [pc, #104]	; 10c <LoMask>
+  a0:	e005500c 	and	r5, r5, ip
+  a4:	e1857006 	orr	r7, r5, r6
+  a8:	e4918004 	ldr	r8, [r1], #4
+  ac:	e1570008 	cmp	r7, r8
+  b0:	13a0a064 	movne	sl, #100	; 0x64
+  b4:	1a000002 	bne	c4 <testfail>
+  b8:	e1510002 	cmp	r1, r2
+  bc:	bafffff3 	blt	90 <main+0x90>
+  c0:	ea000002 	b	d0 <testpass>
+
+000000c4 <testfail>:
+  c4:	e59fb014 	ldr	fp, [pc, #20]	; e0 <AdrTestStatus>
+  c8:	e58ba000 	str	sl, [fp]
+  cc:	eafffffc 	b	c4 <testfail>
+
+000000d0 <testpass>:
+  d0:	e59fb008 	ldr	fp, [pc, #8]	; e0 <AdrTestStatus>
+  d4:	e3a0a011 	mov	sl, #17	; 0x11
+  d8:	e58ba000 	str	sl, [fp]
+  dc:	eafffffb 	b	d0 <testpass>
+
+000000e0 <AdrTestStatus>:
+  e0:	f0000000 	andnv	r0, r0, r0
+
+000000e4 <AdrEthMacModer>:
+  e4:	20000000 	andcs	r0, r0, r0
+
+000000e8 <AdrEthMacMIIModer>:
+  e8:	20000028 	andcs	r0, r0, r8, lsr #32
+
+000000ec <AdrEthMacMIICommand>:
+  ec:	2000002c 	andcs	r0, r0, ip, lsr #32
+
+000000f0 <AdrEthMacMIIAddress>:
+  f0:	20000030 	andcs	r0, r0, r0, lsr r0
+
+000000f4 <AdrEthMacMIITxData>:
+  f4:	20000034 	andcs	r0, r0, r4, lsr r0
+
+000000f8 <AdrEthMacMIIRxData>:
+  f8:	20000038 	andcs	r0, r0, r8, lsr r0
+
+000000fc <AdrEthMacMIIStatus>:
+  fc:	2000003c 	andcs	r0, r0, ip, lsr r0
+
+00000100 <AdrEthMacMemBase>:
+ 100:	20000400 	andcs	r0, r0, r0, lsl #8
+
+00000104 <EthMacModerDefault>:
+ 104:	0000a000 	andeq	sl, r0, r0
+
+00000108 <ExpectedMIIReadBack>:
+ 108:	0000ffff 	streqd	pc, [r0], -pc
+
+0000010c <LoMask>:
+ 10c:	0000ffff 	streqd	pc, [r0], -pc
+
+00000110 <TxBufferW0>:
+ 110:	00a02800 	adceq	r2, r0, r0, lsl #16
+
+00000114 <RxBufferW0>:
+ 114:	0000a800 	andeq	sl, r0, r0, lsl #16
+
+00000118 <TxBufferW1>:
+ 118:	28001000 	stmcsda	r0, {ip}
+
+0000011c <RxBufferW1>:
+ 11c:	28001200 	stmcsda	r0, {r9, ip}
+
+00000120 <EthMacModerValue>:
+ 120:	0000a0a3 	andeq	sl, r0, r3, lsr #1
+
+00000124 <TxFrame>:
+ 124:	0e000000 	cdpeq	0, 0, cr0, cr0, cr0, {0}
+ 128:	a0583e0c 	subges	r3, r8, ip, lsl #28
+ 12c:	554e5300 	strplb	r5, [lr, -#768]
+ 130:	0008304c 	andeq	r3, r8, ip, asr #32
+ 134:	90000045 	andls	r0, r0, r5, asr #32
+ 138:	00400000 	subeq	r0, r0, r0
+ 13c:	d5b61140 	ldrle	r1, [r6, #320]!
+ 140:	0501a8c0 	streq	sl, [r1, -#2240]
+ 144:	3201a8c0 	andcc	sl, r1, #12582912	; 0xc00000
+ 148:	01080203 	tsteq	r8, r3, lsl #4
+ 14c:	b6c47c00 	strltb	r7, [r4], r0, lsl #24
+ 150:	f67d4fc7 	ldrnvbt	r4, [sp], -r7, asr #31
+ 154:	00000000 	andeq	r0, r0, r0
+ 158:	02000000 	andeq	r0, r0, #0	; 0x0
+ 15c:	a3860100 	orrge	r0, r6, #0	; 0x0
+ 160:	03000000 	tsteq	r0, #0	; 0x0
+ 164:	06000000 	streq	r0, [r0], -r0
+ 168:	01000000 	tsteq	r0, r0
+ 16c:	18000000 	stmneda	r0, {}
+ 170:	025b8f02 	subeqs	r8, fp, #8	; 0x8
+ 174:	02000000 	andeq	r0, r0, #0	; 0x0
+ 178:	00003170 	andeq	r3, r0, r0, ror r1
+	...
+ 190:	24000000 	strcs	r0, [r0]
+ 194:	01070001 	tsteq	r7, r1
+ 198:	00143ed5 	ldreqsb	r3, [r4], -r5
+ 19c:	00000000 	andeq	r0, r0, r0
+ 1a0:	2c043c7f 	stccs	12, cr3, [r4], {127}
+ 1a4:	6c41657c 	mcrrvs	5, 7, r6, r1, cr12
+ 1a8:	8cc37e87 	stchil	14, cr7, [r3], {135}
+ 1ac:	2340a928 	cmpcs	r0, #655360	; 0xa0000
+ 1b0:	0026048e 	eoreq	r0, r6, lr, lsl #9
+ 1b4:	ec587a0e 	mrrc	10, 0, r7, r8, cr14
+ 1b8:	00000000 	andeq	r0, r0, r0
+ 1bc:	00080000 	andeq	r0, r8, r0
+ 1c0:	00080000 	andeq	r0, r8, r0
+ 1c4:	00000000 	andeq	r0, r0, r0
+
+000001c8 <EndTxFrame>:
+	...
+ 1e4:	00000124 	andeq	r0, r0, r4, lsr #2
+ 1e8:	000001c8 	andeq	r0, r0, r8, asr #3

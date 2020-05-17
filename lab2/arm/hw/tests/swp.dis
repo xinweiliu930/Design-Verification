@@ -1,0 +1,115 @@
+
+swp.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e59f0100 	ldr	r0, [pc, #256]	; 108 <AdrData1>
+   4:	e3a02002 	mov	r2, #2
+   8:	e1002092 	swp	r2, r2, [r0]
+   c:	e59f30d4 	ldr	r3, [pc, #212]	; e8 <Data1>
+  10:	e3530002 	cmp	r3, #2
+  14:	13a0a00a 	movne	sl, #10
+  18:	1a00002b 	bne	cc <testfail>
+  1c:	e59f40d0 	ldr	r4, [pc, #208]	; f4 <Data4>
+  20:	e1540002 	cmp	r4, r2
+  24:	13a0a014 	movne	sl, #20
+  28:	1a000027 	bne	cc <testfail>
+  2c:	e59f00d8 	ldr	r0, [pc, #216]	; 10c <AdrData2>
+  30:	e2800001 	add	r0, r0, #1
+  34:	e59f20b4 	ldr	r2, [pc, #180]	; f0 <Data3>
+  38:	e1402092 	swpb	r2, r2, [r0]
+  3c:	e59f30a8 	ldr	r3, [pc, #168]	; ec <Data2>
+  40:	e59f40b0 	ldr	r4, [pc, #176]	; f8 <Data5>
+  44:	e1530004 	cmp	r3, r4
+  48:	13a0a01e 	movne	sl, #30
+  4c:	1a00001e 	bne	cc <testfail>
+  50:	e3a050bb 	mov	r5, #187	; 0xbb
+  54:	e1520005 	cmp	r2, r5
+  58:	13a0a028 	movne	sl, #40	; 0x28
+  5c:	1a00001a 	bne	cc <testfail>
+  60:	e3a07002 	mov	r7, #2
+  64:	e3a08003 	mov	r8, #3
+  68:	e1570008 	cmp	r7, r8
+  6c:	01002092 	swpeq	r2, r2, [r0]
+  70:	ea000001 	b	7c <check4>
+  74:	ea000014 	b	cc <testfail>
+  78:	ea000013 	b	cc <testfail>
+
+0000007c <check4>:
+  7c:	e1520005 	cmp	r2, r5
+  80:	13a0a032 	movne	sl, #50	; 0x32
+  84:	1a000010 	bne	cc <testfail>
+  88:	e59f908c 	ldr	r9, [pc, #140]	; 11c <AdrData6>
+  8c:	e3a07002 	mov	r7, #2
+  90:	e3a08003 	mov	r8, #3
+  94:	e1570008 	cmp	r7, r8
+  98:	01092092 	swpeq	r2, r2, [r9]
+  9c:	11093093 	swpne	r3, r3, [r9]
+  a0:	ea000001 	b	ac <check5>
+  a4:	ea000008 	b	cc <testfail>
+  a8:	ea000007 	b	cc <testfail>
+
+000000ac <check5>:
+  ac:	e1520005 	cmp	r2, r5
+  b0:	13a0a03c 	movne	sl, #60	; 0x3c
+  b4:	1a000004 	bne	cc <testfail>
+  b8:	e59f8040 	ldr	r8, [pc, #64]	; 100 <Data7>
+  bc:	e1530008 	cmp	r3, r8
+  c0:	13a0a046 	movne	sl, #70	; 0x46
+  c4:	1a000000 	bne	cc <testfail>
+  c8:	ea000002 	b	d8 <testpass>
+
+000000cc <testfail>:
+  cc:	e59fb030 	ldr	fp, [pc, #48]	; 104 <AdrTestStatus>
+  d0:	e58ba000 	str	sl, [fp]
+  d4:	eafffffc 	b	cc <testfail>
+
+000000d8 <testpass>:
+  d8:	e59fb024 	ldr	fp, [pc, #36]	; 104 <AdrTestStatus>
+  dc:	e3a0a011 	mov	sl, #17
+  e0:	e58ba000 	str	sl, [fp]
+  e4:	eafffffb 	b	d8 <testpass>
+
+000000e8 <Data1>:
+  e8:	12345678 	.word	0x12345678
+
+000000ec <Data2>:
+  ec:	ffccbbaa 	.word	0xffccbbaa
+
+000000f0 <Data3>:
+  f0:	01020304 	.word	0x01020304
+
+000000f4 <Data4>:
+  f4:	12345678 	.word	0x12345678
+
+000000f8 <Data5>:
+  f8:	ffcc04aa 	.word	0xffcc04aa
+
+000000fc <Data6>:
+  fc:	33445566 	.word	0x33445566
+
+00000100 <Data7>:
+ 100:	33445566 	.word	0x33445566
+
+00000104 <AdrTestStatus>:
+ 104:	f0000000 	.word	0xf0000000
+
+00000108 <AdrData1>:
+ 108:	000000e8 	.word	0x000000e8
+
+0000010c <AdrData2>:
+ 10c:	000000ec 	.word	0x000000ec
+
+00000110 <AdrData3>:
+ 110:	000000f0 	.word	0x000000f0
+
+00000114 <AdrData4>:
+ 114:	000000f4 	.word	0x000000f4
+
+00000118 <AdrData5>:
+ 118:	000000f8 	.word	0x000000f8
+
+0000011c <AdrData6>:
+ 11c:	000000fc 	.word	0x000000fc

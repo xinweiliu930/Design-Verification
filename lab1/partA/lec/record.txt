@@ -1,0 +1,26 @@
+                          CONFORMAL (R)
+                   Version 15.10-s260 (02-Oct-2015) (64 bit executable)
+   Copyright (c) Cadence Design Systems, Inc., 1997-2015. All Rights Reserved
+
+
+This program is proprietary and confidential information belonging to
+Cadence Design Systems, Inc., and may be used and disclosed only as authorized
+in a license agreement controlling such use and disclosure.
+
+// Warning: You can download the latest version from http://downloads.cadence.com.
+
+0
+// Command: set_flatten_model -seq_constant -seq_constant_x_to 0
+0
+// Command: set_flatten_model -gated_clock
+0
+// Command: set_analyze_option -auto
+0
+// Command: puts "Num of compare points = [get_compare_points -count]"
+Num of compare points = 88
+// Command: puts "Num of diff points    = [get_compare_points -NONequivalent -count]"
+Num of diff points    = 0
+// Command: puts "Num of abort points   = [get_compare_points -abort -count]"
+Num of abort points   = 0
+// Command: puts "Num of unknown points = [get_compare_points -unknown -count]"
+Num of unknown points = 0

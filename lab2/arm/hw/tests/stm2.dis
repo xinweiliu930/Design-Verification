@@ -1,0 +1,117 @@
+
+stm2.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	ea000006 	b	20 <start>
+   4:	ea00003d 	b	100 <testfail>
+   8:	ea00003c 	b	100 <testfail>
+   c:	ea00003b 	b	100 <testfail>
+  10:	ea00003a 	b	100 <testfail>
+  14:	ea000039 	b	100 <testfail>
+  18:	ea000038 	b	100 <testfail>
+  1c:	ea00000d 	b	58 <service_firq>
+
+00000020 <start>:
+  20:	e3a02010 	mov	r2, #16
+  24:	e13ff002 	teq	pc, r2
+  28:	e59f30f8 	ldr	r3, [pc, #248]	; 128 <StaticBase>
+  2c:	e8937f00 	ldm	r3, {r8, r9, sl, fp, ip, sp, lr}
+  30:	e59f50e8 	ldr	r5, [pc, #232]	; 120 <AdrFIRQTimer>
+  34:	e3a0600a 	mov	r6, #10
+  38:	e5856000 	str	r6, [r5]
+
+0000003c <loop>:
+  3c:	e1a00000 	nop			; (mov r0, r0)
+  40:	e1a00000 	nop			; (mov r0, r0)
+  44:	e1a00000 	nop			; (mov r0, r0)
+  48:	eafffffb 	b	3c <loop>
+  4c:	ea00002b 	b	100 <testfail>
+  50:	ea00002a 	b	100 <testfail>
+  54:	ea000029 	b	100 <testfail>
+
+00000058 <service_firq>:
+  58:	e59fa0c0 	ldr	sl, [pc, #192]	; 120 <AdrFIRQTimer>
+  5c:	e3a0b000 	mov	fp, #0
+  60:	e58ab000 	str	fp, [sl]
+  64:	e3a09032 	mov	r9, #50	; 0x32
+  68:	e3a0a03c 	mov	sl, #60	; 0x3c
+  6c:	e3a0b046 	mov	fp, #70	; 0x46
+  70:	e3a0c050 	mov	ip, #80	; 0x50
+  74:	e3a0d05a 	mov	sp, #90	; 0x5a
+  78:	e3a0e064 	mov	lr, #100	; 0x64
+  7c:	e3b01000 	movs	r1, #0
+  80:	e59f209c 	ldr	r2, [pc, #156]	; 124 <StoreBase>
+  84:	08c2ff00 	stmiaeq	r2, {r8, r9, sl, fp, ip, sp, lr, pc}^
+  88:	e3a04004 	mov	r4, #4
+  8c:	e4923004 	ldr	r3, [r2], #4
+  90:	e3530008 	cmp	r3, #8
+  94:	13a0a014 	movne	sl, #20
+  98:	1a000018 	bne	100 <testfail>
+  9c:	e4923004 	ldr	r3, [r2], #4
+  a0:	e3530009 	cmp	r3, #9
+  a4:	13a0a01e 	movne	sl, #30
+  a8:	1a000014 	bne	100 <testfail>
+  ac:	e4923004 	ldr	r3, [r2], #4
+  b0:	e353000a 	cmp	r3, #10
+  b4:	13a0a028 	movne	sl, #40	; 0x28
+  b8:	1a000010 	bne	100 <testfail>
+  bc:	e4923004 	ldr	r3, [r2], #4
+  c0:	e353000b 	cmp	r3, #11
+  c4:	13a0a032 	movne	sl, #50	; 0x32
+  c8:	1a00000c 	bne	100 <testfail>
+  cc:	e4923004 	ldr	r3, [r2], #4
+  d0:	e353000c 	cmp	r3, #12
+  d4:	13a0a03c 	movne	sl, #60	; 0x3c
+  d8:	1a000008 	bne	100 <testfail>
+  dc:	e4923004 	ldr	r3, [r2], #4
+  e0:	e353000d 	cmp	r3, #13
+  e4:	13a0a046 	movne	sl, #70	; 0x46
+  e8:	1a000004 	bne	100 <testfail>
+  ec:	e4923004 	ldr	r3, [r2], #4
+  f0:	e353000e 	cmp	r3, #14
+  f4:	13a0a050 	movne	sl, #80	; 0x50
+  f8:	1a000000 	bne	100 <testfail>
+  fc:	ea000002 	b	10c <testpass>
+
+00000100 <testfail>:
+ 100:	e59fb014 	ldr	fp, [pc, #20]	; 11c <AdrTestStatus>
+ 104:	e58ba000 	str	sl, [fp]
+ 108:	eafffffc 	b	100 <testfail>
+
+0000010c <testpass>:
+ 10c:	e59fb008 	ldr	fp, [pc, #8]	; 11c <AdrTestStatus>
+ 110:	e3a0a011 	mov	sl, #17
+ 114:	e58ba000 	str	sl, [fp]
+ 118:	eafffffb 	b	10c <testpass>
+
+0000011c <AdrTestStatus>:
+ 11c:	f0000000 	.word	0xf0000000
+
+00000120 <AdrFIRQTimer>:
+ 120:	f0000004 	.word	0xf0000004
+
+00000124 <StoreBase>:
+ 124:	00000800 	.word	0x00000800
+
+00000128 <StaticBase>:
+ 128:	00000130 	.word	0x00000130
+
+0000012c <StaticEnd>:
+ 12c:	00000154 	.word	0x00000154
+
+00000130 <Data1>:
+ 130:	00000008 	.word	0x00000008
+ 134:	00000009 	.word	0x00000009
+ 138:	0000000a 	.word	0x0000000a
+ 13c:	0000000b 	.word	0x0000000b
+ 140:	0000000c 	.word	0x0000000c
+ 144:	0000000d 	.word	0x0000000d
+ 148:	0000000e 	.word	0x0000000e
+ 14c:	0000000f 	.word	0x0000000f
+ 150:	00000010 	.word	0x00000010
+
+00000154 <Data18>:
+ 154:	00000011 	.word	0x00000011

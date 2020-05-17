@@ -1,0 +1,62 @@
+
+ldr_str_pc.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e3a00b02 	mov	r0, #2048	; 0x800
+   4:	e580f000 	str	pc, [r0]
+   8:	e1a00000 	nop			; (mov r0, r0)
+   c:	e1a00000 	nop			; (mov r0, r0)
+  10:	e5901000 	ldr	r1, [r0]
+  14:	e2012003 	and	r2, r1, #3
+  18:	e3520003 	cmp	r2, #3
+  1c:	13a0a00a 	movne	sl, #10
+  20:	1a000016 	bne	80 <testfail>
+  24:	e59f6074 	ldr	r6, [pc, #116]	; a0 <FilterPC>
+  28:	e0013006 	and	r3, r1, r6
+  2c:	e59f4070 	ldr	r4, [pc, #112]	; a4 <LoadPC>
+  30:	e284400c 	add	r4, r4, #12
+  34:	e1530004 	cmp	r3, r4
+  38:	13a0a014 	movne	sl, #20
+  3c:	1a00000f 	bne	80 <testfail>
+  40:	e59ff060 	ldr	pc, [pc, #96]	; a8 <LoadPC+0x4>
+  44:	ea00000d 	b	80 <testfail>
+  48:	ea00000c 	b	80 <testfail>
+  4c:	ea00000b 	b	80 <testfail>
+  50:	ea00000a 	b	80 <testfail>
+
+00000054 <pcx>:
+  54:	ea000003 	b	68 <pcx+0x14>
+  58:	ea000008 	b	80 <testfail>
+  5c:	ea000007 	b	80 <testfail>
+  60:	ea000006 	b	80 <testfail>
+  64:	ea000005 	b	80 <testfail>
+  68:	e1a0100f 	mov	r1, pc
+  6c:	e2012003 	and	r2, r1, #3
+  70:	e3520003 	cmp	r2, #3
+  74:	13a0a01e 	movne	sl, #30
+  78:	1a000000 	bne	80 <testfail>
+  7c:	ea000002 	b	8c <testpass>
+
+00000080 <testfail>:
+  80:	e59fb014 	ldr	fp, [pc, #20]	; 9c <AdrTestStatus>
+  84:	e58ba000 	str	sl, [fp]
+  88:	eafffffc 	b	80 <testfail>
+
+0000008c <testpass>:
+  8c:	e59fb008 	ldr	fp, [pc, #8]	; 9c <AdrTestStatus>
+  90:	e3a0a011 	mov	sl, #17
+  94:	e58ba000 	str	sl, [fp]
+  98:	eafffffb 	b	8c <testpass>
+
+0000009c <AdrTestStatus>:
+  9c:	f0000000 	.word	0xf0000000
+
+000000a0 <FilterPC>:
+  a0:	03fffffc 	.word	0x03fffffc
+
+000000a4 <LoadPC>:
+  a4:	00000004 	.word	0x00000004
+  a8:	00000054 	.word	0x00000054

@@ -1,0 +1,207 @@
+
+ldr.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e59f027c 	ldr	r0, [pc, #636]	; 284 <AdrData1>
+   4:	e5d01000 	ldrb	r1, [r0]
+   8:	e59f2280 	ldr	r2, [pc, #640]	; 290 <Data2>
+   c:	e1510002 	cmp	r1, r2
+  10:	13a0a00a 	movne	sl, #10
+  14:	1a000092 	bne	264 <testfail>
+  18:	e2800001 	add	r0, r0, #1
+  1c:	e5d03000 	ldrb	r3, [r0]
+  20:	e59f426c 	ldr	r4, [pc, #620]	; 294 <Data3>
+  24:	e1530004 	cmp	r3, r4
+  28:	13a0a014 	movne	sl, #20
+  2c:	1a00008c 	bne	264 <testfail>
+  30:	e2800001 	add	r0, r0, #1
+  34:	e5d05000 	ldrb	r5, [r0]
+  38:	e59f6258 	ldr	r6, [pc, #600]	; 298 <Data4>
+  3c:	e1550006 	cmp	r5, r6
+  40:	13a0a01e 	movne	sl, #30
+  44:	1a000086 	bne	264 <testfail>
+  48:	e2800001 	add	r0, r0, #1
+  4c:	e5d07000 	ldrb	r7, [r0]
+  50:	e59f8244 	ldr	r8, [pc, #580]	; 29c <Data5>
+  54:	e1570008 	cmp	r7, r8
+  58:	13a0a028 	movne	sl, #40	; 0x28
+  5c:	1a000080 	bne	264 <testfail>
+  60:	e59f021c 	ldr	r0, [pc, #540]	; 284 <AdrData1>
+  64:	e5901004 	ldr	r1, [r0, #4]
+  68:	e59f3220 	ldr	r3, [pc, #544]	; 290 <Data2>
+  6c:	e1510003 	cmp	r1, r3
+  70:	13a0a032 	movne	sl, #50	; 0x32
+  74:	1a00007a 	bne	264 <testfail>
+  78:	e59f8204 	ldr	r8, [pc, #516]	; 284 <AdrData1>
+  7c:	e1500008 	cmp	r0, r8
+  80:	13a0a03c 	movne	sl, #60	; 0x3c
+  84:	1a000076 	bne	264 <testfail>
+  88:	e59f01f8 	ldr	r0, [pc, #504]	; 288 <AdrData8>
+  8c:	e510200c 	ldr	r2, [r0, #-12]
+  90:	e59f3204 	ldr	r3, [pc, #516]	; 29c <Data5>
+  94:	e1520003 	cmp	r2, r3
+  98:	13a0a046 	movne	sl, #70	; 0x46
+  9c:	1a000070 	bne	264 <testfail>
+  a0:	e59f81e0 	ldr	r8, [pc, #480]	; 288 <AdrData8>
+  a4:	e1500008 	cmp	r0, r8
+  a8:	13a0a050 	movne	sl, #80	; 0x50
+  ac:	1a00006c 	bne	264 <testfail>
+  b0:	e59f01cc 	ldr	r0, [pc, #460]	; 284 <AdrData1>
+  b4:	e5b01004 	ldr	r1, [r0, #4]!
+  b8:	e59f81c4 	ldr	r8, [pc, #452]	; 284 <AdrData1>
+  bc:	e2888004 	add	r8, r8, #4
+  c0:	e1500008 	cmp	r0, r8
+  c4:	13a0a05a 	movne	sl, #90	; 0x5a
+  c8:	1a000065 	bne	264 <testfail>
+  cc:	e59f21bc 	ldr	r2, [pc, #444]	; 290 <Data2>
+  d0:	e1510002 	cmp	r1, r2
+  d4:	13a0a064 	movne	sl, #100	; 0x64
+  d8:	1a000061 	bne	264 <testfail>
+  dc:	e59f01a0 	ldr	r0, [pc, #416]	; 284 <AdrData1>
+  e0:	e4901004 	ldr	r1, [r0], #4
+  e4:	e4902004 	ldr	r2, [r0], #4
+  e8:	e59f319c 	ldr	r3, [pc, #412]	; 28c <Data1>
+  ec:	e1510003 	cmp	r1, r3
+  f0:	13a0a06e 	movne	sl, #110	; 0x6e
+  f4:	1a00005a 	bne	264 <testfail>
+  f8:	e59f4190 	ldr	r4, [pc, #400]	; 290 <Data2>
+  fc:	e1520004 	cmp	r2, r4
+ 100:	13a0a078 	movne	sl, #120	; 0x78
+ 104:	1a000056 	bne	264 <testfail>
+ 108:	e59f8174 	ldr	r8, [pc, #372]	; 284 <AdrData1>
+ 10c:	e2888008 	add	r8, r8, #8
+ 110:	e1500008 	cmp	r0, r8
+ 114:	13a0a082 	movne	sl, #130	; 0x82
+ 118:	1a000051 	bne	264 <testfail>
+ 11c:	e59f0160 	ldr	r0, [pc, #352]	; 284 <AdrData1>
+ 120:	e3a01001 	mov	r1, #1
+ 124:	e7902001 	ldr	r2, [r0, r1]
+ 128:	e59f3174 	ldr	r3, [pc, #372]	; 2a4 <Data7>
+ 12c:	e1520003 	cmp	r2, r3
+ 130:	13a0a08c 	movne	sl, #140	; 0x8c
+ 134:	1a00004a 	bne	264 <testfail>
+ 138:	e59f0144 	ldr	r0, [pc, #324]	; 284 <AdrData1>
+ 13c:	e3a01003 	mov	r1, #3
+ 140:	e7b02001 	ldr	r2, [r0, r1]!
+ 144:	e59f315c 	ldr	r3, [pc, #348]	; 2a8 <Data8>
+ 148:	e1520003 	cmp	r2, r3
+ 14c:	13a0a096 	movne	sl, #150	; 0x96
+ 150:	1a000043 	bne	264 <testfail>
+ 154:	e59f4128 	ldr	r4, [pc, #296]	; 284 <AdrData1>
+ 158:	e2844003 	add	r4, r4, #3
+ 15c:	e1500004 	cmp	r0, r4
+ 160:	e59f511c 	ldr	r5, [pc, #284]	; 284 <AdrData1>
+ 164:	e3a06002 	mov	r6, #2
+ 168:	e6157006 	ldr	r7, [r5], -r6
+ 16c:	e59f8118 	ldr	r8, [pc, #280]	; 28c <Data1>
+ 170:	e1570008 	cmp	r7, r8
+ 174:	13a0a0a0 	movne	sl, #160	; 0xa0
+ 178:	1a000039 	bne	264 <testfail>
+ 17c:	e59f9100 	ldr	r9, [pc, #256]	; 284 <AdrData1>
+ 180:	e2499002 	sub	r9, r9, #2
+ 184:	e1550009 	cmp	r5, r9
+ 188:	1a000035 	bne	264 <testfail>
+ 18c:	e59f00f0 	ldr	r0, [pc, #240]	; 284 <AdrData1>
+ 190:	e3a01002 	mov	r1, #2
+ 194:	e7902101 	ldr	r2, [r0, r1, lsl #2]
+ 198:	e59f30f4 	ldr	r3, [pc, #244]	; 294 <Data3>
+ 19c:	e1520003 	cmp	r2, r3
+ 1a0:	13a0a0aa 	movne	sl, #170	; 0xaa
+ 1a4:	1a00002e 	bne	264 <testfail>
+ 1a8:	e59f40d4 	ldr	r4, [pc, #212]	; 284 <AdrData1>
+ 1ac:	e3a05008 	mov	r5, #8
+ 1b0:	e7b460a5 	ldr	r6, [r4, r5, lsr #1]!
+ 1b4:	e59f80d4 	ldr	r8, [pc, #212]	; 290 <Data2>
+ 1b8:	e1560008 	cmp	r6, r8
+ 1bc:	13a0a0b4 	movne	sl, #180	; 0xb4
+ 1c0:	1a000027 	bne	264 <testfail>
+ 1c4:	e59f70b8 	ldr	r7, [pc, #184]	; 284 <AdrData1>
+ 1c8:	e2877004 	add	r7, r7, #4
+ 1cc:	e1540007 	cmp	r4, r7
+ 1d0:	13a0a0be 	movne	sl, #190	; 0xbe
+ 1d4:	1a000022 	bne	264 <testfail>
+ 1d8:	e59f00a8 	ldr	r0, [pc, #168]	; 288 <AdrData8>
+ 1dc:	e3a01001 	mov	r1, #1
+ 1e0:	e6102e61 	ldr	r2, [r0], -r1, ror #28
+ 1e4:	e59f30bc 	ldr	r3, [pc, #188]	; 2a8 <Data8>
+ 1e8:	e1520003 	cmp	r2, r3
+ 1ec:	13a0a0c8 	movne	sl, #200	; 0xc8
+ 1f0:	1a00001b 	bne	264 <testfail>
+ 1f4:	e59f408c 	ldr	r4, [pc, #140]	; 288 <AdrData8>
+ 1f8:	e2444010 	sub	r4, r4, #16
+ 1fc:	e1500004 	cmp	r0, r4
+ 200:	13a0a0d2 	movne	sl, #210	; 0xd2
+ 204:	1a000016 	bne	264 <testfail>
+ 208:	e59f009c 	ldr	r0, [pc, #156]	; 2ac <Data9>
+ 20c:	e3a01c02 	mov	r1, #512	; 0x200
+ 210:	e5810000 	str	r0, [r1]
+ 214:	e4912001 	ldr	r2, [r1], #1
+ 218:	e4913001 	ldr	r3, [r1], #1
+ 21c:	e4914001 	ldr	r4, [r1], #1
+ 220:	e4915001 	ldr	r5, [r1], #1
+ 224:	e1520000 	cmp	r2, r0
+ 228:	13a0a0dc 	movne	sl, #220	; 0xdc
+ 22c:	1a00000c 	bne	264 <testfail>
+ 230:	e1a06460 	ror	r6, r0, #8
+ 234:	e1560003 	cmp	r6, r3
+ 238:	13a0a0e6 	movne	sl, #230	; 0xe6
+ 23c:	1a000008 	bne	264 <testfail>
+ 240:	e1a07860 	ror	r7, r0, #16
+ 244:	e1570004 	cmp	r7, r4
+ 248:	13a0a0f0 	movne	sl, #240	; 0xf0
+ 24c:	1a000004 	bne	264 <testfail>
+ 250:	e1a08c60 	ror	r8, r0, #24
+ 254:	e1580005 	cmp	r8, r5
+ 258:	13a0a0fa 	movne	sl, #250	; 0xfa
+ 25c:	1a000000 	bne	264 <testfail>
+ 260:	ea000002 	b	270 <testpass>
+
+00000264 <testfail>:
+ 264:	e59fb014 	ldr	fp, [pc, #20]	; 280 <AdrTestStatus>
+ 268:	e58ba000 	str	sl, [fp]
+ 26c:	eafffffc 	b	264 <testfail>
+
+00000270 <testpass>:
+ 270:	e59fb008 	ldr	fp, [pc, #8]	; 280 <AdrTestStatus>
+ 274:	e3a0a011 	mov	sl, #17
+ 278:	e58ba000 	str	sl, [fp]
+ 27c:	eafffffb 	b	270 <testpass>
+
+00000280 <AdrTestStatus>:
+ 280:	f0000000 	.word	0xf0000000
+
+00000284 <AdrData1>:
+ 284:	0000028c 	.word	0x0000028c
+
+00000288 <AdrData8>:
+ 288:	000002a8 	.word	0x000002a8
+
+0000028c <Data1>:
+ 28c:	12345678 	.word	0x12345678
+
+00000290 <Data2>:
+ 290:	00000078 	.word	0x00000078
+
+00000294 <Data3>:
+ 294:	00000056 	.word	0x00000056
+
+00000298 <Data4>:
+ 298:	00000034 	.word	0x00000034
+
+0000029c <Data5>:
+ 29c:	00000012 	.word	0x00000012
+
+000002a0 <Data6>:
+ 2a0:	fecba987 	.word	0xfecba987
+
+000002a4 <Data7>:
+ 2a4:	78123456 	.word	0x78123456
+
+000002a8 <Data8>:
+ 2a8:	34567812 	.word	0x34567812
+
+000002ac <Data9>:
+ 2ac:	33221100 	.word	0x33221100

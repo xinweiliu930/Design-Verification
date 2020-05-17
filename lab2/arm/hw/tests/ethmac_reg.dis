@@ -1,0 +1,92 @@
+
+ethmac_reg.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e59f00b8 	ldr	r0, [pc, #184]	; c0 <AdrEthMacModer>
+   4:	e5901000 	ldr	r1, [r0]
+   8:	e59f20cc 	ldr	r2, [pc, #204]	; dc <EthMacModerDefault>
+   c:	e1510002 	cmp	r1, r2
+  10:	13a0a00a 	movne	sl, #10
+  14:	1a000021 	bne	a0 <testfail>
+  18:	e3811b01 	orr	r1, r1, #1024	; 0x400
+  1c:	e5801000 	str	r1, [r0]
+  20:	e5903000 	ldr	r3, [r0]
+  24:	e3822b01 	orr	r2, r2, #1024	; 0x400
+  28:	e1530002 	cmp	r3, r2
+  2c:	13a0a014 	movne	sl, #20
+  30:	1a00001a 	bne	a0 <testfail>
+  34:	e59f4088 	ldr	r4, [pc, #136]	; c4 <AdrEthMacMIIModer>
+  38:	e3a0500a 	mov	r5, #10
+  3c:	e5845000 	str	r5, [r4]
+  40:	e59f4084 	ldr	r4, [pc, #132]	; cc <AdrEthMacMIIAddress>
+  44:	e3a05007 	mov	r5, #7
+  48:	e3855c16 	orr	r5, r5, #5632	; 0x1600
+  4c:	e5845000 	str	r5, [r4]
+  50:	e59f4070 	ldr	r4, [pc, #112]	; c8 <AdrEthMacMIICommand>
+  54:	e3a05002 	mov	r5, #2
+  58:	e5845000 	str	r5, [r4]
+  5c:	e59f4074 	ldr	r4, [pc, #116]	; d8 <AdrEthMacMIIStatus>
+  60:	e3a06000 	mov	r6, #0
+
+00000064 <wait_busy>:
+  64:	e2866001 	add	r6, r6, #1
+  68:	e3560b01 	cmp	r6, #1024	; 0x400
+  6c:	03a0a01e 	moveq	sl, #30
+  70:	0a00000a 	beq	a0 <testfail>
+  74:	e5945000 	ldr	r5, [r4]
+  78:	e2155002 	ands	r5, r5, #2
+  7c:	0a000000 	beq	84 <readback>
+  80:	eafffff7 	b	64 <wait_busy>
+
+00000084 <readback>:
+  84:	e59f4048 	ldr	r4, [pc, #72]	; d4 <AdrEthMacMIIRxData>
+  88:	e5945000 	ldr	r5, [r4]
+  8c:	e59f604c 	ldr	r6, [pc, #76]	; e0 <ExpectedMIIReadBack>
+  90:	e1550006 	cmp	r5, r6
+  94:	13a0a064 	movne	sl, #100	; 0x64
+  98:	1a000000 	bne	a0 <testfail>
+  9c:	ea000002 	b	ac <testpass>
+
+000000a0 <testfail>:
+  a0:	e59fb014 	ldr	fp, [pc, #20]	; bc <AdrTestStatus>
+  a4:	e58ba000 	str	sl, [fp]
+  a8:	eafffffc 	b	a0 <testfail>
+
+000000ac <testpass>:
+  ac:	e59fb008 	ldr	fp, [pc, #8]	; bc <AdrTestStatus>
+  b0:	e3a0a011 	mov	sl, #17
+  b4:	e58ba000 	str	sl, [fp]
+  b8:	eafffffb 	b	ac <testpass>
+
+000000bc <AdrTestStatus>:
+  bc:	f0000000 	.word	0xf0000000
+
+000000c0 <AdrEthMacModer>:
+  c0:	20000000 	.word	0x20000000
+
+000000c4 <AdrEthMacMIIModer>:
+  c4:	20000028 	.word	0x20000028
+
+000000c8 <AdrEthMacMIICommand>:
+  c8:	2000002c 	.word	0x2000002c
+
+000000cc <AdrEthMacMIIAddress>:
+  cc:	20000030 	.word	0x20000030
+
+000000d0 <AdrEthMacMIITxData>:
+  d0:	20000034 	.word	0x20000034
+
+000000d4 <AdrEthMacMIIRxData>:
+  d4:	20000038 	.word	0x20000038
+
+000000d8 <AdrEthMacMIIStatus>:
+  d8:	2000003c 	.word	0x2000003c
+
+000000dc <EthMacModerDefault>:
+  dc:	0000a000 	.word	0x0000a000
+
+000000e0 <ExpectedMIIReadBack>:
+  e0:	0000ffff 	.word	0x0000ffff

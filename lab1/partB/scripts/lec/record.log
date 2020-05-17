@@ -1,0 +1,369 @@
+                          CONFORMAL (R)
+                   Version 15.10-s260 (02-Oct-2015) (64 bit executable)
+   Copyright (c) Cadence Design Systems, Inc., 1997-2015. All Rights Reserved
+
+
+This program is proprietary and confidential information belonging to
+Cadence Design Systems, Inc., and may be used and disclosed only as authorized
+in a license agreement controlling such use and disclosure.
+
+// Warning: You can download the latest version from http://downloads.cadence.com.
+
+0
+// Command: set_undefined_cell Black_box -Both
+0
+// Command: read_library -Both -Replace  -sensitive  -Statetable  -Liberty /usr/local/packages/synopsys_2015/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95vn40c.lib /usr/local/packages/synopsys_2015/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95vn40c.lib /usr/local/packages/synopsys_2015/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p95vn40c.lib
+// Parsing file /usr/local/packages/synopsys_2015/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95vn40c.lib ...
+// Parsing file /usr/local/packages/synopsys_2015/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_ss0p95vn40c.lib ...
+// Parsing file /usr/local/packages/synopsys_2015/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p95vn40c.lib ...
+// Warning: (RTL9.17) All output pins are undriven (blackboxed) (occurrence:54)
+// Warning: (RTL14) Signal has input but it has no output (occurrence:6)
+// Warning: (IGN5.5) Redefined Liberty attribute has been ignored (occurrence:6)
+// Note: Read Liberty library successfully
+0
+// Command: add_search_path ../../verilog -recursive
+0
+// Command: source ../common/rtl.list
+a25_core.v a25_alu.v a25_register_bank.v a25_dcache.v a25_barrel_shift.v a25_write_back.v a25_decode.v a25_multiply.v a25_fetch.v a25_wishbone.v a25_icache.v a25_mem.v a25_coprocessor.v a25_execute.v generic_iobuf.v test_module.v wishbone_arbiter.v uart.v boot_mem_wrapper.v boot_mem.v system.v interrupt_controller.v clocks_resets.v timer_module.v eth_txcounters.v eth_outputcontrol.v eth_shiftreg.v eth_miim.v eth_defines.v eth_spram_256x32.v eth_fifo.v eth_maccontrol.v eth_txethmac.v eth_rxcounters.v eth_clockgen.v eth_registers.v eth_rxethmac.v eth_rxaddrcheck.v eth_transmitcontrol.v eth_rxstatem.v eth_crc.v eth_receivecontrol.v eth_register.v eth_macstatus.v eth_random.v eth_top.v eth_wishbone.v eth_txstatem.v
+// Command: read_design  $RTL_LIST -Verilog -Golden   -sensitive         -continuousassignment Bidirectional   -nokeep_unreach   -nosupply 
+// Parsing file ../../verilog/amber25/a25_core.v ...
+// Parsing file ../../verilog/amber25/a25_alu.v ...
+// Parsing file ../../verilog/amber25/a25_register_bank.v ...
+// Parsing file ../../verilog/amber25/a25_localparams.v ...
+// Parsing file ../../verilog/amber25/a25_functions.v ...
+// Parsing file ../../verilog/amber25/a25_dcache.v ...
+// Parsing file ../../verilog/amber25/a25_config_defines.v ...
+// Parsing file ../../verilog/tb/global_defines.v ...
+// Parsing file ../../verilog/amber25/a25_localparams.v ...
+// Parsing file ../../verilog/amber25/a25_functions.v ...
+// Parsing file ../../verilog/amber25/a25_barrel_shift.v ...
+// Parsing file ../../verilog/amber25/a25_localparams.v ...
+// Parsing file ../../verilog/amber25/a25_write_back.v ...
+// Parsing file ../../verilog/amber25/a25_decode.v ...
+// Parsing file ../../verilog/amber25/a25_localparams.v ...
+// Parsing file ../../verilog/amber25/a25_functions.v ...
+// Parsing file ../../verilog/amber25/a25_multiply.v ...
+// Parsing file ../../verilog/amber25/a25_fetch.v ...
+// Parsing file ../../verilog/system/memory_configuration.v ...
+// Parsing file ../../verilog/amber25/a25_wishbone.v ...
+// Parsing file ../../verilog/amber25/a25_icache.v ...
+// Parsing file ../../verilog/amber25/a25_config_defines.v ...
+// Parsing file ../../verilog/amber25/a25_localparams.v ...
+// Parsing file ../../verilog/amber25/a25_functions.v ...
+// Parsing file ../../verilog/amber25/a25_mem.v ...
+// Parsing file ../../verilog/system/memory_configuration.v ...
+// Parsing file ../../verilog/amber25/a25_coprocessor.v ...
+// Parsing file ../../verilog/amber25/a25_execute.v ...
+// Parsing file ../../verilog/amber25/a25_localparams.v ...
+// Parsing file ../../verilog/amber25/a25_functions.v ...
+// Parsing file ../../verilog/lib/generic_iobuf.v ...
+// Parsing file ../../verilog/system/test_module.v ...
+// Parsing file ../../verilog/system/register_addresses.v ...
+// Parsing file ../../verilog/system/wishbone_arbiter.v ...
+// Parsing file ../../verilog/system/memory_configuration.v ...
+// Parsing file ../../verilog/system/uart.v ...
+// Parsing file ../../verilog/system/system_config_defines.v ...
+// Parsing file ../../verilog/system/register_addresses.v ...
+// Parsing file ../../verilog/system/boot_mem_wrapper.v ...
+// Parsing file ../../verilog/system/boot_mem.v ...
+// Parsing file ../../verilog/system/system.v ...
+// Parsing file ../../verilog/system/interrupt_controller.v ...
+// Parsing file ../../verilog/system/register_addresses.v ...
+// Parsing file ../../verilog/system/clocks_resets.v ...
+// Parsing file ../../verilog/system/timer_module.v ...
+// Parsing file ../../verilog/system/register_addresses.v ...
+// Parsing file ../../verilog/ethmac/eth_txcounters.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_outputcontrol.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_shiftreg.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_miim.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_defines.v ...
+// Parsing file ../../verilog/ethmac/eth_spram_256x32.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_fifo.v ...
+// Parsing file ../../verilog/ethmac/eth_defines.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_maccontrol.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_txethmac.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_rxcounters.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_clockgen.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_registers.v ...
+// Parsing file ../../verilog/ethmac/eth_defines.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_rxethmac.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_rxaddrcheck.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_transmitcontrol.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_rxstatem.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_crc.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_receivecontrol.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_register.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_macstatus.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_random.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_top.v ...
+// Parsing file ../../verilog/ethmac/eth_defines.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_wishbone.v ...
+// Parsing file ../../verilog/ethmac/eth_defines.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Parsing file ../../verilog/ethmac/eth_txstatem.v ...
+// Parsing file ../../verilog/ethmac/timescale.v ...
+// Golden root module is set to 'system'
+// Warning: (RTL1.2) Variable/signal is assigned by multiple non-blocking assignments (occurrence:3)
+// Warning: (RTL1.4) Assignment with LHS bit width is greater than RHS bit width (occurrence:10)
+// Warning: (RTL1.5a) Assignment with RHS bit width is greater than LHS bit width (occurrence:14)
+// Warning: (RTL1.5b) Potential loss of RHS msb or carry-out bit (occurrence:72)
+// Warning: (RTL1.7) Non-blocking assignment is in combinational always block (occurrence:49)
+// Warning: (RTL1.9) Parameter bit width does not match RHS bit width (occurrence:10)
+// Warning: (RTL2.2) Variable is referenced but never assigned (occurrence:1)
+// Warning: (RTL2.5) Undriven net is detected (occurrence:3)
+// Warning: (RTL2.13) Undriven pin is detected (occurrence:26)
+// Warning: (RTL5.1a) Overlapped case items (occurrence:2)
+// Warning: (RTL5.3) Case expressions/items are resized (occurrence:5)
+// Note: (RTL5.4) Partial case items are in full case statement (occurrence:1)
+// Warning: (RTL7.7) Real number rounded to integer value (occurrence:1)
+// Warning: (RTL7.10) Comparison with signed and unsigned operands (occurrence:5)
+// Warning: (RTL7.10a) Comparison with different data sizes (occurrence:9)
+// Warning: (RTL7.13) Logical operator is applied to multiple-bit operand (occurrence:1)
+// Warning: (RTL8.3) Unreachable DFF/DLAT is removed (occurrence:391)
+// Warning: (RTL14) Signal has input but it has no output (occurrence:200)
+// Warning: (RTL14.1) Fanout load of the signal is removed (occurrence:1289)
+// Warning: (RTL19.1) Identifier is a reserved keyword and might conflict in designs with mixed languages (occurrence:3)
+// Note: (VLG2.2) Non-binary case item is used in casex/casez statement (occurrence:66)
+// Note: (VLG9.2) The `define macro is used (occurrence:163)
+// Warning: (DIR2.1) full_case directive is detected (occurrence:1)
+// Warning: (DIR2.2) parallel_case directive is detected (occurrence:13)
+// Warning: (DIR3.1) synthesis/translate/compile on/off directive is detected (occurrence:32)
+// Warning: (DIR4.2) HDL directive/pragma is supported (occurrence:46)
+// Warning: (DIR6.2) Supported compiler directive is detected (occurrence:190)
+// Warning: (IGN1.1) Initial assignment is ignored (occurrence:89)
+// Warning: (IGN2.1) Delay value(s) are ignored (occurrence:978)
+// Note: (HRC1.3) Module is undefined and created (blackboxed) (occurrence:1)
+// Note: (HRC3.5b) Open output port connection is detected (occurrence:6)
+// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:301)
+// Warning: (HRC3.15) Parameter positional association occurs in an instantiation (occurrence:44)
+// Warning: (HRC3.16) A wire is declared, but not used in the module (occurrence:17)
+// Warning: Total black box modules referenced in Golden = 1
+// Warning: There are 29 undriven nets in Golden
+// Warning: There are 26 undriven pins in Golden
+// Note: Read VERILOG design successfully
+0
+// Command: read_design  ../rc/system_cg_scan_netlist.v -Verilog -Revised   -sensitive         -continuousassignment Bidirectional   -nokeep_unreach   -nosupply
+// Parsing file ../rc/system_cg_scan_netlist.v ...
+// Revised root module is set to 'system'
+// Warning: (RTL2.5) Undriven net is detected (occurrence:734)
+// Warning: (RTL2.13) Undriven pin is detected (occurrence:2295)
+// Warning: (RTL14) Signal has input but it has no output (occurrence:5140)
+// Warning: (RTL14.1) Fanout load of the signal is removed (occurrence:155)
+// Warning: (RTL19.1) Identifier is a reserved keyword and might conflict in designs with mixed languages (occurrence:5)
+// Note: (HRC1.3) Module is undefined and created (blackboxed) (occurrence:1)
+// Warning: (HRC3.10a) An input port is declared, but it is not completely used in the module (occurrence:743)
+// Warning: Total black box modules referenced in Revised = 1
+// Warning: There are 2298 undriven nets in Revised
+// Warning: There are 2295 undriven pins in Revised
+// Note: Read VERILOG design successfully
+0
+// Command: add_pin_constraints 0 scan_mode scan_en scan_cg_en scan_clk -Both
+0
+// Command: set_flatten_model -seq_constant -seq_constant_x_to 0
+0
+// Command: set_flatten_model -gated_clock
+0
+// Command: set_analyze_option -auto
+0
+// Command: set_system_mode lec
+// Processing Golden ...
+// Modeling Golden ...
+// Warning: (F34) Converted 8 X assignment(s) as don't care(s)
+// Processing Revised ...
+// Modeling Revised ...
+// Balanced modeling (auto) mapped 11576 out of 12122 DFF/DLATs
+// (F18) Converted 74 DFF/DLAT(s) to ZERO/ONE
+// (F39) Added 21 output Z gates
+// (F32) Created 29 Z gate(s) for floating net(s) and floating pin(s)
+// (F28) Converted 1 internal output port(s) to inout port(s)
+// (F14) Remodeled 5302 gated-clock DFF/DLAT(s)
+// (F39) Added 21 output Z gates
+// (F32) Created 42 Z gate(s) for floating net(s) and floating pin(s)
+// (F28) Converted 2271 internal output port(s) to inout port(s)
+// Warning: Golden and Revised have different numbers of key points:
+// Golden  key points = 6214
+// Revised key points = 6343
+// Mapping key points ...
+// Warning: Primary input 'test_si[0]' in Revised has no correspondence in Golden
+// Warning: Primary input 'test_si[1]' in Revised has no correspondence in Golden
+// Warning: Primary input 'test_si[2]' in Revised has no correspondence in Golden
+// Warning: Primary input 'test_si[3]' in Revised has no correspondence in Golden
+// Warning: Primary output 'test_so[0]' in Revised has no correspondence in Golden
+// Warning: Primary output 'test_so[1]' in Revised has no correspondence in Golden
+// Warning: Primary output 'test_so[2]' in Revised has no correspondence in Golden
+// Warning: Primary output 'test_so[3]' in Revised has no correspondence in Golden
+// Warning: Golden has 74 unmapped key points
+================================================================================
+Mapped points: SYSTEM class
+--------------------------------------------------------------------------------
+Mapped points     PI     PO     DFF    Z      BBOX      Total   
+--------------------------------------------------------------------------------
+Golden            60     59     5788   71     10        5988    
+--------------------------------------------------------------------------------
+Revised           60     59     5788   71     10        5988    
+================================================================================
+Unmapped points:
+================================================================================
+Golden:
+--------------------------------------------------------------------------------
+Unmapped points   DFF    BBOX      Total   
+--------------------------------------------------------------------------------
+Unreachable       145    7         152     
+Not-mapped        74     0         74      
+================================================================================
+Revised:
+--------------------------------------------------------------------------------
+Unmapped points   PI     PO     DLAT   Z      BBOX      Total   
+--------------------------------------------------------------------------------
+Extra             4      4      0      0      0         8       
+Unreachable       0      0      327    13     7         347     
+================================================================================
+// Warning: Key point mapping is incomplete
+// Running automatic setup...
+// Merged 68 DFF/DLAT(s) in (G)
+// Merged 7 DFF/DLAT(s) in (R)
+// Converted 2 DFF/DLAT(s) in (G) to ZERO/ONE
+// Converted 10 DFF/DLAT(s) in constant group(s) in (G) to ZERO/ONE
+// Remodeling sequential constants...
+// Remodeling Golden ...
+// Identified 20 DFF/DLAT(s) as sequential constant in (G).
+// Identified 2 DFFs in constant group(s) in (G).
+// Remodeling Revised ...
+// Identified 19 DFF/DLAT(s) as sequential constant in (R).
+// Identified 3 DFFs in constant group(s) in (R).
+// Converted 22 DFF/DLAT(s) in (G) to ZERO/ONE
+// Converted 22 DFF/DLAT(s) in (R) to ZERO/ONE
+// Automatic setup finished.
+0
+// Command: add_mapped_points u_boot_mem_wrapper/u_boot_mem/myram7 u_boot_mem_wrapper_u_boot_mem/myram7
+These are added as user mapped points:
+  (G) + 6143  BBOX /u_boot_mem_wrapper/u_boot_mem/myram7
+  (R) + 6258  BBOX /u_boot_mem_wrapper_u_boot_mem/myram7
+0
+// Command: add_mapped_points u_boot_mem_wrapper/u_boot_mem/myram6 u_boot_mem_wrapper_u_boot_mem/myram6
+These are added as user mapped points:
+  (G) + 6142  BBOX /u_boot_mem_wrapper/u_boot_mem/myram6
+  (R) + 6257  BBOX /u_boot_mem_wrapper_u_boot_mem/myram6
+0
+// Command: add_mapped_points u_boot_mem_wrapper/u_boot_mem/myram5 u_boot_mem_wrapper_u_boot_mem/myram5	
+These are added as user mapped points:
+  (G) + 6141  BBOX /u_boot_mem_wrapper/u_boot_mem/myram5
+  (R) + 6256  BBOX /u_boot_mem_wrapper_u_boot_mem/myram5
+0
+// Command: add_mapped_points u_boot_mem_wrapper/u_boot_mem/myram4 u_boot_mem_wrapper_u_boot_mem/myram4
+These are added as user mapped points:
+  (G) + 6140  BBOX /u_boot_mem_wrapper/u_boot_mem/myram4
+  (R) + 6255  BBOX /u_boot_mem_wrapper_u_boot_mem/myram4
+0
+// Command: add_mapped_points u_boot_mem_wrapper/u_boot_mem/myram3 u_boot_mem_wrapper_u_boot_mem/myram3
+These are added as user mapped points:
+  (G) + 6139  BBOX /u_boot_mem_wrapper/u_boot_mem/myram3
+  (R) + 6254  BBOX /u_boot_mem_wrapper_u_boot_mem/myram3
+0
+// Command: add_mapped_points u_boot_mem_wrapper/u_boot_mem/myram2 u_boot_mem_wrapper_u_boot_mem/myram2
+These are added as user mapped points:
+  (G) + 6138  BBOX /u_boot_mem_wrapper/u_boot_mem/myram2
+  (R) + 6253  BBOX /u_boot_mem_wrapper_u_boot_mem/myram2
+0
+// Command: add_mapped_points u_boot_mem_wrapper/u_boot_mem/myram1 u_boot_mem_wrapper_u_boot_mem/myram1
+These are added as user mapped points:
+  (G) + 6137  BBOX /u_boot_mem_wrapper/u_boot_mem/myram1
+  (R) + 6252  BBOX /u_boot_mem_wrapper_u_boot_mem/myram1
+0
+// Command: add_mapped_points u_boot_mem_wrapper/u_boot_mem/myram0 u_boot_mem_wrapper_u_boot_mem/myram0
+// Warning: These are already system mapped points
+  (G) + 6136  BBOX /u_boot_mem_wrapper/u_boot_mem/myram0
+  (R) + 6251  BBOX /u_boot_mem_wrapper_u_boot_mem/myram0
+0
+// Command: add_mapped_points u_eth_top/wishbone/bd_ram/myram u_eth_top/wishbone/bd_ram/myram
+// Warning: These are already system mapped points
+  (G) + 6135  BBOX /u_eth_top/wishbone/bd_ram/myram
+  (R) + 6259  BBOX /u_eth_top/wishbone/bd_ram/myram
+0
+// Command: add_mapped_points u_amber/u_mem/u_dcache/rams\[3]\.myram u_amber/u_mem/u_dcache/rams\[3]\.myram
+// Warning: These are already system mapped points
+  (G) + 6134  BBOX /u_amber/u_mem/u_dcache/rams[3].myram
+  (R) + 6250  BBOX /u_amber/u_mem/u_dcache/rams[3].myram
+0
+// Command: add_mapped_points u_amber/u_mem/u_dcache/rams\[2]\.myram u_amber/u_mem/u_dcache/rams\[2]\.myram
+// Warning: These are already system mapped points
+  (G) + 6133  BBOX /u_amber/u_mem/u_dcache/rams[2].myram
+  (R) + 6249  BBOX /u_amber/u_mem/u_dcache/rams[2].myram
+0
+// Command: add_mapped_points u_amber/u_mem/u_dcache/rams\[1]\.myram u_amber/u_mem/u_dcache/rams\[1]\.myram
+// Warning: These are already system mapped points
+  (G) + 6132  BBOX /u_amber/u_mem/u_dcache/rams[1].myram
+  (R) + 6248  BBOX /u_amber/u_mem/u_dcache/rams[1].myram
+0
+// Command: add_mapped_points u_amber/u_mem/u_dcache/rams\[0]\.myram u_amber/u_mem/u_dcache/rams\[0]\.myram
+// Warning: These are already system mapped points
+  (G) + 6131  BBOX /u_amber/u_mem/u_dcache/rams[0].myram
+  (R) + 6247  BBOX /u_amber/u_mem/u_dcache/rams[0].myram
+0
+// Command: add_mapped_points u_amber/u_fetch/u_cache/rams\[3]\.myram u_amber/u_fetch/u_cache/rams\[3]\.myram
+// Warning: These are already system mapped points
+  (G) + 6130  BBOX /u_amber/u_fetch/u_cache/rams[3].myram
+  (R) + 6246  BBOX /u_amber/u_fetch/u_cache/rams[3].myram
+0
+// Command: add_mapped_points u_amber/u_fetch/u_cache/rams\[2]\.myram u_amber/u_fetch/u_cache/rams\[2]\.myram
+// Warning: These are already system mapped points
+  (G) + 6129  BBOX /u_amber/u_fetch/u_cache/rams[2].myram
+  (R) + 6245  BBOX /u_amber/u_fetch/u_cache/rams[2].myram
+0
+// Command: add_mapped_points u_amber/u_fetch/u_cache/rams\[1]\.myram u_amber/u_fetch/u_cache/rams\[1]\.myram
+// Warning: These are already system mapped points
+  (G) + 6128  BBOX /u_amber/u_fetch/u_cache/rams[1].myram
+  (R) + 6244  BBOX /u_amber/u_fetch/u_cache/rams[1].myram
+0
+// Command: add_mapped_points u_amber/u_fetch/u_cache/rams\[0]\.myram u_amber/u_fetch/u_cache/rams\[0]\.myram
+// Warning: These are already system mapped points
+  (G) + 6127  BBOX /u_amber/u_fetch/u_cache/rams[0].myram
+  (R) + 6243  BBOX /u_amber/u_fetch/u_cache/rams[0].myram
+0
+// Command: add_compared_points -all
+// Warning: Golden has 1 unmapped key points which will not be compared
+// 5835 compared points added to compare list
+0
+// Command: compare
+================================================================================
+Compared points      PO     DFF    BBOX      Total   
+--------------------------------------------------------------------------------
+Equivalent           59     5759   17        5835    
+================================================================================
+Compare results of instance/output/pin equivalences and/or sequential merge      
+================================================================================
+Compared points      DFF       Total   
+--------------------------------------------------------------------------------
+Equivalent           75        75      
+================================================================================
+// Warning: There are extra POs in Revised
+0
+// Command: puts "Num of compare points = [get_compare_points -count]"
+Num of compare points = 5835
+// Command: puts "Num of diff points    = [get_compare_points -NONequivalent -count]"
+Num of diff points    = 0
+// Command: puts "Num of abort points   = [get_compare_points -abort -count]"
+Num of abort points   = 0
+// Command: puts "Num of unknown points = [get_compare_points -unknown -count]"
+Num of unknown points = 0

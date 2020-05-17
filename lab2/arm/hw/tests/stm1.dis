@@ -1,0 +1,165 @@
+
+stm1.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e3a00000 	mov	r0, #0
+   4:	e3a01001 	mov	r1, #1
+   8:	e3a02002 	mov	r2, #2
+   c:	e3a03003 	mov	r3, #3
+  10:	e3a04004 	mov	r4, #4
+  14:	e3a05005 	mov	r5, #5
+  18:	e3a06006 	mov	r6, #6
+  1c:	e3a07007 	mov	r7, #7
+  20:	e3a08008 	mov	r8, #8
+  24:	e3a09009 	mov	r9, #9
+  28:	e3a0a00a 	mov	sl, #10
+  2c:	e3a0b00b 	mov	fp, #11
+  30:	e3a0c00c 	mov	ip, #12
+  34:	e3a0d00d 	mov	sp, #13
+  38:	e59fe1b8 	ldr	lr, [pc, #440]	; 1f8 <StoreBase>
+  3c:	e8ae3fff 	stmia	lr!, {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip, sp}
+  40:	e59f01b0 	ldr	r0, [pc, #432]	; 1f8 <StoreBase>
+  44:	e2800038 	add	r0, r0, #56	; 0x38
+  48:	e15e0000 	cmp	lr, r0
+  4c:	13a0a014 	movne	sl, #20
+  50:	1a00005e 	bne	1d0 <testfail>
+  54:	e3a02000 	mov	r2, #0
+  58:	e59f0198 	ldr	r0, [pc, #408]	; 1f8 <StoreBase>
+
+0000005c <loop1>:
+  5c:	e4901004 	ldr	r1, [r0], #4
+  60:	e1510002 	cmp	r1, r2
+  64:	13a0a01e 	movne	sl, #30
+  68:	1a000058 	bne	1d0 <testfail>
+  6c:	e352000d 	cmp	r2, #13
+  70:	0a000001 	beq	7c <start2>
+  74:	e2822001 	add	r2, r2, #1
+  78:	eafffff7 	b	5c <loop1>
+
+0000007c <start2>:
+  7c:	e3a00000 	mov	r0, #0
+  80:	e3a01001 	mov	r1, #1
+  84:	e3a02002 	mov	r2, #2
+  88:	e3a03003 	mov	r3, #3
+  8c:	e3a04004 	mov	r4, #4
+  90:	e3a05005 	mov	r5, #5
+  94:	e3a06006 	mov	r6, #6
+  98:	e3a07007 	mov	r7, #7
+  9c:	e3a08008 	mov	r8, #8
+  a0:	e3a09009 	mov	r9, #9
+  a4:	e3a0a00a 	mov	sl, #10
+  a8:	e3a0b00b 	mov	fp, #11
+  ac:	e3a0c00c 	mov	ip, #12
+  b0:	e3a0d00d 	mov	sp, #13
+  b4:	e59fe13c 	ldr	lr, [pc, #316]	; 1f8 <StoreBase>
+  b8:	e9ae3fff 	stmib	lr!, {r0, r1, r2, r3, r4, r5, r6, r7, r8, r9, sl, fp, ip, sp}
+  bc:	e59f0134 	ldr	r0, [pc, #308]	; 1f8 <StoreBase>
+  c0:	e2800038 	add	r0, r0, #56	; 0x38
+  c4:	e15e0000 	cmp	lr, r0
+  c8:	13a0a028 	movne	sl, #40	; 0x28
+  cc:	1a00003f 	bne	1d0 <testfail>
+  d0:	e3a02000 	mov	r2, #0
+  d4:	e59f011c 	ldr	r0, [pc, #284]	; 1f8 <StoreBase>
+  d8:	e2800004 	add	r0, r0, #4
+
+000000dc <loop2>:
+  dc:	e4901004 	ldr	r1, [r0], #4
+  e0:	e1510002 	cmp	r1, r2
+  e4:	13a0a032 	movne	sl, #50	; 0x32
+  e8:	1a000038 	bne	1d0 <testfail>
+  ec:	e352000d 	cmp	r2, #13
+  f0:	0a000001 	beq	fc <start3>
+  f4:	e2822001 	add	r2, r2, #1
+  f8:	eafffff7 	b	dc <loop2>
+
+000000fc <start3>:
+  fc:	e59fe0f4 	ldr	lr, [pc, #244]	; 1f8 <StoreBase>
+ 100:	e9ae4000 	stmib	lr!, {lr}
+ 104:	e59f00ec 	ldr	r0, [pc, #236]	; 1f8 <StoreBase>
+ 108:	e2801004 	add	r1, r0, #4
+ 10c:	e15e0001 	cmp	lr, r1
+ 110:	13a0a03c 	movne	sl, #60	; 0x3c
+ 114:	1a00002d 	bne	1d0 <testfail>
+ 118:	e5912000 	ldr	r2, [r1]
+ 11c:	e1520000 	cmp	r2, r0
+ 120:	13a0a046 	movne	sl, #70	; 0x46
+ 124:	1a000029 	bne	1d0 <testfail>
+
+00000128 <start4>:
+ 128:	e3a0e061 	mov	lr, #97	; 0x61
+ 12c:	e59f00c4 	ldr	r0, [pc, #196]	; 1f8 <StoreBase>
+ 130:	e1a0200f 	mov	r2, pc
+ 134:	e800c000 	stmda	r0, {lr, pc}
+ 138:	e59f10b8 	ldr	r1, [pc, #184]	; 1f8 <StoreBase>
+ 13c:	e1500001 	cmp	r0, r1
+ 140:	13a0a046 	movne	sl, #70	; 0x46
+ 144:	1a000021 	bne	1d0 <testfail>
+ 148:	e2822008 	add	r2, r2, #8
+ 14c:	e5913000 	ldr	r3, [r1]
+ 150:	e1520003 	cmp	r2, r3
+ 154:	13a0a050 	movne	sl, #80	; 0x50
+ 158:	1a00001c 	bne	1d0 <testfail>
+ 15c:	e59f1094 	ldr	r1, [pc, #148]	; 1f8 <StoreBase>
+ 160:	e2411004 	sub	r1, r1, #4
+ 164:	e5914000 	ldr	r4, [r1]
+ 168:	e3540061 	cmp	r4, #97	; 0x61
+ 16c:	13a0a05a 	movne	sl, #90	; 0x5a
+ 170:	1a000016 	bne	1d0 <testfail>
+ 174:	e3a00011 	mov	r0, #17
+ 178:	e59f9078 	ldr	r9, [pc, #120]	; 1f8 <StoreBase>
+ 17c:	e3a0a012 	mov	sl, #18
+ 180:	e9290601 	stmdb	r9!, {r0, r9, sl}
+ 184:	e59f306c 	ldr	r3, [pc, #108]	; 1f8 <StoreBase>
+ 188:	e243300c 	sub	r3, r3, #12
+ 18c:	e4934004 	ldr	r4, [r3], #4
+ 190:	e3540011 	cmp	r4, #17
+ 194:	13a0a064 	movne	sl, #100	; 0x64
+ 198:	1a00000c 	bne	1d0 <testfail>
+ 19c:	e5934000 	ldr	r4, [r3]
+ 1a0:	e59f3050 	ldr	r3, [pc, #80]	; 1f8 <StoreBase>
+ 1a4:	e243300c 	sub	r3, r3, #12
+ 1a8:	e1530004 	cmp	r3, r4
+ 1ac:	13a0a06e 	movne	sl, #110	; 0x6e
+ 1b0:	1a000006 	bne	1d0 <testfail>
+ 1b4:	e59f303c 	ldr	r3, [pc, #60]	; 1f8 <StoreBase>
+ 1b8:	e2433004 	sub	r3, r3, #4
+ 1bc:	e5934000 	ldr	r4, [r3]
+ 1c0:	e3540012 	cmp	r4, #18
+ 1c4:	13a0a078 	movne	sl, #120	; 0x78
+ 1c8:	1a000000 	bne	1d0 <testfail>
+ 1cc:	ea000002 	b	1dc <testpass>
+
+000001d0 <testfail>:
+ 1d0:	e59fb014 	ldr	fp, [pc, #20]	; 1ec <AdrTestStatus>
+ 1d4:	e58ba000 	str	sl, [fp]
+ 1d8:	eafffffc 	b	1d0 <testfail>
+
+000001dc <testpass>:
+ 1dc:	e59fb008 	ldr	fp, [pc, #8]	; 1ec <AdrTestStatus>
+ 1e0:	e3a0a011 	mov	sl, #17
+ 1e4:	e58ba000 	str	sl, [fp]
+ 1e8:	eafffffb 	b	1dc <testpass>
+
+000001ec <AdrTestStatus>:
+ 1ec:	f0000000 	.word	0xf0000000
+
+000001f0 <AdrData1>:
+ 1f0:	000001fc 	.word	0x000001fc
+
+000001f4 <AdrData2>:
+ 1f4:	00000200 	.word	0x00000200
+
+000001f8 <StoreBase>:
+ 1f8:	00000800 	.word	0x00000800
+
+000001fc <Data1>:
+ 1fc:	12345678 	.word	0x12345678
+
+00000200 <Data2>:
+ 200:	ffccbbaa 	.word	0xffccbbaa
+
+00000204 <Data3>:
+ 204:	12345600 	.word	0x12345600

@@ -1,0 +1,68 @@
+
+conflict_rd.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e3a0a028 	mov	sl, #40	; 0x28
+   4:	e3a01001 	mov	r1, #1
+   8:	e3a02002 	mov	r2, #2
+   c:	e3a03003 	mov	r3, #3
+  10:	e3a04004 	mov	r4, #4
+  14:	e3a05a01 	mov	r5, #4096	; 0x1000
+  18:	e3a06006 	mov	r6, #6
+  1c:	e5856000 	str	r6, [r5]
+  20:	e3a0db02 	mov	sp, #2048	; 0x800
+  24:	e3130001 	tst	r3, #1
+  28:	e0860004 	add	r0, r6, r4
+  2c:	e59f107c 	ldr	r1, [pc, #124]	; b0 <Data1>
+  30:	e59f307c 	ldr	r3, [pc, #124]	; b4 <Data2>
+  34:	e59f207c 	ldr	r2, [pc, #124]	; b8 <Data3>
+  38:	11a02003 	movne	r2, r3
+  3c:	e5953000 	ldr	r3, [r5]
+  40:	eb000002 	bl	50 <main+0x50>
+  44:	e1a00000 	nop			; (mov r0, r0)
+  48:	e1a00000 	nop			; (mov r0, r0)
+  4c:	e1a00000 	nop			; (mov r0, r0)
+  50:	e92d000e 	push	{r1, r2, r3}
+  54:	e1a00000 	nop			; (mov r0, r0)
+  58:	e1a00000 	nop			; (mov r0, r0)
+  5c:	e59d8004 	ldr	r8, [sp, #4]
+  60:	e59f904c 	ldr	r9, [pc, #76]	; b4 <Data2>
+  64:	e1580009 	cmp	r8, r9
+  68:	128aa001 	addne	sl, sl, #1
+  6c:	1a000006 	bne	8c <testfail>
+  70:	e3e00000 	mvn	r0, #0
+  74:	ee030f10 	mcr	15, 0, r0, cr3, cr0, {0}
+  78:	e3a00001 	mov	r0, #1
+  7c:	ee020f10 	mcr	15, 0, r0, cr2, cr0, {0}
+  80:	e25aa00a 	subs	sl, sl, #10
+  84:	1affffde 	bne	4 <main+0x4>
+  88:	ea000002 	b	98 <testpass>
+
+0000008c <testfail>:
+  8c:	e59fb014 	ldr	fp, [pc, #20]	; a8 <AdrTestStatus>
+  90:	e58ba000 	str	sl, [fp]
+  94:	eafffffc 	b	8c <testfail>
+
+00000098 <testpass>:
+  98:	e59fb008 	ldr	fp, [pc, #8]	; a8 <AdrTestStatus>
+  9c:	e3a0a011 	mov	sl, #17
+  a0:	e58ba000 	str	sl, [fp]
+  a4:	eafffffb 	b	98 <testpass>
+
+000000a8 <AdrTestStatus>:
+  a8:	f0000000 	.word	0xf0000000
+
+000000ac <AdrHiBootBase>:
+  ac:	28000000 	.word	0x28000000
+
+000000b0 <Data1>:
+  b0:	00001000 	.word	0x00001000
+
+000000b4 <Data2>:
+  b4:	00002000 	.word	0x00002000
+
+000000b8 <Data3>:
+  b8:	00003000 	.word	0x00003000

@@ -1,0 +1,64 @@
+
+ddr33.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e59fa08c 	ldr	sl, [pc, #140]	; 94 <DDRBase>
+   4:	e3a05028 	mov	r5, #40	; 0x28
+   8:	e59f0080 	ldr	r0, [pc, #128]	; 90 <AdrRanNum>
+   c:	e8900006 	ldm	r0, {r1, r2}
+  10:	e1822401 	orr	r2, r2, r1, lsl #8
+  14:	e1a02102 	lsl	r2, r2, #2
+  18:	e082200a 	add	r2, r2, sl
+  1c:	e59f3074 	ldr	r3, [pc, #116]	; 98 <Data0>
+  20:	e59f6074 	ldr	r6, [pc, #116]	; 9c <Data1>
+  24:	e59f8074 	ldr	r8, [pc, #116]	; a0 <Data2>
+  28:	e5823000 	str	r3, [r2]
+  2c:	e4924004 	ldr	r4, [r2], #4
+  30:	e4826004 	str	r6, [r2], #4
+  34:	e4028004 	str	r8, [r2], #-4
+  38:	e4927004 	ldr	r7, [r2], #4
+  3c:	e5929000 	ldr	r9, [r2]
+  40:	e1530004 	cmp	r3, r4
+  44:	13a0a00a 	movne	sl, #10
+  48:	1a000008 	bne	70 <testfail>
+  4c:	e1560007 	cmp	r6, r7
+  50:	13a0a014 	movne	sl, #20
+  54:	1a000005 	bne	70 <testfail>
+  58:	e1580009 	cmp	r8, r9
+  5c:	13a0a01e 	movne	sl, #30
+  60:	1a000002 	bne	70 <testfail>
+  64:	e2555001 	subs	r5, r5, #1
+  68:	1affffe6 	bne	8 <main+0x8>
+  6c:	ea000002 	b	7c <testpass>
+
+00000070 <testfail>:
+  70:	e59fb014 	ldr	fp, [pc, #20]	; 8c <AdrTestStatus>
+  74:	e58ba000 	str	sl, [fp]
+  78:	eafffffc 	b	70 <testfail>
+
+0000007c <testpass>:
+  7c:	e59fb008 	ldr	fp, [pc, #8]	; 8c <AdrTestStatus>
+  80:	e3a0a011 	mov	sl, #17
+  84:	e58ba000 	str	sl, [fp]
+  88:	eafffffb 	b	7c <testpass>
+
+0000008c <AdrTestStatus>:
+  8c:	f0000000 	.word	0xf0000000
+
+00000090 <AdrRanNum>:
+  90:	f0000100 	.word	0xf0000100
+
+00000094 <DDRBase>:
+  94:	00020000 	.word	0x00020000
+
+00000098 <Data0>:
+  98:	ff00cc55 	.word	0xff00cc55
+
+0000009c <Data1>:
+  9c:	7711ff17 	.word	0x7711ff17
+
+000000a0 <Data2>:
+  a0:	12345678 	.word	0x12345678

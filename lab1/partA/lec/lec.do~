@@ -1,0 +1,12 @@
+// The dofile must be in 'tclmode'
+tclmode
+
+// Load the library
+
+// Load the golden design: RTL
+
+// Load the revised design: Netlist
+
+// Change the mode to LEC
+
+// Add compare points and compare

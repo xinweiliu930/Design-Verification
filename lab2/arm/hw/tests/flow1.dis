@@ -1,0 +1,68 @@
+
+flow1.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e3e00000 	mvn	r0, #0
+   4:	ee030f10 	mcr	15, 0, r0, cr3, cr0, {0}
+   8:	e3a00001 	mov	r0, #1
+   c:	ee020f10 	mcr	15, 0, r0, cr2, cr0, {0}
+  10:	e3a0da01 	mov	sp, #4096	; 0x1000
+  14:	e38dd008 	orr	sp, sp, #8
+  18:	e59f00a4 	ldr	r0, [pc, #164]	; c4 <Data2+0x14>
+  1c:	e890003e 	ldm	r0, {r1, r2, r3, r4, r5}
+  20:	e88d003e 	stm	sp, {r1, r2, r3, r4, r5}
+  24:	e89d07c0 	ldm	sp, {r6, r7, r8, r9, sl}
+  28:	e59f0098 	ldr	r0, [pc, #152]	; c8 <Data2+0x18>
+  2c:	e890003e 	ldm	r0, {r1, r2, r3, r4, r5}
+  30:	e88d003e 	stm	sp, {r1, r2, r3, r4, r5}
+  34:	e89d07c0 	ldm	sp, {r6, r7, r8, r9, sl}
+  38:	e1510006 	cmp	r1, r6
+  3c:	01520007 	cmpeq	r2, r7
+  40:	01530008 	cmpeq	r3, r8
+  44:	01540009 	cmpeq	r4, r9
+  48:	0155000a 	cmpeq	r5, sl
+  4c:	13a0a064 	movne	sl, #100	; 0x64
+  50:	1a000009 	bne	7c <testfail>
+  54:	ee010f10 	mcr	15, 0, r0, cr1, cr0, {0}
+  58:	e89d07c0 	ldm	sp, {r6, r7, r8, r9, sl}
+  5c:	e1510006 	cmp	r1, r6
+  60:	01520007 	cmpeq	r2, r7
+  64:	01530008 	cmpeq	r3, r8
+  68:	01540009 	cmpeq	r4, r9
+  6c:	0155000a 	cmpeq	r5, sl
+  70:	13a0a0c8 	movne	sl, #200	; 0xc8
+  74:	1a000000 	bne	7c <testfail>
+  78:	ea000002 	b	88 <testpass>
+
+0000007c <testfail>:
+  7c:	e59fb014 	ldr	fp, [pc, #20]	; 98 <AdrTestStatus>
+  80:	e58ba000 	str	sl, [fp]
+  84:	eafffffc 	b	7c <testfail>
+
+00000088 <testpass>:
+  88:	e59fb008 	ldr	fp, [pc, #8]	; 98 <AdrTestStatus>
+  8c:	e3a0a011 	mov	sl, #17
+  90:	e58ba000 	str	sl, [fp]
+  94:	eafffffb 	b	88 <testpass>
+
+00000098 <AdrTestStatus>:
+  98:	f0000000 	.word	0xf0000000
+
+0000009c <Data1>:
+  9c:	00000003 	.word	0x00000003
+  a0:	00000004 	.word	0x00000004
+  a4:	00000005 	.word	0x00000005
+  a8:	00000006 	.word	0x00000006
+  ac:	00000007 	.word	0x00000007
+
+000000b0 <Data2>:
+  b0:	00000013 	.word	0x00000013
+  b4:	00000014 	.word	0x00000014
+  b8:	00000015 	.word	0x00000015
+  bc:	00000016 	.word	0x00000016
+  c0:	00000017 	.word	0x00000017
+  c4:	0000009c 	.word	0x0000009c
+  c8:	000000b0 	.word	0x000000b0

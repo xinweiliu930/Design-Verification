@@ -1,0 +1,91 @@
+
+stm_stream.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e3a00001 	mov	r0, #1
+   4:	ee030f10 	mcr	15, 0, r0, cr3, cr0, {0}
+   8:	e3a00001 	mov	r0, #1
+   c:	ee020f10 	mcr	15, 0, r0, cr2, cr0, {0}
+  10:	e3a0e003 	mov	lr, #3
+
+00000014 <loop>:
+  14:	e3a00401 	mov	r0, #16777216	; 0x1000000
+  18:	e28e1001 	add	r1, lr, #1
+  1c:	e28e2002 	add	r2, lr, #2
+  20:	e28e3003 	add	r3, lr, #3
+  24:	e28e4004 	add	r4, lr, #4
+  28:	e28e5005 	add	r5, lr, #5
+  2c:	e28e6006 	add	r6, lr, #6
+  30:	e28e7007 	add	r7, lr, #7
+  34:	e28e8008 	add	r8, lr, #8
+  38:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  3c:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  40:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  44:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  48:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  4c:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  50:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  54:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  58:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  5c:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  60:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  64:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  68:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  6c:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  70:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  74:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  78:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  7c:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  80:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  84:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  88:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  8c:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  90:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  94:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  98:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  9c:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  a0:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  a4:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  a8:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  ac:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  b0:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  b4:	e8a001fe 	stmia	r0!, {r1, r2, r3, r4, r5, r6, r7, r8}
+  b8:	e3a00401 	mov	r0, #16777216	; 0x1000000
+  bc:	e3a0dd05 	mov	sp, #320	; 0x140
+  c0:	e1a0900e 	mov	r9, lr
+  c4:	e2899001 	add	r9, r9, #1
+  c8:	e490c004 	ldr	ip, [r0], #4
+  cc:	e15c0009 	cmp	ip, r9
+  d0:	1089a00d 	addne	sl, r9, sp
+  d4:	1a000007 	bne	f8 <testfail>
+  d8:	e28ea008 	add	sl, lr, #8
+  dc:	e159000a 	cmp	r9, sl
+  e0:	1afffff7 	bne	c4 <loop+0xb0>
+  e4:	e25dd00a 	subs	sp, sp, #10
+  e8:	1afffff4 	bne	c0 <loop+0xac>
+  ec:	e25ee001 	subs	lr, lr, #1
+  f0:	1affffc7 	bne	14 <loop>
+  f4:	ea000002 	b	104 <testpass>
+
+000000f8 <testfail>:
+  f8:	e59fb014 	ldr	fp, [pc, #20]	; 114 <AdrTestStatus>
+  fc:	e58ba000 	str	sl, [fp]
+ 100:	eafffffc 	b	f8 <testfail>
+
+00000104 <testpass>:
+ 104:	e59fb008 	ldr	fp, [pc, #8]	; 114 <AdrTestStatus>
+ 108:	e3a0a011 	mov	sl, #17
+ 10c:	e58ba000 	str	sl, [fp]
+ 110:	eafffffb 	b	104 <testpass>
+
+00000114 <AdrTestStatus>:
+ 114:	f0000000 	.word	0xf0000000
+
+00000118 <Data1>:
+ 118:	0000011c 	.word	0x0000011c
+
+0000011c <Data2>:
+ 11c:	000000ff 	.word	0x000000ff

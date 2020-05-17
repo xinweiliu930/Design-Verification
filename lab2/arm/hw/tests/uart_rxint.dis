@@ -1,0 +1,137 @@
+
+uart_rxint.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	ea000006 	b	20 <start>
+   4:	ea000034 	b	dc <testfail>
+   8:	ea000033 	b	dc <testfail>
+   c:	ea000032 	b	dc <testfail>
+  10:	ea000031 	b	dc <testfail>
+  14:	ea000030 	b	dc <testfail>
+  18:	ea000024 	b	b0 <service_irq>
+  1c:	ea00002e 	b	dc <testfail>
+
+00000020 <start>:
+  20:	e3a00000 	mov	r0, #0
+  24:	e13ff000 	teq	pc, r0
+  28:	e59f40e4 	ldr	r4, [pc, #228]	; 114 <AdrUART0LCRH>
+  2c:	e3a05010 	mov	r5, #16
+  30:	e5845000 	str	r5, [r4]
+  34:	e59f40dc 	ldr	r4, [pc, #220]	; 118 <AdrUART0CR>
+  38:	e3a05010 	mov	r5, #16
+  3c:	e5845000 	str	r5, [r4]
+  40:	e59f40c8 	ldr	r4, [pc, #200]	; 110 <AdrIC_IRQ0_ENABLESET>
+  44:	e3a05002 	mov	r5, #2
+  48:	e5845000 	str	r5, [r4]
+  4c:	e59f40b8 	ldr	r4, [pc, #184]	; 10c <AdrTEST_UART_TXD>
+  50:	e59f5118 	ldr	r5, [pc, #280]	; 170 <EndMessage+0x4>
+  54:	e59f9114 	ldr	r9, [pc, #276]	; 170 <EndMessage+0x4>
+  58:	e59f7114 	ldr	r7, [pc, #276]	; 174 <EndMessage+0x8>
+  5c:	e59f80a4 	ldr	r8, [pc, #164]	; 108 <AdrTEST_UART_STATUS>
+  60:	e4d56001 	ldrb	r6, [r5], #1
+  64:	e5846000 	str	r6, [r4]
+  68:	e59f0094 	ldr	r0, [pc, #148]	; 104 <AdrTEST_UART_CONTROL>
+  6c:	e3a01001 	mov	r1, #1
+  70:	e5801000 	str	r1, [r0]
+
+00000074 <main_loop>:
+  74:	e5980000 	ldr	r0, [r8]
+  78:	e2100002 	ands	r0, r0, #2
+  7c:	1afffffc 	bne	74 <main_loop>
+  80:	e4d56001 	ldrb	r6, [r5], #1
+  84:	e5846000 	str	r6, [r4]
+  88:	e1550007 	cmp	r5, r7
+  8c:	1afffff8 	bne	74 <main_loop>
+  90:	e5980000 	ldr	r0, [r8]
+  94:	e2100001 	ands	r0, r0, #1
+  98:	0afffffc 	beq	90 <main_loop+0x1c>
+  9c:	e59f307c 	ldr	r3, [pc, #124]	; 120 <AdrUART0FR>
+  a0:	e5931000 	ldr	r1, [r3]
+  a4:	e2111080 	ands	r1, r1, #128	; 0x80
+  a8:	0afffffc 	beq	a0 <main_loop+0x2c>
+  ac:	ea00000d 	b	e8 <testpass>
+
+000000b0 <service_irq>:
+  b0:	e59f2064 	ldr	r2, [pc, #100]	; 11c <AdrUART0DR>
+  b4:	e59f3064 	ldr	r3, [pc, #100]	; 120 <AdrUART0FR>
+  b8:	e5930000 	ldr	r0, [r3]
+  bc:	e2100010 	ands	r0, r0, #16
+  c0:	125ef004 	subsne	pc, lr, #4
+  c4:	e5d20000 	ldrb	r0, [r2]
+  c8:	e4d91001 	ldrb	r1, [r9], #1
+  cc:	e1500001 	cmp	r0, r1
+  d0:	13a0a014 	movne	sl, #20
+  d4:	1a000000 	bne	dc <testfail>
+  d8:	eafffff6 	b	b8 <service_irq+0x8>
+
+000000dc <testfail>:
+  dc:	e59fb014 	ldr	fp, [pc, #20]	; f8 <AdrTEST_STATUS>
+  e0:	e58ba000 	str	sl, [fp]
+  e4:	eafffffc 	b	dc <testfail>
+
+000000e8 <testpass>:
+  e8:	e59fb008 	ldr	fp, [pc, #8]	; f8 <AdrTEST_STATUS>
+  ec:	e3a0a011 	mov	sl, #17
+  f0:	e58ba000 	str	sl, [fp]
+  f4:	eafffffb 	b	e8 <testpass>
+
+000000f8 <AdrTEST_STATUS>:
+  f8:	f0000000 	.word	0xf0000000
+
+000000fc <AdrTEST_IRQ_TIMER>:
+  fc:	f0000008 	.word	0xf0000008
+
+00000100 <AdrTEST_RANDOM_NUM>:
+ 100:	f0000100 	.word	0xf0000100
+
+00000104 <AdrTEST_UART_CONTROL>:
+ 104:	f0000010 	.word	0xf0000010
+
+00000108 <AdrTEST_UART_STATUS>:
+ 108:	f0000014 	.word	0xf0000014
+
+0000010c <AdrTEST_UART_TXD>:
+ 10c:	f0000018 	.word	0xf0000018
+
+00000110 <AdrIC_IRQ0_ENABLESET>:
+ 110:	14000008 	.word	0x14000008
+
+00000114 <AdrUART0LCRH>:
+ 114:	16000008 	.word	0x16000008
+
+00000118 <AdrUART0CR>:
+ 118:	16000014 	.word	0x16000014
+
+0000011c <AdrUART0DR>:
+ 11c:	16000000 	.word	0x16000000
+
+00000120 <AdrUART0FR>:
+ 120:	16000018 	.word	0x16000018
+
+00000124 <Message>:
+ 124:	6968540a 	.word	0x6968540a
+ 128:	656d2073 	.word	0x656d2073
+ 12c:	67617373 	.word	0x67617373
+ 130:	73692065 	.word	0x73692065
+ 134:	6f726220 	.word	0x6f726220
+ 138:	74686775 	.word	0x74686775
+ 13c:	206f7420 	.word	0x206f7420
+ 140:	20756f79 	.word	0x20756f79
+ 144:	55207962 	.word	0x55207962
+ 148:	30545241 	.word	0x30545241
+ 14c:	6e73490a 	.word	0x6e73490a
+ 150:	68742074 	.word	0x68742074
+ 154:	63207461 	.word	0x63207461
+ 158:	0a6c6f6f 	.word	0x0a6c6f6f
+ 15c:	74616854 	.word	0x74616854
+ 160:	6c612073 	.word	0x6c612073
+ 164:	6f66206c 	.word	0x6f66206c
+ 168:	0a736b6c 	.word	0x0a736b6c
+
+0000016c <EndMessage>:
+ 16c:	00000000 	.word	0x00000000
+ 170:	00000124 	.word	0x00000124
+ 174:	0000016c 	.word	0x0000016c

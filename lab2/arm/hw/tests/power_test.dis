@@ -1,0 +1,200 @@
+
+power_test.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e59fd218 	ldr	sp, [pc, #536]	; 220 <MaxPos>
+   4:	e59fc218 	ldr	ip, [pc, #536]	; 224 <MidPos_L>
+   8:	e59fb218 	ldr	fp, [pc, #536]	; 228 <MidPos_L_P1>
+   c:	e59fa21c 	ldr	sl, [pc, #540]	; 230 <Two_ff>
+  10:	e59f921c 	ldr	r9, [pc, #540]	; 234 <A1>
+  14:	e59f8210 	ldr	r8, [pc, #528]	; 22c <Zero>
+  18:	e28c0001 	add	r0, ip, #1
+  1c:	e28c0001 	add	r0, ip, #1
+  20:	e28c0001 	add	r0, ip, #1
+  24:	e28c0001 	add	r0, ip, #1
+  28:	e28c0001 	add	r0, ip, #1
+  2c:	e28c0001 	add	r0, ip, #1
+  30:	e28c0001 	add	r0, ip, #1
+  34:	e28c0001 	add	r0, ip, #1
+  38:	e28c0001 	add	r0, ip, #1
+  3c:	e28c0001 	add	r0, ip, #1
+  40:	e28c0001 	add	r0, ip, #1
+  44:	e28c0001 	add	r0, ip, #1
+  48:	e28c0001 	add	r0, ip, #1
+  4c:	e28c0001 	add	r0, ip, #1
+  50:	e28c0001 	add	r0, ip, #1
+  54:	e1a0042c 	lsr	r0, ip, #8
+  58:	e1a0042c 	lsr	r0, ip, #8
+  5c:	e1a0042c 	lsr	r0, ip, #8
+  60:	e1a0042c 	lsr	r0, ip, #8
+  64:	e1a0042c 	lsr	r0, ip, #8
+  68:	e1a0042c 	lsr	r0, ip, #8
+  6c:	e1a0042c 	lsr	r0, ip, #8
+  70:	e1a0042c 	lsr	r0, ip, #8
+  74:	e1a0042c 	lsr	r0, ip, #8
+  78:	e1a0042c 	lsr	r0, ip, #8
+  7c:	e1a0042c 	lsr	r0, ip, #8
+  80:	e1a0042c 	lsr	r0, ip, #8
+  84:	e1a0042c 	lsr	r0, ip, #8
+  88:	e1a0042c 	lsr	r0, ip, #8
+  8c:	e1a0042c 	lsr	r0, ip, #8
+  90:	e0000c9a 	mul	r0, sl, ip
+  94:	e0000c9a 	mul	r0, sl, ip
+  98:	e0000c9a 	mul	r0, sl, ip
+  9c:	e0000c9a 	mul	r0, sl, ip
+  a0:	e0000c9a 	mul	r0, sl, ip
+  a4:	e0000c9a 	mul	r0, sl, ip
+  a8:	e0000c9a 	mul	r0, sl, ip
+  ac:	e0000c9a 	mul	r0, sl, ip
+  b0:	e0000c9a 	mul	r0, sl, ip
+  b4:	e0000c9a 	mul	r0, sl, ip
+  b8:	e0000c9a 	mul	r0, sl, ip
+  bc:	e0000c9a 	mul	r0, sl, ip
+  c0:	e0000c9a 	mul	r0, sl, ip
+  c4:	e0000c9a 	mul	r0, sl, ip
+  c8:	e0000c9a 	mul	r0, sl, ip
+  cc:	e59f015c 	ldr	r0, [pc, #348]	; 230 <Two_ff>
+  d0:	e59f0158 	ldr	r0, [pc, #344]	; 230 <Two_ff>
+  d4:	e59f0154 	ldr	r0, [pc, #340]	; 230 <Two_ff>
+  d8:	e59f0150 	ldr	r0, [pc, #336]	; 230 <Two_ff>
+  dc:	e59f014c 	ldr	r0, [pc, #332]	; 230 <Two_ff>
+  e0:	e59f0148 	ldr	r0, [pc, #328]	; 230 <Two_ff>
+  e4:	e59f0144 	ldr	r0, [pc, #324]	; 230 <Two_ff>
+  e8:	e59f0140 	ldr	r0, [pc, #320]	; 230 <Two_ff>
+  ec:	e59f013c 	ldr	r0, [pc, #316]	; 230 <Two_ff>
+  f0:	e59f0138 	ldr	r0, [pc, #312]	; 230 <Two_ff>
+  f4:	e59f0134 	ldr	r0, [pc, #308]	; 230 <Two_ff>
+  f8:	e59f0130 	ldr	r0, [pc, #304]	; 230 <Two_ff>
+  fc:	e59f012c 	ldr	r0, [pc, #300]	; 230 <Two_ff>
+ 100:	e59f0128 	ldr	r0, [pc, #296]	; 230 <Two_ff>
+ 104:	e59f0124 	ldr	r0, [pc, #292]	; 230 <Two_ff>
+ 108:	e00a000c 	and	r0, sl, ip
+ 10c:	e00a000c 	and	r0, sl, ip
+ 110:	e00a000c 	and	r0, sl, ip
+ 114:	e00a000c 	and	r0, sl, ip
+ 118:	e00a000c 	and	r0, sl, ip
+ 11c:	e00a000c 	and	r0, sl, ip
+ 120:	e00a000c 	and	r0, sl, ip
+ 124:	e00a000c 	and	r0, sl, ip
+ 128:	e00a000c 	and	r0, sl, ip
+ 12c:	e00a000c 	and	r0, sl, ip
+ 130:	e00a000c 	and	r0, sl, ip
+ 134:	e00a000c 	and	r0, sl, ip
+ 138:	e00a000c 	and	r0, sl, ip
+ 13c:	e00a000c 	and	r0, sl, ip
+ 140:	e00a000c 	and	r0, sl, ip
+ 144:	e1a00009 	mov	r0, r9
+ 148:	e1a00009 	mov	r0, r9
+ 14c:	e1a00009 	mov	r0, r9
+ 150:	e1a00009 	mov	r0, r9
+ 154:	e1a00009 	mov	r0, r9
+ 158:	e1a00009 	mov	r0, r9
+ 15c:	e1a00009 	mov	r0, r9
+ 160:	e1a00009 	mov	r0, r9
+ 164:	e1a00009 	mov	r0, r9
+ 168:	e1a00009 	mov	r0, r9
+ 16c:	e1a00009 	mov	r0, r9
+ 170:	e1a00009 	mov	r0, r9
+ 174:	e1a00009 	mov	r0, r9
+ 178:	e1a00009 	mov	r0, r9
+ 17c:	e1a00009 	mov	r0, r9
+ 180:	e1500009 	cmp	r0, r9
+ 184:	e1500009 	cmp	r0, r9
+ 188:	e1500009 	cmp	r0, r9
+ 18c:	e1500009 	cmp	r0, r9
+ 190:	e1500009 	cmp	r0, r9
+ 194:	e1500009 	cmp	r0, r9
+ 198:	e1500009 	cmp	r0, r9
+ 19c:	e1500009 	cmp	r0, r9
+ 1a0:	e1500009 	cmp	r0, r9
+ 1a4:	e1500009 	cmp	r0, r9
+ 1a8:	e1500009 	cmp	r0, r9
+ 1ac:	e1500009 	cmp	r0, r9
+ 1b0:	e1500009 	cmp	r0, r9
+ 1b4:	e1500009 	cmp	r0, r9
+ 1b8:	e1500009 	cmp	r0, r9
+ 1bc:	eaffffff 	b	1c0 <point_0>
+
+000001c0 <point_0>:
+ 1c0:	eaffffff 	b	1c4 <point_1>
+
+000001c4 <point_1>:
+ 1c4:	eaffffff 	b	1c8 <point_2>
+
+000001c8 <point_2>:
+ 1c8:	eaffffff 	b	1cc <point_3>
+
+000001cc <point_3>:
+ 1cc:	eaffffff 	b	1d0 <point_4>
+
+000001d0 <point_4>:
+ 1d0:	eaffffff 	b	1d4 <point_5>
+
+000001d4 <point_5>:
+ 1d4:	eaffffff 	b	1d8 <point_6>
+
+000001d8 <point_6>:
+ 1d8:	eaffffff 	b	1dc <point_7>
+
+000001dc <point_7>:
+ 1dc:	eaffffff 	b	1e0 <point_8>
+
+000001e0 <point_8>:
+ 1e0:	eaffffff 	b	1e4 <point_9>
+
+000001e4 <point_9>:
+ 1e4:	eaffffff 	b	1e8 <point_10>
+
+000001e8 <point_10>:
+ 1e8:	eaffffff 	b	1ec <point_11>
+
+000001ec <point_11>:
+ 1ec:	eaffffff 	b	1f0 <point_12>
+
+000001f0 <point_12>:
+ 1f0:	eaffffff 	b	1f4 <point_13>
+
+000001f4 <point_13>:
+ 1f4:	eaffffff 	b	1f8 <point_14>
+
+000001f8 <point_14>:
+ 1f8:	1a000000 	bne	200 <testfail>
+ 1fc:	ea000002 	b	20c <testpass>
+
+00000200 <testfail>:
+ 200:	e59fb014 	ldr	fp, [pc, #20]	; 21c <AdrTestStatus>
+ 204:	e58ba000 	str	sl, [fp]
+ 208:	eafffffc 	b	200 <testfail>
+
+0000020c <testpass>:
+ 20c:	e59fb008 	ldr	fp, [pc, #8]	; 21c <AdrTestStatus>
+ 210:	e3a0a011 	mov	sl, #17
+ 214:	e58ba000 	str	sl, [fp]
+ 218:	eafffffb 	b	20c <testpass>
+
+0000021c <AdrTestStatus>:
+ 21c:	f0000000 	.word	0xf0000000
+
+00000220 <MaxPos>:
+ 220:	7fffffff 	.word	0x7fffffff
+
+00000224 <MidPos_L>:
+ 224:	0000ffff 	.word	0x0000ffff
+
+00000228 <MidPos_L_P1>:
+ 228:	00010000 	.word	0x00010000
+
+0000022c <Zero>:
+ 22c:	00000000 	.word	0x00000000
+
+00000230 <Two_ff>:
+ 230:	000000ff 	.word	0x000000ff
+
+00000234 <A1>:
+ 234:	00feff01 	.word	0x00feff01
+
+00000238 <MaxNeg>:
+ 238:	80000000 	.word	0x80000000

@@ -1,0 +1,913 @@
+
+mla.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e3a06000 	mov	r6, #0
+   4:	e59f8110 	ldr	r8, [pc, #272]	; 11c <AdrTestset>
+
+00000008 <loop>:
+   8:	e206200f 	and	r2, r6, #15
+   c:	e7987102 	ldr	r7, [r8, r2, lsl #2]
+  10:	e20640f0 	and	r4, r6, #240	; 0xf0
+  14:	e7985124 	ldr	r5, [r8, r4, lsr #2]
+  18:	e2069c0f 	and	r9, r6, #3840	; 0xf00
+  1c:	e7984329 	ldr	r4, [r8, r9, lsr #6]
+  20:	e02c4597 	mla	ip, r7, r5, r4
+  24:	e59f90f4 	ldr	r9, [pc, #244]	; 120 <AdrAnswers>
+  28:	e799a106 	ldr	sl, [r9, r6, lsl #2]
+  2c:	e15c000a 	cmp	ip, sl
+  30:	1a00002e 	bne	f0 <testfail>
+  34:	e2866001 	add	r6, r6, #1
+  38:	e3560c02 	cmp	r6, #512	; 0x200
+  3c:	0a000000 	beq	44 <test2>
+  40:	eafffff0 	b	8 <loop>
+
+00000044 <test2>:
+  44:	e1a0200f 	mov	r2, pc
+  48:	e59f70e0 	ldr	r7, [pc, #224]	; 130 <PCMask>
+  4c:	e1c22007 	bic	r2, r2, r7
+  50:	e3c2220f 	bic	r2, r2, #-268435456	; 0xf0000000
+  54:	e3822201 	orr	r2, r2, #268435456	; 0x10000000
+  58:	e13ff002 	teq	pc, r2
+  5c:	e3a00000 	mov	r0, #0
+  60:	e3e01000 	mvn	r1, #0
+  64:	e3e0301a 	mvn	r3, #26
+  68:	e0353190 	mlas	r5, r0, r1, r3
+  6c:	e1a0400f 	mov	r4, pc
+  70:	e59f70b8 	ldr	r7, [pc, #184]	; 130 <PCMask>
+  74:	e1c44007 	bic	r4, r4, r7
+  78:	e204420f 	and	r4, r4, #-268435456	; 0xf0000000
+  7c:	e3540209 	cmp	r4, #-1879048192	; 0x90000000
+  80:	13a0a06e 	movne	sl, #110	; 0x6e
+  84:	1a00001c 	bne	fc <testfail2>
+  88:	e375001b 	cmn	r5, #27
+  8c:	13a0a078 	movne	sl, #120	; 0x78
+  90:	1a000019 	bne	fc <testfail2>
+
+00000094 <test3>:
+  94:	e3a00001 	mov	r0, #1
+  98:	e3a01002 	mov	r1, #2
+  9c:	e3a02007 	mov	r2, #7
+  a0:	e3a03003 	mov	r3, #3
+  a4:	e3a04005 	mov	r4, #5
+  a8:	e3a05006 	mov	r5, #6
+  ac:	e3a06007 	mov	r6, #7
+  b0:	e3700001 	cmn	r0, #1
+  b4:	059f1068 	ldreq	r1, [pc, #104]	; 124 <Data1>
+  b8:	159f2068 	ldrne	r2, [pc, #104]	; 128 <Data2>
+  bc:	10234291 	mlane	r3, r1, r2, r4
+  c0:	059f5064 	ldreq	r5, [pc, #100]	; 12c <Data3>
+  c4:	159f6060 	ldrne	r6, [pc, #96]	; 12c <Data3>
+  c8:	e3530013 	cmp	r3, #19
+  cc:	13a0a0c8 	movne	sl, #200	; 0xc8
+  d0:	1a000009 	bne	fc <testfail2>
+  d4:	e3550006 	cmp	r5, #6
+  d8:	13a0a0d2 	movne	sl, #210	; 0xd2
+  dc:	1a000006 	bne	fc <testfail2>
+  e0:	e3560000 	cmp	r6, #0
+  e4:	13a0a0dc 	movne	sl, #220	; 0xdc
+  e8:	1a000003 	bne	fc <testfail2>
+  ec:	ea000005 	b	108 <testpass>
+
+000000f0 <testfail>:
+  f0:	e59fb020 	ldr	fp, [pc, #32]	; 118 <AdrTestStatus>
+  f4:	e58ba000 	str	sl, [fp]
+  f8:	eafffffc 	b	f0 <testfail>
+
+000000fc <testfail2>:
+  fc:	e59fb014 	ldr	fp, [pc, #20]	; 118 <AdrTestStatus>
+ 100:	e58ba000 	str	sl, [fp]
+ 104:	eafffffc 	b	fc <testfail2>
+
+00000108 <testpass>:
+ 108:	e59fb008 	ldr	fp, [pc, #8]	; 118 <AdrTestStatus>
+ 10c:	e3a0a011 	mov	sl, #17
+ 110:	e58ba000 	str	sl, [fp]
+ 114:	eafffffb 	b	108 <testpass>
+
+00000118 <AdrTestStatus>:
+ 118:	f0000000 	.word	0xf0000000
+
+0000011c <AdrTestset>:
+ 11c:	00000134 	.word	0x00000134
+
+00000120 <AdrAnswers>:
+ 120:	00000174 	.word	0x00000174
+
+00000124 <Data1>:
+ 124:	00000003 	.word	0x00000003
+
+00000128 <Data2>:
+ 128:	00000007 	.word	0x00000007
+
+0000012c <Data3>:
+ 12c:	00000000 	.word	0x00000000
+
+00000130 <PCMask>:
+ 130:	03fffffc 	.word	0x03fffffc
+
+00000134 <Testset>:
+ 134:	00000000 	.word	0x00000000
+ 138:	00000001 	.word	0x00000001
+ 13c:	00000002 	.word	0x00000002
+ 140:	00000003 	.word	0x00000003
+ 144:	0000001b 	.word	0x0000001b
+ 148:	0000ffff 	.word	0x0000ffff
+ 14c:	40000000 	.word	0x40000000
+ 150:	7fffffff 	.word	0x7fffffff
+ 154:	7ffffffe 	.word	0x7ffffffe
+ 158:	ffffffff 	.word	0xffffffff
+ 15c:	fffffffe 	.word	0xfffffffe
+ 160:	fffffffd 	.word	0xfffffffd
+ 164:	ffffffe5 	.word	0xffffffe5
+ 168:	8fff0000 	.word	0x8fff0000
+ 16c:	80000000 	.word	0x80000000
+ 170:	80000001 	.word	0x80000001
+
+00000174 <Answers>:
+	...
+ 1b8:	00000001 	.word	0x00000001
+ 1bc:	00000002 	.word	0x00000002
+ 1c0:	00000003 	.word	0x00000003
+ 1c4:	0000001b 	.word	0x0000001b
+ 1c8:	0000ffff 	.word	0x0000ffff
+ 1cc:	40000000 	.word	0x40000000
+ 1d0:	7fffffff 	.word	0x7fffffff
+ 1d4:	7ffffffe 	.word	0x7ffffffe
+ 1d8:	ffffffff 	.word	0xffffffff
+ 1dc:	fffffffe 	.word	0xfffffffe
+ 1e0:	fffffffd 	.word	0xfffffffd
+ 1e4:	ffffffe5 	.word	0xffffffe5
+ 1e8:	8fff0000 	.word	0x8fff0000
+ 1ec:	80000000 	.word	0x80000000
+ 1f0:	80000001 	.word	0x80000001
+ 1f4:	00000000 	.word	0x00000000
+ 1f8:	00000002 	.word	0x00000002
+ 1fc:	00000004 	.word	0x00000004
+ 200:	00000006 	.word	0x00000006
+ 204:	00000036 	.word	0x00000036
+ 208:	0001fffe 	.word	0x0001fffe
+ 20c:	80000000 	.word	0x80000000
+ 210:	fffffffe 	.word	0xfffffffe
+ 214:	fffffffc 	.word	0xfffffffc
+ 218:	fffffffe 	.word	0xfffffffe
+ 21c:	fffffffc 	.word	0xfffffffc
+ 220:	fffffffa 	.word	0xfffffffa
+ 224:	ffffffca 	.word	0xffffffca
+ 228:	1ffe0000 	.word	0x1ffe0000
+ 22c:	00000000 	.word	0x00000000
+ 230:	00000002 	.word	0x00000002
+ 234:	00000000 	.word	0x00000000
+ 238:	00000003 	.word	0x00000003
+ 23c:	00000006 	.word	0x00000006
+ 240:	00000009 	.word	0x00000009
+ 244:	00000051 	.word	0x00000051
+ 248:	0002fffd 	.word	0x0002fffd
+ 24c:	c0000000 	.word	0xc0000000
+ 250:	7ffffffd 	.word	0x7ffffffd
+ 254:	7ffffffa 	.word	0x7ffffffa
+ 258:	fffffffd 	.word	0xfffffffd
+ 25c:	fffffffa 	.word	0xfffffffa
+ 260:	fffffff7 	.word	0xfffffff7
+ 264:	ffffffaf 	.word	0xffffffaf
+ 268:	affd0000 	.word	0xaffd0000
+ 26c:	80000000 	.word	0x80000000
+ 270:	80000003 	.word	0x80000003
+ 274:	00000000 	.word	0x00000000
+ 278:	0000001b 	.word	0x0000001b
+ 27c:	00000036 	.word	0x00000036
+ 280:	00000051 	.word	0x00000051
+ 284:	000002d9 	.word	0x000002d9
+ 288:	001affe5 	.word	0x001affe5
+ 28c:	c0000000 	.word	0xc0000000
+ 290:	7fffffe5 	.word	0x7fffffe5
+ 294:	7fffffca 	.word	0x7fffffca
+ 298:	ffffffe5 	.word	0xffffffe5
+ 29c:	ffffffca 	.word	0xffffffca
+ 2a0:	ffffffaf 	.word	0xffffffaf
+ 2a4:	fffffd27 	.word	0xfffffd27
+ 2a8:	2fe50000 	.word	0x2fe50000
+ 2ac:	80000000 	.word	0x80000000
+ 2b0:	8000001b 	.word	0x8000001b
+ 2b4:	00000000 	.word	0x00000000
+ 2b8:	0000ffff 	.word	0x0000ffff
+ 2bc:	0001fffe 	.word	0x0001fffe
+ 2c0:	0002fffd 	.word	0x0002fffd
+ 2c4:	001affe5 	.word	0x001affe5
+ 2c8:	fffe0001 	.word	0xfffe0001
+ 2cc:	c0000000 	.word	0xc0000000
+ 2d0:	7fff0001 	.word	0x7fff0001
+ 2d4:	7ffe0002 	.word	0x7ffe0002
+ 2d8:	ffff0001 	.word	0xffff0001
+ 2dc:	fffe0002 	.word	0xfffe0002
+ 2e0:	fffd0003 	.word	0xfffd0003
+ 2e4:	ffe5001b 	.word	0xffe5001b
+ 2e8:	70010000 	.word	0x70010000
+ 2ec:	80000000 	.word	0x80000000
+ 2f0:	8000ffff 	.word	0x8000ffff
+ 2f4:	00000000 	.word	0x00000000
+ 2f8:	40000000 	.word	0x40000000
+ 2fc:	80000000 	.word	0x80000000
+ 300:	c0000000 	.word	0xc0000000
+ 304:	c0000000 	.word	0xc0000000
+ 308:	c0000000 	.word	0xc0000000
+ 30c:	00000000 	.word	0x00000000
+ 310:	c0000000 	.word	0xc0000000
+ 314:	80000000 	.word	0x80000000
+ 318:	c0000000 	.word	0xc0000000
+ 31c:	80000000 	.word	0x80000000
+ 320:	40000000 	.word	0x40000000
+ 324:	40000000 	.word	0x40000000
+	...
+ 330:	40000000 	.word	0x40000000
+ 334:	00000000 	.word	0x00000000
+ 338:	7fffffff 	.word	0x7fffffff
+ 33c:	fffffffe 	.word	0xfffffffe
+ 340:	7ffffffd 	.word	0x7ffffffd
+ 344:	7fffffe5 	.word	0x7fffffe5
+ 348:	7fff0001 	.word	0x7fff0001
+ 34c:	c0000000 	.word	0xc0000000
+ 350:	00000001 	.word	0x00000001
+ 354:	80000002 	.word	0x80000002
+ 358:	80000001 	.word	0x80000001
+ 35c:	00000002 	.word	0x00000002
+ 360:	80000003 	.word	0x80000003
+ 364:	8000001b 	.word	0x8000001b
+ 368:	70010000 	.word	0x70010000
+ 36c:	80000000 	.word	0x80000000
+ 370:	ffffffff 	.word	0xffffffff
+ 374:	00000000 	.word	0x00000000
+ 378:	7ffffffe 	.word	0x7ffffffe
+ 37c:	fffffffc 	.word	0xfffffffc
+ 380:	7ffffffa 	.word	0x7ffffffa
+ 384:	7fffffca 	.word	0x7fffffca
+ 388:	7ffe0002 	.word	0x7ffe0002
+ 38c:	80000000 	.word	0x80000000
+ 390:	80000002 	.word	0x80000002
+ 394:	00000004 	.word	0x00000004
+ 398:	80000002 	.word	0x80000002
+ 39c:	00000004 	.word	0x00000004
+ 3a0:	80000006 	.word	0x80000006
+ 3a4:	80000036 	.word	0x80000036
+ 3a8:	e0020000 	.word	0xe0020000
+ 3ac:	00000000 	.word	0x00000000
+ 3b0:	7ffffffe 	.word	0x7ffffffe
+ 3b4:	00000000 	.word	0x00000000
+ 3b8:	ffffffff 	.word	0xffffffff
+ 3bc:	fffffffe 	.word	0xfffffffe
+ 3c0:	fffffffd 	.word	0xfffffffd
+ 3c4:	ffffffe5 	.word	0xffffffe5
+ 3c8:	ffff0001 	.word	0xffff0001
+ 3cc:	c0000000 	.word	0xc0000000
+ 3d0:	80000001 	.word	0x80000001
+ 3d4:	80000002 	.word	0x80000002
+ 3d8:	00000001 	.word	0x00000001
+ 3dc:	00000002 	.word	0x00000002
+ 3e0:	00000003 	.word	0x00000003
+ 3e4:	0000001b 	.word	0x0000001b
+ 3e8:	70010000 	.word	0x70010000
+ 3ec:	80000000 	.word	0x80000000
+ 3f0:	7fffffff 	.word	0x7fffffff
+ 3f4:	00000000 	.word	0x00000000
+ 3f8:	fffffffe 	.word	0xfffffffe
+ 3fc:	fffffffc 	.word	0xfffffffc
+ 400:	fffffffa 	.word	0xfffffffa
+ 404:	ffffffca 	.word	0xffffffca
+ 408:	fffe0002 	.word	0xfffe0002
+ 40c:	80000000 	.word	0x80000000
+ 410:	00000002 	.word	0x00000002
+ 414:	00000004 	.word	0x00000004
+ 418:	00000002 	.word	0x00000002
+ 41c:	00000004 	.word	0x00000004
+ 420:	00000006 	.word	0x00000006
+ 424:	00000036 	.word	0x00000036
+ 428:	e0020000 	.word	0xe0020000
+ 42c:	00000000 	.word	0x00000000
+ 430:	fffffffe 	.word	0xfffffffe
+ 434:	00000000 	.word	0x00000000
+ 438:	fffffffd 	.word	0xfffffffd
+ 43c:	fffffffa 	.word	0xfffffffa
+ 440:	fffffff7 	.word	0xfffffff7
+ 444:	ffffffaf 	.word	0xffffffaf
+ 448:	fffd0003 	.word	0xfffd0003
+ 44c:	40000000 	.word	0x40000000
+ 450:	80000003 	.word	0x80000003
+ 454:	80000006 	.word	0x80000006
+ 458:	00000003 	.word	0x00000003
+ 45c:	00000006 	.word	0x00000006
+ 460:	00000009 	.word	0x00000009
+ 464:	00000051 	.word	0x00000051
+ 468:	50030000 	.word	0x50030000
+ 46c:	80000000 	.word	0x80000000
+ 470:	7ffffffd 	.word	0x7ffffffd
+ 474:	00000000 	.word	0x00000000
+ 478:	ffffffe5 	.word	0xffffffe5
+ 47c:	ffffffca 	.word	0xffffffca
+ 480:	ffffffaf 	.word	0xffffffaf
+ 484:	fffffd27 	.word	0xfffffd27
+ 488:	ffe5001b 	.word	0xffe5001b
+ 48c:	40000000 	.word	0x40000000
+ 490:	8000001b 	.word	0x8000001b
+ 494:	80000036 	.word	0x80000036
+ 498:	0000001b 	.word	0x0000001b
+ 49c:	00000036 	.word	0x00000036
+ 4a0:	00000051 	.word	0x00000051
+ 4a4:	000002d9 	.word	0x000002d9
+ 4a8:	d01b0000 	.word	0xd01b0000
+ 4ac:	80000000 	.word	0x80000000
+ 4b0:	7fffffe5 	.word	0x7fffffe5
+ 4b4:	00000000 	.word	0x00000000
+ 4b8:	8fff0000 	.word	0x8fff0000
+ 4bc:	1ffe0000 	.word	0x1ffe0000
+ 4c0:	affd0000 	.word	0xaffd0000
+ 4c4:	2fe50000 	.word	0x2fe50000
+ 4c8:	70010000 	.word	0x70010000
+ 4cc:	00000000 	.word	0x00000000
+ 4d0:	70010000 	.word	0x70010000
+ 4d4:	e0020000 	.word	0xe0020000
+ 4d8:	70010000 	.word	0x70010000
+ 4dc:	e0020000 	.word	0xe0020000
+ 4e0:	50030000 	.word	0x50030000
+ 4e4:	d01b0000 	.word	0xd01b0000
+	...
+ 4f0:	8fff0000 	.word	0x8fff0000
+ 4f4:	00000000 	.word	0x00000000
+ 4f8:	80000000 	.word	0x80000000
+ 4fc:	00000000 	.word	0x00000000
+ 500:	80000000 	.word	0x80000000
+ 504:	80000000 	.word	0x80000000
+ 508:	80000000 	.word	0x80000000
+ 50c:	00000000 	.word	0x00000000
+ 510:	80000000 	.word	0x80000000
+ 514:	00000000 	.word	0x00000000
+ 518:	80000000 	.word	0x80000000
+ 51c:	00000000 	.word	0x00000000
+ 520:	80000000 	.word	0x80000000
+ 524:	80000000 	.word	0x80000000
+	...
+ 530:	80000000 	.word	0x80000000
+ 534:	00000000 	.word	0x00000000
+ 538:	80000001 	.word	0x80000001
+ 53c:	00000002 	.word	0x00000002
+ 540:	80000003 	.word	0x80000003
+ 544:	8000001b 	.word	0x8000001b
+ 548:	8000ffff 	.word	0x8000ffff
+ 54c:	40000000 	.word	0x40000000
+ 550:	ffffffff 	.word	0xffffffff
+ 554:	7ffffffe 	.word	0x7ffffffe
+ 558:	7fffffff 	.word	0x7fffffff
+ 55c:	fffffffe 	.word	0xfffffffe
+ 560:	7ffffffd 	.word	0x7ffffffd
+ 564:	7fffffe5 	.word	0x7fffffe5
+ 568:	8fff0000 	.word	0x8fff0000
+ 56c:	80000000 	.word	0x80000000
+ 570:	00000001 	.word	0x00000001
+ 574:	00000001 	.word	0x00000001
+ 578:	00000001 	.word	0x00000001
+ 57c:	00000001 	.word	0x00000001
+ 580:	00000001 	.word	0x00000001
+ 584:	00000001 	.word	0x00000001
+ 588:	00000001 	.word	0x00000001
+ 58c:	00000001 	.word	0x00000001
+ 590:	00000001 	.word	0x00000001
+ 594:	00000001 	.word	0x00000001
+ 598:	00000001 	.word	0x00000001
+ 59c:	00000001 	.word	0x00000001
+ 5a0:	00000001 	.word	0x00000001
+ 5a4:	00000001 	.word	0x00000001
+ 5a8:	00000001 	.word	0x00000001
+ 5ac:	00000001 	.word	0x00000001
+ 5b0:	00000001 	.word	0x00000001
+ 5b4:	00000001 	.word	0x00000001
+ 5b8:	00000002 	.word	0x00000002
+ 5bc:	00000003 	.word	0x00000003
+ 5c0:	00000004 	.word	0x00000004
+ 5c4:	0000001c 	.word	0x0000001c
+ 5c8:	00010000 	.word	0x00010000
+ 5cc:	40000001 	.word	0x40000001
+ 5d0:	80000000 	.word	0x80000000
+ 5d4:	7fffffff 	.word	0x7fffffff
+ 5d8:	00000000 	.word	0x00000000
+ 5dc:	ffffffff 	.word	0xffffffff
+ 5e0:	fffffffe 	.word	0xfffffffe
+ 5e4:	ffffffe6 	.word	0xffffffe6
+ 5e8:	8fff0001 	.word	0x8fff0001
+ 5ec:	80000001 	.word	0x80000001
+ 5f0:	80000002 	.word	0x80000002
+ 5f4:	00000001 	.word	0x00000001
+ 5f8:	00000003 	.word	0x00000003
+ 5fc:	00000005 	.word	0x00000005
+ 600:	00000007 	.word	0x00000007
+ 604:	00000037 	.word	0x00000037
+ 608:	0001ffff 	.word	0x0001ffff
+ 60c:	80000001 	.word	0x80000001
+ 610:	ffffffff 	.word	0xffffffff
+ 614:	fffffffd 	.word	0xfffffffd
+ 618:	ffffffff 	.word	0xffffffff
+ 61c:	fffffffd 	.word	0xfffffffd
+ 620:	fffffffb 	.word	0xfffffffb
+ 624:	ffffffcb 	.word	0xffffffcb
+ 628:	1ffe0001 	.word	0x1ffe0001
+ 62c:	00000001 	.word	0x00000001
+ 630:	00000003 	.word	0x00000003
+ 634:	00000001 	.word	0x00000001
+ 638:	00000004 	.word	0x00000004
+ 63c:	00000007 	.word	0x00000007
+ 640:	0000000a 	.word	0x0000000a
+ 644:	00000052 	.word	0x00000052
+ 648:	0002fffe 	.word	0x0002fffe
+ 64c:	c0000001 	.word	0xc0000001
+ 650:	7ffffffe 	.word	0x7ffffffe
+ 654:	7ffffffb 	.word	0x7ffffffb
+ 658:	fffffffe 	.word	0xfffffffe
+ 65c:	fffffffb 	.word	0xfffffffb
+ 660:	fffffff8 	.word	0xfffffff8
+ 664:	ffffffb0 	.word	0xffffffb0
+ 668:	affd0001 	.word	0xaffd0001
+ 66c:	80000001 	.word	0x80000001
+ 670:	80000004 	.word	0x80000004
+ 674:	00000001 	.word	0x00000001
+ 678:	0000001c 	.word	0x0000001c
+ 67c:	00000037 	.word	0x00000037
+ 680:	00000052 	.word	0x00000052
+ 684:	000002da 	.word	0x000002da
+ 688:	001affe6 	.word	0x001affe6
+ 68c:	c0000001 	.word	0xc0000001
+ 690:	7fffffe6 	.word	0x7fffffe6
+ 694:	7fffffcb 	.word	0x7fffffcb
+ 698:	ffffffe6 	.word	0xffffffe6
+ 69c:	ffffffcb 	.word	0xffffffcb
+ 6a0:	ffffffb0 	.word	0xffffffb0
+ 6a4:	fffffd28 	.word	0xfffffd28
+ 6a8:	2fe50001 	.word	0x2fe50001
+ 6ac:	80000001 	.word	0x80000001
+ 6b0:	8000001c 	.word	0x8000001c
+ 6b4:	00000001 	.word	0x00000001
+ 6b8:	00010000 	.word	0x00010000
+ 6bc:	0001ffff 	.word	0x0001ffff
+ 6c0:	0002fffe 	.word	0x0002fffe
+ 6c4:	001affe6 	.word	0x001affe6
+ 6c8:	fffe0002 	.word	0xfffe0002
+ 6cc:	c0000001 	.word	0xc0000001
+ 6d0:	7fff0002 	.word	0x7fff0002
+ 6d4:	7ffe0003 	.word	0x7ffe0003
+ 6d8:	ffff0002 	.word	0xffff0002
+ 6dc:	fffe0003 	.word	0xfffe0003
+ 6e0:	fffd0004 	.word	0xfffd0004
+ 6e4:	ffe5001c 	.word	0xffe5001c
+ 6e8:	70010001 	.word	0x70010001
+ 6ec:	80000001 	.word	0x80000001
+ 6f0:	80010000 	.word	0x80010000
+ 6f4:	00000001 	.word	0x00000001
+ 6f8:	40000001 	.word	0x40000001
+ 6fc:	80000001 	.word	0x80000001
+ 700:	c0000001 	.word	0xc0000001
+ 704:	c0000001 	.word	0xc0000001
+ 708:	c0000001 	.word	0xc0000001
+ 70c:	00000001 	.word	0x00000001
+ 710:	c0000001 	.word	0xc0000001
+ 714:	80000001 	.word	0x80000001
+ 718:	c0000001 	.word	0xc0000001
+ 71c:	80000001 	.word	0x80000001
+ 720:	40000001 	.word	0x40000001
+ 724:	40000001 	.word	0x40000001
+ 728:	00000001 	.word	0x00000001
+ 72c:	00000001 	.word	0x00000001
+ 730:	40000001 	.word	0x40000001
+ 734:	00000001 	.word	0x00000001
+ 738:	80000000 	.word	0x80000000
+ 73c:	ffffffff 	.word	0xffffffff
+ 740:	7ffffffe 	.word	0x7ffffffe
+ 744:	7fffffe6 	.word	0x7fffffe6
+ 748:	7fff0002 	.word	0x7fff0002
+ 74c:	c0000001 	.word	0xc0000001
+ 750:	00000002 	.word	0x00000002
+ 754:	80000003 	.word	0x80000003
+ 758:	80000002 	.word	0x80000002
+ 75c:	00000003 	.word	0x00000003
+ 760:	80000004 	.word	0x80000004
+ 764:	8000001c 	.word	0x8000001c
+ 768:	70010001 	.word	0x70010001
+ 76c:	80000001 	.word	0x80000001
+ 770:	00000000 	.word	0x00000000
+ 774:	00000001 	.word	0x00000001
+ 778:	7fffffff 	.word	0x7fffffff
+ 77c:	fffffffd 	.word	0xfffffffd
+ 780:	7ffffffb 	.word	0x7ffffffb
+ 784:	7fffffcb 	.word	0x7fffffcb
+ 788:	7ffe0003 	.word	0x7ffe0003
+ 78c:	80000001 	.word	0x80000001
+ 790:	80000003 	.word	0x80000003
+ 794:	00000005 	.word	0x00000005
+ 798:	80000003 	.word	0x80000003
+ 79c:	00000005 	.word	0x00000005
+ 7a0:	80000007 	.word	0x80000007
+ 7a4:	80000037 	.word	0x80000037
+ 7a8:	e0020001 	.word	0xe0020001
+ 7ac:	00000001 	.word	0x00000001
+ 7b0:	7fffffff 	.word	0x7fffffff
+ 7b4:	00000001 	.word	0x00000001
+ 7b8:	00000000 	.word	0x00000000
+ 7bc:	ffffffff 	.word	0xffffffff
+ 7c0:	fffffffe 	.word	0xfffffffe
+ 7c4:	ffffffe6 	.word	0xffffffe6
+ 7c8:	ffff0002 	.word	0xffff0002
+ 7cc:	c0000001 	.word	0xc0000001
+ 7d0:	80000002 	.word	0x80000002
+ 7d4:	80000003 	.word	0x80000003
+ 7d8:	00000002 	.word	0x00000002
+ 7dc:	00000003 	.word	0x00000003
+ 7e0:	00000004 	.word	0x00000004
+ 7e4:	0000001c 	.word	0x0000001c
+ 7e8:	70010001 	.word	0x70010001
+ 7ec:	80000001 	.word	0x80000001
+ 7f0:	80000000 	.word	0x80000000
+ 7f4:	00000001 	.word	0x00000001
+ 7f8:	ffffffff 	.word	0xffffffff
+ 7fc:	fffffffd 	.word	0xfffffffd
+ 800:	fffffffb 	.word	0xfffffffb
+ 804:	ffffffcb 	.word	0xffffffcb
+ 808:	fffe0003 	.word	0xfffe0003
+ 80c:	80000001 	.word	0x80000001
+ 810:	00000003 	.word	0x00000003
+ 814:	00000005 	.word	0x00000005
+ 818:	00000003 	.word	0x00000003
+ 81c:	00000005 	.word	0x00000005
+ 820:	00000007 	.word	0x00000007
+ 824:	00000037 	.word	0x00000037
+ 828:	e0020001 	.word	0xe0020001
+ 82c:	00000001 	.word	0x00000001
+ 830:	ffffffff 	.word	0xffffffff
+ 834:	00000001 	.word	0x00000001
+ 838:	fffffffe 	.word	0xfffffffe
+ 83c:	fffffffb 	.word	0xfffffffb
+ 840:	fffffff8 	.word	0xfffffff8
+ 844:	ffffffb0 	.word	0xffffffb0
+ 848:	fffd0004 	.word	0xfffd0004
+ 84c:	40000001 	.word	0x40000001
+ 850:	80000004 	.word	0x80000004
+ 854:	80000007 	.word	0x80000007
+ 858:	00000004 	.word	0x00000004
+ 85c:	00000007 	.word	0x00000007
+ 860:	0000000a 	.word	0x0000000a
+ 864:	00000052 	.word	0x00000052
+ 868:	50030001 	.word	0x50030001
+ 86c:	80000001 	.word	0x80000001
+ 870:	7ffffffe 	.word	0x7ffffffe
+ 874:	00000001 	.word	0x00000001
+ 878:	ffffffe6 	.word	0xffffffe6
+ 87c:	ffffffcb 	.word	0xffffffcb
+ 880:	ffffffb0 	.word	0xffffffb0
+ 884:	fffffd28 	.word	0xfffffd28
+ 888:	ffe5001c 	.word	0xffe5001c
+ 88c:	40000001 	.word	0x40000001
+ 890:	8000001c 	.word	0x8000001c
+ 894:	80000037 	.word	0x80000037
+ 898:	0000001c 	.word	0x0000001c
+ 89c:	00000037 	.word	0x00000037
+ 8a0:	00000052 	.word	0x00000052
+ 8a4:	000002da 	.word	0x000002da
+ 8a8:	d01b0001 	.word	0xd01b0001
+ 8ac:	80000001 	.word	0x80000001
+ 8b0:	7fffffe6 	.word	0x7fffffe6
+ 8b4:	00000001 	.word	0x00000001
+ 8b8:	8fff0001 	.word	0x8fff0001
+ 8bc:	1ffe0001 	.word	0x1ffe0001
+ 8c0:	affd0001 	.word	0xaffd0001
+ 8c4:	2fe50001 	.word	0x2fe50001
+ 8c8:	70010001 	.word	0x70010001
+ 8cc:	00000001 	.word	0x00000001
+ 8d0:	70010001 	.word	0x70010001
+ 8d4:	e0020001 	.word	0xe0020001
+ 8d8:	70010001 	.word	0x70010001
+ 8dc:	e0020001 	.word	0xe0020001
+ 8e0:	50030001 	.word	0x50030001
+ 8e4:	d01b0001 	.word	0xd01b0001
+ 8e8:	00000001 	.word	0x00000001
+ 8ec:	00000001 	.word	0x00000001
+ 8f0:	8fff0001 	.word	0x8fff0001
+ 8f4:	00000001 	.word	0x00000001
+ 8f8:	80000001 	.word	0x80000001
+ 8fc:	00000001 	.word	0x00000001
+ 900:	80000001 	.word	0x80000001
+ 904:	80000001 	.word	0x80000001
+ 908:	80000001 	.word	0x80000001
+ 90c:	00000001 	.word	0x00000001
+ 910:	80000001 	.word	0x80000001
+ 914:	00000001 	.word	0x00000001
+ 918:	80000001 	.word	0x80000001
+ 91c:	00000001 	.word	0x00000001
+ 920:	80000001 	.word	0x80000001
+ 924:	80000001 	.word	0x80000001
+ 928:	00000001 	.word	0x00000001
+ 92c:	00000001 	.word	0x00000001
+ 930:	80000001 	.word	0x80000001
+ 934:	00000001 	.word	0x00000001
+ 938:	80000002 	.word	0x80000002
+ 93c:	00000003 	.word	0x00000003
+ 940:	80000004 	.word	0x80000004
+ 944:	8000001c 	.word	0x8000001c
+ 948:	80010000 	.word	0x80010000
+ 94c:	40000001 	.word	0x40000001
+ 950:	00000000 	.word	0x00000000
+ 954:	7fffffff 	.word	0x7fffffff
+ 958:	80000000 	.word	0x80000000
+ 95c:	ffffffff 	.word	0xffffffff
+ 960:	7ffffffe 	.word	0x7ffffffe
+ 964:	7fffffe6 	.word	0x7fffffe6
+ 968:	8fff0001 	.word	0x8fff0001
+ 96c:	80000001 	.word	0x80000001
+ 970:	00000002 	.word	0x00000002
+ 974:	00000002 	.word	0x00000002
+ 978:	00000002 	.word	0x00000002
+ 97c:	00000002 	.word	0x00000002
+ 980:	00000002 	.word	0x00000002
+ 984:	00000002 	.word	0x00000002
+ 988:	00000002 	.word	0x00000002
+ 98c:	00000002 	.word	0x00000002
+ 990:	00000002 	.word	0x00000002
+ 994:	00000002 	.word	0x00000002
+ 998:	00000002 	.word	0x00000002
+ 99c:	00000002 	.word	0x00000002
+ 9a0:	00000002 	.word	0x00000002
+ 9a4:	00000002 	.word	0x00000002
+ 9a8:	00000002 	.word	0x00000002
+ 9ac:	00000002 	.word	0x00000002
+ 9b0:	00000002 	.word	0x00000002
+ 9b4:	00000002 	.word	0x00000002
+ 9b8:	00000003 	.word	0x00000003
+ 9bc:	00000004 	.word	0x00000004
+ 9c0:	00000005 	.word	0x00000005
+ 9c4:	0000001d 	.word	0x0000001d
+ 9c8:	00010001 	.word	0x00010001
+ 9cc:	40000002 	.word	0x40000002
+ 9d0:	80000001 	.word	0x80000001
+ 9d4:	80000000 	.word	0x80000000
+ 9d8:	00000001 	.word	0x00000001
+ 9dc:	00000000 	.word	0x00000000
+ 9e0:	ffffffff 	.word	0xffffffff
+ 9e4:	ffffffe7 	.word	0xffffffe7
+ 9e8:	8fff0002 	.word	0x8fff0002
+ 9ec:	80000002 	.word	0x80000002
+ 9f0:	80000003 	.word	0x80000003
+ 9f4:	00000002 	.word	0x00000002
+ 9f8:	00000004 	.word	0x00000004
+ 9fc:	00000006 	.word	0x00000006
+ a00:	00000008 	.word	0x00000008
+ a04:	00000038 	.word	0x00000038
+ a08:	00020000 	.word	0x00020000
+ a0c:	80000002 	.word	0x80000002
+ a10:	00000000 	.word	0x00000000
+ a14:	fffffffe 	.word	0xfffffffe
+ a18:	00000000 	.word	0x00000000
+ a1c:	fffffffe 	.word	0xfffffffe
+ a20:	fffffffc 	.word	0xfffffffc
+ a24:	ffffffcc 	.word	0xffffffcc
+ a28:	1ffe0002 	.word	0x1ffe0002
+ a2c:	00000002 	.word	0x00000002
+ a30:	00000004 	.word	0x00000004
+ a34:	00000002 	.word	0x00000002
+ a38:	00000005 	.word	0x00000005
+ a3c:	00000008 	.word	0x00000008
+ a40:	0000000b 	.word	0x0000000b
+ a44:	00000053 	.word	0x00000053
+ a48:	0002ffff 	.word	0x0002ffff
+ a4c:	c0000002 	.word	0xc0000002
+ a50:	7fffffff 	.word	0x7fffffff
+ a54:	7ffffffc 	.word	0x7ffffffc
+ a58:	ffffffff 	.word	0xffffffff
+ a5c:	fffffffc 	.word	0xfffffffc
+ a60:	fffffff9 	.word	0xfffffff9
+ a64:	ffffffb1 	.word	0xffffffb1
+ a68:	affd0002 	.word	0xaffd0002
+ a6c:	80000002 	.word	0x80000002
+ a70:	80000005 	.word	0x80000005
+ a74:	00000002 	.word	0x00000002
+ a78:	0000001d 	.word	0x0000001d
+ a7c:	00000038 	.word	0x00000038
+ a80:	00000053 	.word	0x00000053
+ a84:	000002db 	.word	0x000002db
+ a88:	001affe7 	.word	0x001affe7
+ a8c:	c0000002 	.word	0xc0000002
+ a90:	7fffffe7 	.word	0x7fffffe7
+ a94:	7fffffcc 	.word	0x7fffffcc
+ a98:	ffffffe7 	.word	0xffffffe7
+ a9c:	ffffffcc 	.word	0xffffffcc
+ aa0:	ffffffb1 	.word	0xffffffb1
+ aa4:	fffffd29 	.word	0xfffffd29
+ aa8:	2fe50002 	.word	0x2fe50002
+ aac:	80000002 	.word	0x80000002
+ ab0:	8000001d 	.word	0x8000001d
+ ab4:	00000002 	.word	0x00000002
+ ab8:	00010001 	.word	0x00010001
+ abc:	00020000 	.word	0x00020000
+ ac0:	0002ffff 	.word	0x0002ffff
+ ac4:	001affe7 	.word	0x001affe7
+ ac8:	fffe0003 	.word	0xfffe0003
+ acc:	c0000002 	.word	0xc0000002
+ ad0:	7fff0003 	.word	0x7fff0003
+ ad4:	7ffe0004 	.word	0x7ffe0004
+ ad8:	ffff0003 	.word	0xffff0003
+ adc:	fffe0004 	.word	0xfffe0004
+ ae0:	fffd0005 	.word	0xfffd0005
+ ae4:	ffe5001d 	.word	0xffe5001d
+ ae8:	70010002 	.word	0x70010002
+ aec:	80000002 	.word	0x80000002
+ af0:	80010001 	.word	0x80010001
+ af4:	00000002 	.word	0x00000002
+ af8:	40000002 	.word	0x40000002
+ afc:	80000002 	.word	0x80000002
+ b00:	c0000002 	.word	0xc0000002
+ b04:	c0000002 	.word	0xc0000002
+ b08:	c0000002 	.word	0xc0000002
+ b0c:	00000002 	.word	0x00000002
+ b10:	c0000002 	.word	0xc0000002
+ b14:	80000002 	.word	0x80000002
+ b18:	c0000002 	.word	0xc0000002
+ b1c:	80000002 	.word	0x80000002
+ b20:	40000002 	.word	0x40000002
+ b24:	40000002 	.word	0x40000002
+ b28:	00000002 	.word	0x00000002
+ b2c:	00000002 	.word	0x00000002
+ b30:	40000002 	.word	0x40000002
+ b34:	00000002 	.word	0x00000002
+ b38:	80000001 	.word	0x80000001
+ b3c:	00000000 	.word	0x00000000
+ b40:	7fffffff 	.word	0x7fffffff
+ b44:	7fffffe7 	.word	0x7fffffe7
+ b48:	7fff0003 	.word	0x7fff0003
+ b4c:	c0000002 	.word	0xc0000002
+ b50:	00000003 	.word	0x00000003
+ b54:	80000004 	.word	0x80000004
+ b58:	80000003 	.word	0x80000003
+ b5c:	00000004 	.word	0x00000004
+ b60:	80000005 	.word	0x80000005
+ b64:	8000001d 	.word	0x8000001d
+ b68:	70010002 	.word	0x70010002
+ b6c:	80000002 	.word	0x80000002
+ b70:	00000001 	.word	0x00000001
+ b74:	00000002 	.word	0x00000002
+ b78:	80000000 	.word	0x80000000
+ b7c:	fffffffe 	.word	0xfffffffe
+ b80:	7ffffffc 	.word	0x7ffffffc
+ b84:	7fffffcc 	.word	0x7fffffcc
+ b88:	7ffe0004 	.word	0x7ffe0004
+ b8c:	80000002 	.word	0x80000002
+ b90:	80000004 	.word	0x80000004
+ b94:	00000006 	.word	0x00000006
+ b98:	80000004 	.word	0x80000004
+ b9c:	00000006 	.word	0x00000006
+ ba0:	80000008 	.word	0x80000008
+ ba4:	80000038 	.word	0x80000038
+ ba8:	e0020002 	.word	0xe0020002
+ bac:	00000002 	.word	0x00000002
+ bb0:	80000000 	.word	0x80000000
+ bb4:	00000002 	.word	0x00000002
+ bb8:	00000001 	.word	0x00000001
+ bbc:	00000000 	.word	0x00000000
+ bc0:	ffffffff 	.word	0xffffffff
+ bc4:	ffffffe7 	.word	0xffffffe7
+ bc8:	ffff0003 	.word	0xffff0003
+ bcc:	c0000002 	.word	0xc0000002
+ bd0:	80000003 	.word	0x80000003
+ bd4:	80000004 	.word	0x80000004
+ bd8:	00000003 	.word	0x00000003
+ bdc:	00000004 	.word	0x00000004
+ be0:	00000005 	.word	0x00000005
+ be4:	0000001d 	.word	0x0000001d
+ be8:	70010002 	.word	0x70010002
+ bec:	80000002 	.word	0x80000002
+ bf0:	80000001 	.word	0x80000001
+ bf4:	00000002 	.word	0x00000002
+ bf8:	00000000 	.word	0x00000000
+ bfc:	fffffffe 	.word	0xfffffffe
+ c00:	fffffffc 	.word	0xfffffffc
+ c04:	ffffffcc 	.word	0xffffffcc
+ c08:	fffe0004 	.word	0xfffe0004
+ c0c:	80000002 	.word	0x80000002
+ c10:	00000004 	.word	0x00000004
+ c14:	00000006 	.word	0x00000006
+ c18:	00000004 	.word	0x00000004
+ c1c:	00000006 	.word	0x00000006
+ c20:	00000008 	.word	0x00000008
+ c24:	00000038 	.word	0x00000038
+ c28:	e0020002 	.word	0xe0020002
+ c2c:	00000002 	.word	0x00000002
+ c30:	00000000 	.word	0x00000000
+ c34:	00000002 	.word	0x00000002
+ c38:	ffffffff 	.word	0xffffffff
+ c3c:	fffffffc 	.word	0xfffffffc
+ c40:	fffffff9 	.word	0xfffffff9
+ c44:	ffffffb1 	.word	0xffffffb1
+ c48:	fffd0005 	.word	0xfffd0005
+ c4c:	40000002 	.word	0x40000002
+ c50:	80000005 	.word	0x80000005
+ c54:	80000008 	.word	0x80000008
+ c58:	00000005 	.word	0x00000005
+ c5c:	00000008 	.word	0x00000008
+ c60:	0000000b 	.word	0x0000000b
+ c64:	00000053 	.word	0x00000053
+ c68:	50030002 	.word	0x50030002
+ c6c:	80000002 	.word	0x80000002
+ c70:	7fffffff 	.word	0x7fffffff
+ c74:	00000002 	.word	0x00000002
+ c78:	ffffffe7 	.word	0xffffffe7
+ c7c:	ffffffcc 	.word	0xffffffcc
+ c80:	ffffffb1 	.word	0xffffffb1
+ c84:	fffffd29 	.word	0xfffffd29
+ c88:	ffe5001d 	.word	0xffe5001d
+ c8c:	40000002 	.word	0x40000002
+ c90:	8000001d 	.word	0x8000001d
+ c94:	80000038 	.word	0x80000038
+ c98:	0000001d 	.word	0x0000001d
+ c9c:	00000038 	.word	0x00000038
+ ca0:	00000053 	.word	0x00000053
+ ca4:	000002db 	.word	0x000002db
+ ca8:	d01b0002 	.word	0xd01b0002
+ cac:	80000002 	.word	0x80000002
+ cb0:	7fffffe7 	.word	0x7fffffe7
+ cb4:	00000002 	.word	0x00000002
+ cb8:	8fff0002 	.word	0x8fff0002
+ cbc:	1ffe0002 	.word	0x1ffe0002
+ cc0:	affd0002 	.word	0xaffd0002
+ cc4:	2fe50002 	.word	0x2fe50002
+ cc8:	70010002 	.word	0x70010002
+ ccc:	00000002 	.word	0x00000002
+ cd0:	70010002 	.word	0x70010002
+ cd4:	e0020002 	.word	0xe0020002
+ cd8:	70010002 	.word	0x70010002
+ cdc:	e0020002 	.word	0xe0020002
+ ce0:	50030002 	.word	0x50030002
+ ce4:	d01b0002 	.word	0xd01b0002
+ ce8:	00000002 	.word	0x00000002
+ cec:	00000002 	.word	0x00000002
+ cf0:	8fff0002 	.word	0x8fff0002
+ cf4:	00000002 	.word	0x00000002
+ cf8:	80000002 	.word	0x80000002
+ cfc:	00000002 	.word	0x00000002
+ d00:	80000002 	.word	0x80000002
+ d04:	80000002 	.word	0x80000002
+ d08:	80000002 	.word	0x80000002
+ d0c:	00000002 	.word	0x00000002
+ d10:	80000002 	.word	0x80000002
+ d14:	00000002 	.word	0x00000002
+ d18:	80000002 	.word	0x80000002
+ d1c:	00000002 	.word	0x00000002
+ d20:	80000002 	.word	0x80000002
+ d24:	80000002 	.word	0x80000002
+ d28:	00000002 	.word	0x00000002
+ d2c:	00000002 	.word	0x00000002
+ d30:	80000002 	.word	0x80000002
+ d34:	00000002 	.word	0x00000002
+ d38:	80000003 	.word	0x80000003
+ d3c:	00000004 	.word	0x00000004
+ d40:	80000005 	.word	0x80000005
+ d44:	8000001d 	.word	0x8000001d
+ d48:	80010001 	.word	0x80010001
+ d4c:	40000002 	.word	0x40000002
+ d50:	00000001 	.word	0x00000001
+ d54:	80000000 	.word	0x80000000
+ d58:	80000001 	.word	0x80000001
+ d5c:	00000000 	.word	0x00000000
+ d60:	7fffffff 	.word	0x7fffffff
+ d64:	7fffffe7 	.word	0x7fffffe7
+ d68:	8fff0002 	.word	0x8fff0002
+ d6c:	80000002 	.word	0x80000002
+ d70:	00000003 	.word	0x00000003
+ d74:	00000003 	.word	0x00000003
+ d78:	00000003 	.word	0x00000003
+ d7c:	00000003 	.word	0x00000003
+ d80:	00000003 	.word	0x00000003
+ d84:	00000003 	.word	0x00000003
+ d88:	00000003 	.word	0x00000003
+ d8c:	00000003 	.word	0x00000003
+ d90:	00000003 	.word	0x00000003
+ d94:	00000003 	.word	0x00000003
+ d98:	00000003 	.word	0x00000003
+ d9c:	00000003 	.word	0x00000003
+ da0:	00000003 	.word	0x00000003
+ da4:	00000003 	.word	0x00000003
+ da8:	00000003 	.word	0x00000003
+ dac:	00000003 	.word	0x00000003
+ db0:	00000003 	.word	0x00000003
+ db4:	00000003 	.word	0x00000003
+ db8:	00000004 	.word	0x00000004
+ dbc:	00000005 	.word	0x00000005
+ dc0:	00000006 	.word	0x00000006
+ dc4:	0000001e 	.word	0x0000001e
+ dc8:	00010002 	.word	0x00010002
+ dcc:	40000003 	.word	0x40000003
+ dd0:	80000002 	.word	0x80000002
+ dd4:	80000001 	.word	0x80000001
+ dd8:	00000002 	.word	0x00000002
+ ddc:	00000001 	.word	0x00000001
+ de0:	00000000 	.word	0x00000000
+ de4:	ffffffe8 	.word	0xffffffe8
+ de8:	8fff0003 	.word	0x8fff0003
+ dec:	80000003 	.word	0x80000003
+ df0:	80000004 	.word	0x80000004
+ df4:	00000003 	.word	0x00000003
+ df8:	00000005 	.word	0x00000005

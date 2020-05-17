@@ -1,0 +1,61 @@
+
+movs_bug.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e59f0078 	ldr	r0, [pc, #120]	; 80 <AdrCopyDest>
+   4:	e59f1078 	ldr	r1, [pc, #120]	; 84 <AdrCopySource>
+   8:	e3a02002 	mov	r2, #2
+   c:	e2522004 	subs	r2, r2, #4
+  10:	ba000001 	blt	1c <bytes>
+  14:	e3a0a00a 	mov	sl, #10
+  18:	ea000010 	b	60 <testfail>
+
+0000001c <bytes>:
+  1c:	e1b02f82 	lsls	r2, r2, #31
+  20:	14d13001 	ldrbne	r3, [r1], #1
+  24:	24d14001 	ldrbcs	r4, [r1], #1
+  28:	24d1c001 	ldrbcs	ip, [r1], #1
+  2c:	14c03001 	strbne	r3, [r0], #1
+  30:	24c04001 	strbcs	r4, [r0], #1
+  34:	24c0c001 	strbcs	ip, [r0], #1
+  38:	e59f0040 	ldr	r0, [pc, #64]	; 80 <AdrCopyDest>
+  3c:	e4d01001 	ldrb	r1, [r0], #1
+  40:	e3510031 	cmp	r1, #49	; 0x31
+  44:	13a0a014 	movne	sl, #20
+  48:	1a000004 	bne	60 <testfail>
+  4c:	e4d01001 	ldrb	r1, [r0], #1
+  50:	e3510000 	cmp	r1, #0
+  54:	13a0a01e 	movne	sl, #30
+  58:	1a000000 	bne	60 <testfail>
+  5c:	ea000002 	b	6c <testpass>
+
+00000060 <testfail>:
+  60:	e59fb014 	ldr	fp, [pc, #20]	; 7c <AdrTestStatus>
+  64:	e58ba000 	str	sl, [fp]
+  68:	eafffffc 	b	60 <testfail>
+
+0000006c <testpass>:
+  6c:	e59fb008 	ldr	fp, [pc, #8]	; 7c <AdrTestStatus>
+  70:	e3a0a011 	mov	sl, #17
+  74:	e58ba000 	str	sl, [fp]
+  78:	eafffffb 	b	6c <testpass>
+
+0000007c <AdrTestStatus>:
+  7c:	f0000000 	.word	0xf0000000
+
+00000080 <AdrCopyDest>:
+  80:	0000008c 	.word	0x0000008c
+
+00000084 <AdrCopySource>:
+  84:	00000088 	.word	0x00000088
+
+00000088 <Text1>:
+  88:	0031      	.short	0x0031
+	...
+
+0000008c <Text2>:
+  8c:	32323232 	eorscc	r3, r2, #536870915	; 0x20000003
+  90:	00000000 	andeq	r0, r0, r0

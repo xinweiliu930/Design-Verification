@@ -1,0 +1,58 @@
+
+inflate_bug.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e3a09004 	mov	r9, #4
+   4:	e59fe064 	ldr	lr, [pc, #100]	; 70 <Expected+0x4>
+   8:	e28ee002 	add	lr, lr, #2
+   c:	e59f2044 	ldr	r2, [pc, #68]	; 58 <Data1>
+  10:	e59e3004 	ldr	r3, [lr, #4]
+  14:	e5921000 	ldr	r1, [r2]
+  18:	e7c13009 	strb	r3, [r1, r9]
+  1c:	e7d16009 	ldrb	r6, [r1, r9]
+  20:	e3560022 	cmp	r6, #34	; 0x22
+  24:	13a0a00a 	movne	sl, #10
+  28:	1a000000 	bne	30 <testfail>
+  2c:	ea000002 	b	3c <testpass>
+
+00000030 <testfail>:
+  30:	e59fb014 	ldr	fp, [pc, #20]	; 4c <AdrTestStatus>
+  34:	e58ba000 	str	sl, [fp]
+  38:	eafffffc 	b	30 <testfail>
+
+0000003c <testpass>:
+  3c:	e59fb008 	ldr	fp, [pc, #8]	; 4c <AdrTestStatus>
+  40:	e3a0a011 	mov	sl, #17
+  44:	e58ba000 	str	sl, [fp]
+  48:	eafffffb 	b	3c <testpass>
+
+0000004c <AdrTestStatus>:
+  4c:	f0000000 	.word	0xf0000000
+
+00000050 <AdrFrame>:
+  50:	00000400 	.word	0x00000400
+
+00000054 <AdrDataBase>:
+  54:	00000058 	.word	0x00000058
+
+00000058 <Data1>:
+  58:	00000064 	.word	0x00000064
+
+0000005c <Data2>:
+  5c:	7777aaaa 	.word	0x7777aaaa
+
+00000060 <Data3>:
+  60:	11225566 	.word	0x11225566
+
+00000064 <Data4>:
+  64:	00000068 	.word	0x00000068
+
+00000068 <Data5>:
+  68:	33448899 	.word	0x33448899
+
+0000006c <Expected>:
+  6c:	000071f8 	.word	0x000071f8
+  70:	0000005c 	.word	0x0000005c

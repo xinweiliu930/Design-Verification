@@ -1,0 +1,82 @@
+
+uart_reg.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e59f00c4 	ldr	r0, [pc, #196]	; cc <AdrUart0LCRH>
+   4:	e59f10c4 	ldr	r1, [pc, #196]	; d0 <AdrUart0LCRM>
+   8:	e59f20c4 	ldr	r2, [pc, #196]	; d4 <AdrUart0LCRL>
+   c:	e3a07080 	mov	r7, #128	; 0x80
+  10:	e3a0800f 	mov	r8, #15
+  14:	e3a090cc 	mov	r9, #204	; 0xcc
+  18:	e5807000 	str	r7, [r0]
+  1c:	e5818000 	str	r8, [r1]
+  20:	e5829000 	str	r9, [r2]
+  24:	e5904000 	ldr	r4, [r0]
+  28:	e5915000 	ldr	r5, [r1]
+  2c:	e5926000 	ldr	r6, [r2]
+  30:	e1540007 	cmp	r4, r7
+  34:	13a0a00a 	movne	sl, #10
+  38:	1a00001b 	bne	ac <testfail>
+  3c:	e1550008 	cmp	r5, r8
+  40:	13a0a014 	movne	sl, #20
+  44:	1a000018 	bne	ac <testfail>
+  48:	e1560009 	cmp	r6, r9
+  4c:	13a0a01e 	movne	sl, #30
+  50:	1a000015 	bne	ac <testfail>
+  54:	e59f007c 	ldr	r0, [pc, #124]	; d8 <AdrUart1LCRH>
+  58:	e59f107c 	ldr	r1, [pc, #124]	; dc <AdrUart1LCRM>
+  5c:	e59f207c 	ldr	r2, [pc, #124]	; e0 <AdrUart1LCRL>
+  60:	e3a07044 	mov	r7, #68	; 0x44
+  64:	e3a08022 	mov	r8, #34	; 0x22
+  68:	e3a09055 	mov	r9, #85	; 0x55
+  6c:	e5807000 	str	r7, [r0]
+  70:	e5818000 	str	r8, [r1]
+  74:	e5829000 	str	r9, [r2]
+  78:	e5904000 	ldr	r4, [r0]
+  7c:	e5915000 	ldr	r5, [r1]
+  80:	e5926000 	ldr	r6, [r2]
+  84:	e1540007 	cmp	r4, r7
+  88:	13a0a028 	movne	sl, #40	; 0x28
+  8c:	1a000006 	bne	ac <testfail>
+  90:	e1550008 	cmp	r5, r8
+  94:	13a0a032 	movne	sl, #50	; 0x32
+  98:	1a000003 	bne	ac <testfail>
+  9c:	e1560009 	cmp	r6, r9
+  a0:	13a0a03c 	movne	sl, #60	; 0x3c
+  a4:	1a000000 	bne	ac <testfail>
+  a8:	ea000002 	b	b8 <testpass>
+
+000000ac <testfail>:
+  ac:	e59fb014 	ldr	fp, [pc, #20]	; c8 <AdrTestStatus>
+  b0:	e58ba000 	str	sl, [fp]
+  b4:	eafffffc 	b	ac <testfail>
+
+000000b8 <testpass>:
+  b8:	e59fb008 	ldr	fp, [pc, #8]	; c8 <AdrTestStatus>
+  bc:	e3a0a011 	mov	sl, #17
+  c0:	e58ba000 	str	sl, [fp]
+  c4:	eafffffb 	b	b8 <testpass>
+
+000000c8 <AdrTestStatus>:
+  c8:	f0000000 	.word	0xf0000000
+
+000000cc <AdrUart0LCRH>:
+  cc:	16000008 	.word	0x16000008
+
+000000d0 <AdrUart0LCRM>:
+  d0:	1600000c 	.word	0x1600000c
+
+000000d4 <AdrUart0LCRL>:
+  d4:	16000010 	.word	0x16000010
+
+000000d8 <AdrUart1LCRH>:
+  d8:	17000008 	.word	0x17000008
+
+000000dc <AdrUart1LCRM>:
+  dc:	1700000c 	.word	0x1700000c
+
+000000e0 <AdrUart1LCRL>:
+  e0:	17000010 	.word	0x17000010

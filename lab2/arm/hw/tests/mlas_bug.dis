@@ -1,0 +1,78 @@
+
+mlas_bug.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e3a00000 	mov	r0, #0
+   4:	e3a01004 	mov	r1, #4
+   8:	e80d4070 	stmda	sp, {r4, r5, r6, lr}
+   c:	e59f3078 	ldr	r3, [pc, #120]	; 8c <j3+0x8>
+  10:	e5933000 	ldr	r3, [r3]
+  14:	e1500003 	cmp	r0, r3
+  18:	e1a05001 	mov	r5, r1
+  1c:	2a000003 	bcs	30 <j1>
+  20:	e59f2068 	ldr	r2, [pc, #104]	; 90 <j3+0xc>
+  24:	e3a0303c 	mov	r3, #60	; 0x3c
+  28:	e0362390 	mlas	r6, r0, r3, r2
+  2c:	1a000006 	bne	4c <j2>
+
+00000030 <j1>:
+  30:	e1a03000 	mov	r3, r0
+  34:	e3a0105f 	mov	r1, #95	; 0x5f
+  38:	e59f0054 	ldr	r0, [pc, #84]	; 94 <j3+0x10>
+  3c:	e59f2054 	ldr	r2, [pc, #84]	; 98 <j3+0x14>
+  40:	eb000018 	bl	a8 <warn_slowpath>
+  44:	e3e00015 	mvn	r0, #21
+  48:	e99d8070 	ldmib	sp, {r4, r5, r6, pc}
+
+0000004c <j2>:
+  4c:	e59f3048 	ldr	r3, [pc, #72]	; 9c <j3+0x18>
+  50:	e3510000 	cmp	r1, #0
+  54:	01a05003 	moveq	r5, r3
+  58:	e1a0400f 	mov	r4, pc
+  5c:	e3843080 	orr	r3, r4, #128	; 0x80
+  60:	e13ff003 	teq	pc, r3
+  64:	e1a00005 	mov	r0, r5
+  68:	eb000010 	bl	b0 <irq_chip_set_defaults>
+  6c:	e2140080 	ands	r0, r4, #128	; 0x80
+  70:	e5865008 	str	r5, [r6, #8]
+  74:	0a000002 	beq	84 <j3>
+  78:	e13ff004 	teq	pc, r4
+  7c:	e3a00000 	mov	r0, #0
+  80:	e99d8070 	ldmib	sp, {r4, r5, r6, pc}
+
+00000084 <j3>:
+  84:	e13ff004 	teq	pc, r4
+  88:	e99d8070 	ldmib	sp, {r4, r5, r6, pc}
+  8c:	000000a0 	.word	0x000000a0
+  90:	c04c6ce4 	.word	0xc04c6ce4
+  94:	c0482c14 	.word	0xc0482c14
+  98:	c0482c28 	.word	0xc0482c28
+  9c:	c04c77e8 	.word	0xc04c77e8
+
+000000a0 <nr_irqs>:
+  a0:	0000002f 	.word	0x0000002f
+  a4:	ea000005 	b	c0 <testpass>
+
+000000a8 <warn_slowpath>:
+  a8:	e3a0a014 	mov	sl, #20
+  ac:	ea000000 	b	b4 <testfail>
+
+000000b0 <irq_chip_set_defaults>:
+  b0:	ea000002 	b	c0 <testpass>
+
+000000b4 <testfail>:
+  b4:	e59fb014 	ldr	fp, [pc, #20]	; d0 <AdrTestStatus>
+  b8:	e58ba000 	str	sl, [fp]
+  bc:	eafffffc 	b	b4 <testfail>
+
+000000c0 <testpass>:
+  c0:	e59fb008 	ldr	fp, [pc, #8]	; d0 <AdrTestStatus>
+  c4:	e3a0a011 	mov	sl, #17
+  c8:	e58ba000 	str	sl, [fp]
+  cc:	eafffffb 	b	c0 <testpass>
+
+000000d0 <AdrTestStatus>:
+  d0:	f0000000 	.word	0xf0000000

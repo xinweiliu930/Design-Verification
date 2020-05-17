@@ -1,0 +1,104 @@
+
+change_sbits.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e59f0110 	ldr	r0, [pc, #272]	; 118 <UserMode>
+   4:	e380020f 	orr	r0, r0, #-268435456	; 0xf0000000
+   8:	e3800301 	orr	r0, r0, #67108864	; 0x4000000
+   c:	e59f111c 	ldr	r1, [pc, #284]	; 130 <ExpectedBits3+0x4>
+  10:	e59f2108 	ldr	r2, [pc, #264]	; 120 <PCMask>
+  14:	e0012002 	and	r2, r1, r2
+  18:	e1823000 	orr	r3, r2, r0
+  1c:	e1b0f003 	movs	pc, r3
+  20:	ea000034 	b	f8 <testfail>
+  24:	ea000033 	b	f8 <testfail>
+  28:	ea000001 	b	34 <main+0x34>
+  2c:	ea000031 	b	f8 <testfail>
+  30:	ea000030 	b	f8 <testfail>
+  34:	e1a0800f 	mov	r8, pc
+  38:	e59f90e0 	ldr	r9, [pc, #224]	; 120 <PCMask>
+  3c:	e1c89009 	bic	r9, r8, r9
+  40:	e59fc0dc 	ldr	ip, [pc, #220]	; 124 <ExpectedBits1>
+  44:	e159000c 	cmp	r9, ip
+  48:	13a0a014 	movne	sl, #20
+  4c:	1a000029 	bne	f8 <testfail>
+  50:	e59f00c4 	ldr	r0, [pc, #196]	; 11c <SupervisorMode>
+  54:	e3800203 	orr	r0, r0, #805306368	; 0x30000000
+  58:	e3800302 	orr	r0, r0, #134217728	; 0x8000000
+  5c:	e59f10d0 	ldr	r1, [pc, #208]	; 134 <ExpectedBits3+0x8>
+  60:	e59f20b8 	ldr	r2, [pc, #184]	; 120 <PCMask>
+  64:	e0012002 	and	r2, r1, r2
+  68:	e1823000 	orr	r3, r2, r0
+  6c:	e1b0f003 	movs	pc, r3
+  70:	ea000020 	b	f8 <testfail>
+  74:	ea00001f 	b	f8 <testfail>
+  78:	ea000001 	b	84 <main+0x84>
+  7c:	ea00001d 	b	f8 <testfail>
+  80:	ea00001c 	b	f8 <testfail>
+  84:	e1a0800f 	mov	r8, pc
+  88:	e59f9090 	ldr	r9, [pc, #144]	; 120 <PCMask>
+  8c:	e1c89009 	bic	r9, r8, r9
+  90:	e59fc090 	ldr	ip, [pc, #144]	; 128 <ExpectedBits2>
+  94:	e159000c 	cmp	r9, ip
+  98:	13a0a01e 	movne	sl, #30
+  9c:	1a000015 	bne	f8 <testfail>
+  a0:	e1a0c00f 	mov	ip, pc
+  a4:	e59f9074 	ldr	r9, [pc, #116]	; 120 <PCMask>
+  a8:	e1ccc009 	bic	ip, ip, r9
+  ac:	e59f0064 	ldr	r0, [pc, #100]	; 118 <UserMode>
+  b0:	e3800103 	orr	r0, r0, #-1073741824	; 0xc0000000
+  b4:	e59f107c 	ldr	r1, [pc, #124]	; 138 <ExpectedBits3+0xc>
+  b8:	e59f2060 	ldr	r2, [pc, #96]	; 120 <PCMask>
+  bc:	e0012002 	and	r2, r1, r2
+  c0:	e1823000 	orr	r3, r2, r0
+  c4:	e1a0f003 	mov	pc, r3
+  c8:	ea00000a 	b	f8 <testfail>
+  cc:	ea000009 	b	f8 <testfail>
+  d0:	ea000001 	b	dc <main+0xdc>
+  d4:	ea000007 	b	f8 <testfail>
+  d8:	ea000006 	b	f8 <testfail>
+  dc:	e1a0800f 	mov	r8, pc
+  e0:	e59f9038 	ldr	r9, [pc, #56]	; 120 <PCMask>
+  e4:	e1c89009 	bic	r9, r8, r9
+  e8:	e159000c 	cmp	r9, ip
+  ec:	13a0a028 	movne	sl, #40	; 0x28
+  f0:	1a000000 	bne	f8 <testfail>
+  f4:	ea000002 	b	104 <testpass>
+
+000000f8 <testfail>:
+  f8:	e59fb014 	ldr	fp, [pc, #20]	; 114 <AdrTestStatus>
+  fc:	e58ba000 	str	sl, [fp]
+ 100:	eafffffc 	b	f8 <testfail>
+
+00000104 <testpass>:
+ 104:	e59fb008 	ldr	fp, [pc, #8]	; 114 <AdrTestStatus>
+ 108:	e3a0a011 	mov	sl, #17
+ 10c:	e58ba000 	str	sl, [fp]
+ 110:	eafffffb 	b	104 <testpass>
+
+00000114 <AdrTestStatus>:
+ 114:	f0000000 	.word	0xf0000000
+
+00000118 <UserMode>:
+ 118:	00000000 	.word	0x00000000
+
+0000011c <SupervisorMode>:
+ 11c:	00000003 	.word	0x00000003
+
+00000120 <PCMask>:
+ 120:	03fffffc 	.word	0x03fffffc
+
+00000124 <ExpectedBits1>:
+ 124:	f4000000 	.word	0xf4000000
+
+00000128 <ExpectedBits2>:
+ 128:	34000000 	.word	0x34000000
+
+0000012c <ExpectedBits3>:
+ 12c:	34000000 	.word	0x34000000
+ 130:	00000028 	.word	0x00000028
+ 134:	00000078 	.word	0x00000078
+ 138:	000000d0 	.word	0x000000d0

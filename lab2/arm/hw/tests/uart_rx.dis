@@ -1,0 +1,117 @@
+
+uart_rx.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e59f40d4 	ldr	r4, [pc, #212]	; dc <AdrUART0LCRH>
+   4:	e3a05010 	mov	r5, #16
+   8:	e5845000 	str	r5, [r4]
+   c:	e59f40c4 	ldr	r4, [pc, #196]	; d8 <AdrTEST_UART_TXD>
+  10:	e59f5120 	ldr	r5, [pc, #288]	; 138 <EndMessage+0x4>
+  14:	e59f911c 	ldr	r9, [pc, #284]	; 138 <EndMessage+0x4>
+  18:	e59f711c 	ldr	r7, [pc, #284]	; 13c <EndMessage+0x8>
+  1c:	e59f80b0 	ldr	r8, [pc, #176]	; d4 <AdrTEST_UART_STATUS>
+  20:	e4d56001 	ldrb	r6, [r5], #1
+  24:	e5846000 	str	r6, [r4]
+  28:	e59f00a0 	ldr	r0, [pc, #160]	; d0 <AdrTEST_UART_CONTROL>
+  2c:	e3a01001 	mov	r1, #1
+  30:	e5801000 	str	r1, [r0]
+
+00000034 <main_loop>:
+  34:	e5980000 	ldr	r0, [r8]
+  38:	e2100002 	ands	r0, r0, #2
+  3c:	1afffffc 	bne	34 <main_loop>
+  40:	e4d56001 	ldrb	r6, [r5], #1
+  44:	e5846000 	str	r6, [r4]
+  48:	eb00000b 	bl	7c <uart_rx_check>
+  4c:	e1550007 	cmp	r5, r7
+  50:	1afffff7 	bne	34 <main_loop>
+  54:	eb000008 	bl	7c <uart_rx_check>
+  58:	e5980000 	ldr	r0, [r8]
+  5c:	e2100001 	ands	r0, r0, #1
+  60:	0afffffb 	beq	54 <main_loop+0x20>
+  64:	e59f3078 	ldr	r3, [pc, #120]	; e4 <AdrUART0FR>
+  68:	e5931000 	ldr	r1, [r3]
+  6c:	e2111080 	ands	r1, r1, #128	; 0x80
+  70:	0afffffc 	beq	68 <main_loop+0x34>
+  74:	eb000000 	bl	7c <uart_rx_check>
+  78:	ea00000d 	b	b4 <testpass>
+
+0000007c <uart_rx_check>:
+  7c:	e59f205c 	ldr	r2, [pc, #92]	; e0 <AdrUART0DR>
+  80:	e59f305c 	ldr	r3, [pc, #92]	; e4 <AdrUART0FR>
+  84:	e5930000 	ldr	r0, [r3]
+  88:	e2100010 	ands	r0, r0, #16
+  8c:	11a0f00e 	movne	pc, lr
+  90:	e5d20000 	ldrb	r0, [r2]
+  94:	e4d91001 	ldrb	r1, [r9], #1
+  98:	e1500001 	cmp	r0, r1
+  9c:	13a0a014 	movne	sl, #20
+  a0:	1a000000 	bne	a8 <testfail>
+  a4:	eafffff6 	b	84 <uart_rx_check+0x8>
+
+000000a8 <testfail>:
+  a8:	e59fb014 	ldr	fp, [pc, #20]	; c4 <AdrTEST_STATUS>
+  ac:	e58ba000 	str	sl, [fp]
+  b0:	eafffffc 	b	a8 <testfail>
+
+000000b4 <testpass>:
+  b4:	e59fb008 	ldr	fp, [pc, #8]	; c4 <AdrTEST_STATUS>
+  b8:	e3a0a011 	mov	sl, #17
+  bc:	e58ba000 	str	sl, [fp]
+  c0:	eafffffb 	b	b4 <testpass>
+
+000000c4 <AdrTEST_STATUS>:
+  c4:	f0000000 	.word	0xf0000000
+
+000000c8 <AdrTEST_IRQ_TIMER>:
+  c8:	f0000008 	.word	0xf0000008
+
+000000cc <AdrTEST_RANDOM_NUM>:
+  cc:	f0000100 	.word	0xf0000100
+
+000000d0 <AdrTEST_UART_CONTROL>:
+  d0:	f0000010 	.word	0xf0000010
+
+000000d4 <AdrTEST_UART_STATUS>:
+  d4:	f0000014 	.word	0xf0000014
+
+000000d8 <AdrTEST_UART_TXD>:
+  d8:	f0000018 	.word	0xf0000018
+
+000000dc <AdrUART0LCRH>:
+  dc:	16000008 	.word	0x16000008
+
+000000e0 <AdrUART0DR>:
+  e0:	16000000 	.word	0x16000000
+
+000000e4 <AdrUART0FR>:
+  e4:	16000018 	.word	0x16000018
+
+000000e8 <Message>:
+  e8:	a0ff810a 	.word	0xa0ff810a
+  ec:	6968540a 	.word	0x6968540a
+  f0:	656d2073 	.word	0x656d2073
+  f4:	67617373 	.word	0x67617373
+  f8:	73692065 	.word	0x73692065
+  fc:	6f726220 	.word	0x6f726220
+ 100:	74686775 	.word	0x74686775
+ 104:	206f7420 	.word	0x206f7420
+ 108:	20756f79 	.word	0x20756f79
+ 10c:	55207962 	.word	0x55207962
+ 110:	30545241 	.word	0x30545241
+ 114:	6e73490a 	.word	0x6e73490a
+ 118:	68742074 	.word	0x68742074
+ 11c:	63207461 	.word	0x63207461
+ 120:	0a6c6f6f 	.word	0x0a6c6f6f
+ 124:	74616854 	.word	0x74616854
+ 128:	6c612073 	.word	0x6c612073
+ 12c:	6f66206c 	.word	0x6f66206c
+ 130:	0a736b6c 	.word	0x0a736b6c
+
+00000134 <EndMessage>:
+ 134:	00000000 	.word	0x00000000
+ 138:	000000e8 	.word	0x000000e8
+ 13c:	00000134 	.word	0x00000134

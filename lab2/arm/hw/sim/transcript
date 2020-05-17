@@ -1,0 +1,410 @@
+# //  ModelSim SE-64 10.6 Dec 13 2016Linux 2.6.32-754.9.1.el6.x86_64
+# //
+# //  Copyright 1991-2016 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# vsim -voptargs="+acc" tb -assertdebug -do "run.do" 
+# Start time: 14:19:43 on Mar 05,2019
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Note: (vopt-143) Recognized 2 FSMs in module "tb_uart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "a25_decode(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "a25_dcache(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "a25_icache(fast)".
+# ** Note: (vopt-143) Recognized 2 FSMs in module "uart(fast)".
+# ** Note: (vopt-143) Recognized 1 FSM in module "a25_wishbone(fast)".
+# Loading work.tb(fast)
+# Loading work.system(fast)
+# Loading work.clocks_resets(fast)
+# Loading work.a25_core(fast)
+# Loading work.a25_fetch(fast)
+# Loading work.a25_icache(fast)
+# Loading work.generic_sram_line_en(fast)
+# Loading work.generic_sram_byte_en(fast)
+# Loading work.a25_decode(fast)
+# Loading work.a25_decompile(fast)
+# Loading work.a25_execute(fast)
+# Loading work.a25_barrel_shift(fast)
+# Loading work.a25_alu(fast)
+# Loading work.a25_multiply(fast)
+# Loading work.a25_register_bank(fast)
+# Loading work.a25_mem(fast)
+# Loading work.a25_dcache(fast)
+# Loading work.a25_write_back(fast)
+# Loading work.a25_wishbone(fast)
+# Loading sv_std.std
+# Loading work.FSMProperties(fast)
+# Loading work.module4SVA(fast)
+# Loading work.a25_coprocessor(fast)
+# Loading work.eth_top(fast)
+# Loading work.eth_miim(fast)
+# Loading work.eth_clockgen(fast)
+# Loading work.eth_shiftreg(fast)
+# Loading work.eth_outputcontrol(fast)
+# Loading work.eth_registers(fast)
+# Loading work.eth_register(fast)
+# Loading work.eth_register(fast__1)
+# Loading work.eth_register(fast__2)
+# Loading work.eth_register(fast__3)
+# Loading work.eth_register(fast__4)
+# Loading work.eth_register(fast__5)
+# Loading work.eth_register(fast__6)
+# Loading work.eth_register(fast__7)
+# Loading work.eth_register(fast__8)
+# Loading work.eth_register(fast__9)
+# Loading work.eth_register(fast__10)
+# Loading work.eth_register(fast__11)
+# Loading work.eth_register(fast__12)
+# Loading work.eth_register(fast__13)
+# Loading work.eth_register(fast__14)
+# Loading work.eth_maccontrol(fast)
+# Loading work.eth_receivecontrol(fast)
+# Loading work.eth_transmitcontrol(fast)
+# Loading work.eth_txethmac(fast)
+# Loading work.eth_txcounters(fast)
+# Loading work.eth_txstatem(fast)
+# Loading work.eth_crc(fast)
+# Loading work.eth_random(fast)
+# Loading work.eth_rxethmac(fast)
+# Loading work.eth_rxstatem(fast)
+# Loading work.eth_rxcounters(fast)
+# Loading work.eth_rxaddrcheck(fast)
+# Loading work.eth_wishbone(fast)
+# Loading work.eth_spram_256x32(fast)
+# Loading work.generic_sram_byte_en(fast__1)
+# Loading work.eth_fifo(fast)
+# Loading work.eth_macstatus(fast)
+# Loading work.generic_iobuf(fast)
+# Loading work.boot_mem(fast)
+# Loading work.generic_sram_byte_en(fast__2)
+# Loading work.uart(fast)
+# Loading work.test_module(fast)
+# Loading work.timer_module(fast)
+# Loading work.interrupt_controller(fast)
+# Loading work.main_mem(fast)
+# Loading work.wishbone_arbiter(fast)
+# Loading work.tb_uart(fast)
+# Loading work.test(fast)
+# Loading work.Wrapper(fast)
+# Loading work.dumpvcd(fast)
+# ** Warning: (vsim-3015) ../vlog/tb/tb.v(220): [PCDPC] - Port size (1) does not match connection size (32) for port 'o_wb_dat'. The port definition is at: ../vlog/tb/test.sv(2).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_test File: ../vlog/tb/test.sv
+# ** Warning: (vsim-3015) ../vlog/tb/tb.v(220): [PCDPC] - Port size (1) does not match connection size (32) for port 'o_wb_adr'. The port definition is at: ../vlog/tb/test.sv(2).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_test File: ../vlog/tb/test.sv
+# ** Warning: (vsim-3015) ../vlog/tb/tb.v(220): [PCDPC] - Port size (1) does not match connection size (32) for port 'i_wb_dat'. The port definition is at: ../vlog/tb/test.sv(2).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_test File: ../vlog/tb/test.sv
+# do run.do
+# Test ethmac_tx, log file tests.log
+# Load boot memory from ../tests/ethmac_tx.mem
+# Read in 161 lines
+# 
+# ----------------------------------------------------------------------------
+# Amber Core
+#          User         FIRQ         IRQ        > SVC
+# r0       0x2800129c
+# r1       0x000001c4
+# r2       0x000001c4
+# r3       0x2800129e
+# r4       0x00000008
+# r5       0x00000000
+# r6       0x00080000
+# r7       0x00080000
+# r8       0x00080000   0xdeadbeef 
+# r9       0x00000000   0xdeadbeef 
+# r10      0x00000011   0xdeadbeef 
+# r11      0xf0000000   0xdeadbeef 
+# r12      0x0000ffff   0xdeadbeef 
+# r13      0xdeadbeef   0xdeadbeef   0xdeadbeef   0xdeadbeef
+# r14 (lr) 0xdeadbeef   0xdeadbeef   0xdeadbeef   0xdeadbeef
+# r15 (pc) 0x000000e4
+# 
+# Status Bits: N=0, Z=1, C=1, V=0, IRQ Mask 1, FIRQ Mask 1, Mode =     Supervisor
+# ----------------------------------------------------------------------------
+# 
+# ++++++++++++++++++++
+# Passed ethmac_tx 3923 ticks
+# ++++++++++++++++++++
+# ** Note: $finish    : ../vlog/tb/tb.v(505)
+#    Time: 98052500 ps  Iteration: 4  Instance: /tb
+# 1
+# Break in Module tb at ../vlog/tb/tb.v line 505
+atv log -asserts -enable /tb/u_test/assert__parp__2
+# Thread view logging enabled for assert__parp__2
+add wave /tb/u_test/assert__parp__2
+run -all
+# 
+# ----------------------------------------------------------------------------
+# Amber Core
+#          User         FIRQ         IRQ        > SVC
+# r0       0x2800129c
+# r1       0x000001c4
+# r2       0x000001c4
+# r3       0x2800129e
+# r4       0x00000008
+# r5       0x00000000
+# r6       0x00080000
+# r7       0x00080000
+# r8       0x00080000   0xdeadbeef 
+# r9       0x00000000   0xdeadbeef 
+# r10      0x00000011   0xdeadbeef 
+# r11      0xf0000000   0xdeadbeef 
+# r12      0x0000ffff   0xdeadbeef 
+# r13      0xdeadbeef   0xdeadbeef   0xdeadbeef   0xdeadbeef
+# r14 (lr) 0xdeadbeef   0xdeadbeef   0xdeadbeef   0xdeadbeef
+# r15 (pc) 0x000000e4
+# 
+# Status Bits: N=0, Z=1, C=1, V=0, IRQ Mask 1, FIRQ Mask 1, Mode =     Supervisor
+# ----------------------------------------------------------------------------
+# 
+# ++++++++++++++++++++
+# Passed ethmac_tx 3924 ticks
+# ++++++++++++++++++++
+# ** Note: $finish    : ../vlog/tb/tb.v(505)
+#    Time: 98077500 ps  Iteration: 4  Instance: /tb
+# 1
+# Break in Module tb at ../vlog/tb/tb.v line 505
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.tb(fast)
+# Loading work.system(fast)
+# Loading work.clocks_resets(fast)
+# Loading work.a25_core(fast)
+# Loading work.a25_fetch(fast)
+# Loading work.a25_icache(fast)
+# Loading work.generic_sram_line_en(fast)
+# Loading work.generic_sram_byte_en(fast)
+# Loading work.a25_decode(fast)
+# Loading work.a25_decompile(fast)
+# Loading work.a25_execute(fast)
+# Loading work.a25_barrel_shift(fast)
+# Loading work.a25_alu(fast)
+# Loading work.a25_multiply(fast)
+# Loading work.a25_register_bank(fast)
+# Loading work.a25_mem(fast)
+# Loading work.a25_dcache(fast)
+# Loading work.a25_write_back(fast)
+# Loading work.a25_wishbone(fast)
+# Loading work.FSMProperties(fast)
+# Loading work.module4SVA(fast)
+# Loading work.a25_coprocessor(fast)
+# Loading work.eth_top(fast)
+# Loading work.eth_miim(fast)
+# Loading work.eth_clockgen(fast)
+# Loading work.eth_shiftreg(fast)
+# Loading work.eth_outputcontrol(fast)
+# Loading work.eth_registers(fast)
+# Loading work.eth_register(fast)
+# Loading work.eth_register(fast__1)
+# Loading work.eth_register(fast__2)
+# Loading work.eth_register(fast__3)
+# Loading work.eth_register(fast__4)
+# Loading work.eth_register(fast__5)
+# Loading work.eth_register(fast__6)
+# Loading work.eth_register(fast__7)
+# Loading work.eth_register(fast__8)
+# Loading work.eth_register(fast__9)
+# Loading work.eth_register(fast__10)
+# Loading work.eth_register(fast__11)
+# Loading work.eth_register(fast__12)
+# Loading work.eth_register(fast__13)
+# Loading work.eth_register(fast__14)
+# Loading work.eth_maccontrol(fast)
+# Loading work.eth_receivecontrol(fast)
+# Loading work.eth_transmitcontrol(fast)
+# Loading work.eth_txethmac(fast)
+# Loading work.eth_txcounters(fast)
+# Loading work.eth_txstatem(fast)
+# Loading work.eth_crc(fast)
+# Loading work.eth_random(fast)
+# Loading work.eth_rxethmac(fast)
+# Loading work.eth_rxstatem(fast)
+# Loading work.eth_rxcounters(fast)
+# Loading work.eth_rxaddrcheck(fast)
+# Loading work.eth_wishbone(fast)
+# Loading work.eth_spram_256x32(fast)
+# Loading work.generic_sram_byte_en(fast__1)
+# Loading work.eth_fifo(fast)
+# Loading work.eth_macstatus(fast)
+# Loading work.generic_iobuf(fast)
+# Loading work.boot_mem(fast)
+# Loading work.generic_sram_byte_en(fast__2)
+# Loading work.uart(fast)
+# Loading work.test_module(fast)
+# Loading work.timer_module(fast)
+# Loading work.interrupt_controller(fast)
+# Loading work.main_mem(fast)
+# Loading work.wishbone_arbiter(fast)
+# Loading work.tb_uart(fast)
+# Loading work.test(fast)
+# Loading work.Wrapper(fast)
+# Loading work.dumpvcd(fast)
+# ** Warning: (vsim-3015) ../vlog/tb/tb.v(220): [PCDPC] - Port size (1) does not match connection size (32) for port 'o_wb_dat'. The port definition is at: ../vlog/tb/test.sv(2).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_test File: ../vlog/tb/test.sv
+# ** Warning: (vsim-3015) ../vlog/tb/tb.v(220): [PCDPC] - Port size (1) does not match connection size (32) for port 'o_wb_adr'. The port definition is at: ../vlog/tb/test.sv(2).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_test File: ../vlog/tb/test.sv
+# ** Warning: (vsim-3015) ../vlog/tb/tb.v(220): [PCDPC] - Port size (1) does not match connection size (32) for port 'i_wb_dat'. The port definition is at: ../vlog/tb/test.sv(2).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_test File: ../vlog/tb/test.sv
+# Thread view logging enabled for assert__parp__2
+run -all
+# Test ethmac_tx, log file tests.log
+# Load boot memory from ../tests/ethmac_tx.mem
+# Read in 161 lines
+# 
+# ----------------------------------------------------------------------------
+# Amber Core
+#          User         FIRQ         IRQ        > SVC
+# r0       0x2800129c
+# r1       0x000001c4
+# r2       0x000001c4
+# r3       0x2800129e
+# r4       0x00000008
+# r5       0x00000000
+# r6       0x00080000
+# r7       0x00080000
+# r8       0x00080000   0xdeadbeef 
+# r9       0x00000000   0xdeadbeef 
+# r10      0x00000011   0xdeadbeef 
+# r11      0xf0000000   0xdeadbeef 
+# r12      0x0000ffff   0xdeadbeef 
+# r13      0xdeadbeef   0xdeadbeef   0xdeadbeef   0xdeadbeef
+# r14 (lr) 0xdeadbeef   0xdeadbeef   0xdeadbeef   0xdeadbeef
+# r15 (pc) 0x000000e4
+# 
+# Status Bits: N=0, Z=1, C=1, V=0, IRQ Mask 1, FIRQ Mask 1, Mode =     Supervisor
+# ----------------------------------------------------------------------------
+# 
+# ++++++++++++++++++++
+# Passed ethmac_tx 3923 ticks
+# ++++++++++++++++++++
+# ** Note: $finish    : ../vlog/tb/tb.v(505)
+#    Time: 98052500 ps  Iteration: 4  Instance: /tb
+# 1
+# Break in Module tb at ../vlog/tb/tb.v line 505
+add wave -position insertpoint  \
+sim:/tb/u_system/u_wishbone_arbiter/current_master
+restart -f
+# ** Note: (vsim-8009) Loading existing optimized design _opt
+# Loading work.tb(fast)
+# Loading work.system(fast)
+# Loading work.clocks_resets(fast)
+# Loading work.a25_core(fast)
+# Loading work.a25_fetch(fast)
+# Loading work.a25_icache(fast)
+# Loading work.generic_sram_line_en(fast)
+# Loading work.generic_sram_byte_en(fast)
+# Loading work.a25_decode(fast)
+# Loading work.a25_decompile(fast)
+# Loading work.a25_execute(fast)
+# Loading work.a25_barrel_shift(fast)
+# Loading work.a25_alu(fast)
+# Loading work.a25_multiply(fast)
+# Loading work.a25_register_bank(fast)
+# Loading work.a25_mem(fast)
+# Loading work.a25_dcache(fast)
+# Loading work.a25_write_back(fast)
+# Loading work.a25_wishbone(fast)
+# Loading work.FSMProperties(fast)
+# Loading work.module4SVA(fast)
+# Loading work.a25_coprocessor(fast)
+# Loading work.eth_top(fast)
+# Loading work.eth_miim(fast)
+# Loading work.eth_clockgen(fast)
+# Loading work.eth_shiftreg(fast)
+# Loading work.eth_outputcontrol(fast)
+# Loading work.eth_registers(fast)
+# Loading work.eth_register(fast)
+# Loading work.eth_register(fast__1)
+# Loading work.eth_register(fast__2)
+# Loading work.eth_register(fast__3)
+# Loading work.eth_register(fast__4)
+# Loading work.eth_register(fast__5)
+# Loading work.eth_register(fast__6)
+# Loading work.eth_register(fast__7)
+# Loading work.eth_register(fast__8)
+# Loading work.eth_register(fast__9)
+# Loading work.eth_register(fast__10)
+# Loading work.eth_register(fast__11)
+# Loading work.eth_register(fast__12)
+# Loading work.eth_register(fast__13)
+# Loading work.eth_register(fast__14)
+# Loading work.eth_maccontrol(fast)
+# Loading work.eth_receivecontrol(fast)
+# Loading work.eth_transmitcontrol(fast)
+# Loading work.eth_txethmac(fast)
+# Loading work.eth_txcounters(fast)
+# Loading work.eth_txstatem(fast)
+# Loading work.eth_crc(fast)
+# Loading work.eth_random(fast)
+# Loading work.eth_rxethmac(fast)
+# Loading work.eth_rxstatem(fast)
+# Loading work.eth_rxcounters(fast)
+# Loading work.eth_rxaddrcheck(fast)
+# Loading work.eth_wishbone(fast)
+# Loading work.eth_spram_256x32(fast)
+# Loading work.generic_sram_byte_en(fast__1)
+# Loading work.eth_fifo(fast)
+# Loading work.eth_macstatus(fast)
+# Loading work.generic_iobuf(fast)
+# Loading work.boot_mem(fast)
+# Loading work.generic_sram_byte_en(fast__2)
+# Loading work.uart(fast)
+# Loading work.test_module(fast)
+# Loading work.timer_module(fast)
+# Loading work.interrupt_controller(fast)
+# Loading work.main_mem(fast)
+# Loading work.wishbone_arbiter(fast)
+# Loading work.tb_uart(fast)
+# Loading work.test(fast)
+# Loading work.Wrapper(fast)
+# Loading work.dumpvcd(fast)
+# ** Warning: (vsim-3015) ../vlog/tb/tb.v(220): [PCDPC] - Port size (1) does not match connection size (32) for port 'o_wb_dat'. The port definition is at: ../vlog/tb/test.sv(2).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_test File: ../vlog/tb/test.sv
+# ** Warning: (vsim-3015) ../vlog/tb/tb.v(220): [PCDPC] - Port size (1) does not match connection size (32) for port 'o_wb_adr'. The port definition is at: ../vlog/tb/test.sv(2).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_test File: ../vlog/tb/test.sv
+# ** Warning: (vsim-3015) ../vlog/tb/tb.v(220): [PCDPC] - Port size (1) does not match connection size (32) for port 'i_wb_dat'. The port definition is at: ../vlog/tb/test.sv(2).
+#    Time: 0 ps  Iteration: 0  Instance: /tb/u_test File: ../vlog/tb/test.sv
+# Thread view logging enabled for assert__parp__2
+run -all
+# Test ethmac_tx, log file tests.log
+# Load boot memory from ../tests/ethmac_tx.mem
+# Read in 161 lines
+# 
+# ----------------------------------------------------------------------------
+# Amber Core
+#          User         FIRQ         IRQ        > SVC
+# r0       0x2800129c
+# r1       0x000001c4
+# r2       0x000001c4
+# r3       0x2800129e
+# r4       0x00000008
+# r5       0x00000000
+# r6       0x00080000
+# r7       0x00080000
+# r8       0x00080000   0xdeadbeef 
+# r9       0x00000000   0xdeadbeef 
+# r10      0x00000011   0xdeadbeef 
+# r11      0xf0000000   0xdeadbeef 
+# r12      0x0000ffff   0xdeadbeef 
+# r13      0xdeadbeef   0xdeadbeef   0xdeadbeef   0xdeadbeef
+# r14 (lr) 0xdeadbeef   0xdeadbeef   0xdeadbeef   0xdeadbeef
+# r15 (pc) 0x000000e4
+# 
+# Status Bits: N=0, Z=1, C=1, V=0, IRQ Mask 1, FIRQ Mask 1, Mode =     Supervisor
+# ----------------------------------------------------------------------------
+# 
+# ++++++++++++++++++++
+# Passed ethmac_tx 3923 ticks
+# ++++++++++++++++++++
+# ** Note: $finish    : ../vlog/tb/tb.v(505)
+#    Time: 98052500 ps  Iteration: 4  Instance: /tb
+# 1
+# Break in Module tb at ../vlog/tb/tb.v line 505
+# End time: 19:46:17 on Mar 06,2019, Elapsed time: 29:26:34
+# Errors: 0, Warnings: 0

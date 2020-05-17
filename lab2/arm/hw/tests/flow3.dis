@@ -1,0 +1,93 @@
+
+flow3.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <main>:
+   0:	e3a07028 	mov	r7, #40	; 0x28
+   4:	e3a00a01 	mov	r0, #4096	; 0x1000
+   8:	e59f6110 	ldr	r6, [pc, #272]	; 120 <Data2+0x4>
+   c:	e3c66003 	bic	r6, r6, #3
+  10:	e3866001 	orr	r6, r6, #1
+  14:	e3a02011 	mov	r2, #17
+  18:	e3a0302e 	mov	r3, #46	; 0x2e
+  1c:	e3a04063 	mov	r4, #99	; 0x63
+  20:	e3a0507b 	mov	r5, #123	; 0x7b
+  24:	e880007c 	stm	r0, {r2, r3, r4, r5, r6}
+  28:	e8d0f800 	ldm	r0, {fp, ip, sp, lr, pc}^
+  2c:	ea000031 	b	f8 <testfail>
+  30:	ea000030 	b	f8 <testfail>
+  34:	ea00002f 	b	f8 <testfail>
+  38:	ea00002e 	b	f8 <testfail>
+  3c:	ea00002d 	b	f8 <testfail>
+  40:	ea00002c 	b	f8 <testfail>
+  44:	ea00002b 	b	f8 <testfail>
+  48:	ea00002a 	b	f8 <testfail>
+  4c:	ea000029 	b	f8 <testfail>
+  50:	ea000028 	b	f8 <testfail>
+
+00000054 <JumpHere>:
+  54:	ea000002 	b	64 <JumpHere+0x10>
+  58:	ea000026 	b	f8 <testfail>
+  5c:	ea000025 	b	f8 <testfail>
+  60:	ea000024 	b	f8 <testfail>
+  64:	e1a0000f 	mov	r0, pc
+  68:	e2000003 	and	r0, r0, #3
+  6c:	e3500001 	cmp	r0, #1
+  70:	13a0a00a 	movne	sl, #10
+  74:	1a00001f 	bne	f8 <testfail>
+  78:	e33ff003 	teq	pc, #3
+  7c:	e3a0a014 	mov	sl, #20
+  80:	e3a00005 	mov	r0, #5
+  84:	e3500006 	cmp	r0, #6
+  88:	059ff094 	ldreq	pc, [pc, #148]	; 124 <Data2+0x8>
+  8c:	e3300005 	teq	r0, #5
+  90:	1a000018 	bne	f8 <testfail>
+  94:	ea000002 	b	a4 <JumpHere+0x50>
+  98:	ea000016 	b	f8 <testfail>
+  9c:	ea000015 	b	f8 <testfail>
+  a0:	ea000014 	b	f8 <testfail>
+  a4:	e3a00005 	mov	r0, #5
+  a8:	e3500006 	cmp	r0, #6
+  ac:	08bd8010 	popeq	{r4, pc}
+  b0:	e59f2060 	ldr	r2, [pc, #96]	; 118 <Data1>
+  b4:	e5922000 	ldr	r2, [r2]
+  b8:	e3a00007 	mov	r0, #7
+  bc:	e3500007 	cmp	r0, #7
+  c0:	13a0a01e 	movne	sl, #30
+  c4:	1a00000b 	bne	f8 <testfail>
+  c8:	e35200ff 	cmp	r2, #255	; 0xff
+  cc:	13a0a028 	movne	sl, #40	; 0x28
+  d0:	1a000008 	bne	f8 <testfail>
+  d4:	e3e00000 	mvn	r0, #0
+  d8:	ee030f10 	mcr	15, 0, r0, cr3, cr0, {0}
+  dc:	e3a00001 	mov	r0, #1
+  e0:	ee020f10 	mcr	15, 0, r0, cr2, cr0, {0}
+  e4:	e257700a 	subs	r7, r7, #10
+  e8:	1affffc5 	bne	4 <main+0x4>
+  ec:	ea000004 	b	104 <testpass>
+  f0:	ea000000 	b	f8 <testfail>
+  f4:	eaffffff 	b	f8 <testfail>
+
+000000f8 <testfail>:
+  f8:	e59fb014 	ldr	fp, [pc, #20]	; 114 <AdrTestStatus>
+  fc:	e58ba000 	str	sl, [fp]
+ 100:	eafffffc 	b	f8 <testfail>
+
+00000104 <testpass>:
+ 104:	e59fb008 	ldr	fp, [pc, #8]	; 114 <AdrTestStatus>
+ 108:	e3a0a011 	mov	sl, #17
+ 10c:	e58ba000 	str	sl, [fp]
+ 110:	eafffffb 	b	104 <testpass>
+
+00000114 <AdrTestStatus>:
+ 114:	f0000000 	.word	0xf0000000
+
+00000118 <Data1>:
+ 118:	0000011c 	.word	0x0000011c
+
+0000011c <Data2>:
+ 11c:	000000ff 	.word	0x000000ff
+ 120:	00000054 	.word	0x00000054
+ 124:	000000f8 	.word	0x000000f8

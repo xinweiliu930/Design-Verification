@@ -1,0 +1,351 @@
+`include "uvm_macros.svh"
+package scoreboard; 
+import uvm_pkg::*;
+import sequences::*;
+
+class alu_scoreboard extends uvm_scoreboard;
+    `uvm_component_utils(alu_scoreboard)
+
+    uvm_analysis_export #(alu_transaction_in) sb_in;
+    uvm_analysis_export #(alu_transaction_out) sb_out;
+
+    uvm_tlm_analysis_fifo #(alu_transaction_in) fifo_in;
+    uvm_tlm_analysis_fifo #(alu_transaction_out) fifo_out;
+
+    alu_transaction_in tx_in;
+    alu_transaction_out tx_out;
+
+    function new(string name, uvm_component parent);
+        super.new(name,parent);
+        tx_in=new("tx_in");
+        tx_out=new("tx_out");
+    endfunction: new
+
+    function void build_phase(uvm_phase phase);
+        sb_in=new("sb_in",this);
+        sb_out=new("sb_out",this);
+        fifo_in=new("fifo_in",this);
+        fifo_out=new("fifo_out",this);
+    endfunction: build_phase
+
+    function void connect_phase(uvm_phase phase);
+        sb_in.connect(fifo_in.analysis_export);
+        sb_out.connect(fifo_out.analysis_export);
+    endfunction: connect_phase
+
+    task run();
+        forever begin
+            fifo_in.get(tx_in);
+            fifo_out.get(tx_out);
+            compare();
+        end
+    endtask: run
+
+    extern virtual function [33:0] getresult; 
+    extern virtual function void compare; 
+        
+endclass: alu_scoreboard
+
+function void alu_scoreboard::compare;
+    //TODO: Write this function to check whether the output of the DUT matches
+    //the spec.
+    //Use the getresult() function to get the spec output.
+    //Consider using `uvm_info(ID,MSG,VERBOSITY) in this function to print the
+    //results of the comparison.
+    //You can use tx_in.convert2string() and tx_out.convert2string() for
+    //debugging purposes
+logic [33:0] dutr = {tx_out.VOUT, tx_out.COUT, tx_out.OUT};
+
+if(dutr != getresult())
+begin
+string A = tx_in.convert2string();
+string B = tx_out.convert2string();
+uvm_report_info("Input is: ", A, UVM_LOW);
+uvm_report_info("Output is: ", B, UVM_LOW);
+
+end
+
+
+endfunction
+
+function [33:0] alu_scoreboard::getresult;
+    //TODO: Remove the statement below
+    //Modify this function to return a 34-bit result {VOUT, COUT,OUT[31:0]} which is
+    //consistent with the given spec.
+logic VOUT;
+logic COUT;
+logic [31:0] OUT;
+logic [4:0] shf;
+logic [31:0] temp;
+
+shf = tx_in.B[4:0];
+$display("hello");
+if (tx_in.rst)
+ begin
+  OUT = 32'b0;
+  COUT = 1'b0;
+  VOUT = 1'b0;
+ end
+else begin
+case(tx_in.opcode)
+5'b00000:   begin//not
+               COUT = 1'b0;
+               VOUT = 1'b0;
+               OUT = ~ tx_in.A;
+            end
+5'b00001:   begin
+  OUT = 32'b0;
+  COUT = 1'b0;
+  VOUT = 1'b0;
+ end
+5'b00010:   begin
+  OUT = 32'b0;
+  COUT = 1'b0;
+  VOUT = 1'b0;
+ end
+5'b00011:   begin//xor
+               COUT = 1'b0;
+               VOUT = 1'b0;
+               OUT =  tx_in.A ^ tx_in.B;
+            end
+5'b00100:   begin
+  OUT = 32'b0;
+  COUT = 1'b0;
+  VOUT = 1'b0;
+ end
+5'b00101:   begin//and
+               COUT = 1'b0;
+               VOUT = 1'b0;
+               OUT =  tx_in.A & tx_in.B;
+            end
+5'b00110:   begin
+  OUT = 32'b0;
+  COUT = 1'b0;
+  VOUT = 1'b0;
+ end
+5'b00111:   begin//or
+               COUT = 1'b0;
+               VOUT = 1'b0;
+               OUT =  tx_in.A | tx_in.B;
+            end
+5'b01000:   begin
+  OUT = 32'b0;
+  COUT = 1'b0;
+  VOUT = 1'b0;
+ end
+
+5'b01001:   begin//slt
+               COUT = 1'b0;
+               VOUT = 1'b0;
+               
+               if (((tx_in.A & 32'h80000000)!=0) && ((tx_in.B & 32'h80000000)==0) && (tx_in.A != 32'h80000000))
+               OUT =  32'b1;
+               else if ((tx_in.A & 32'h80000000)!=0 && (tx_in.B & 32'h80000000)!=0)
+               begin
+                 if (~tx_in.A > ~tx_in.B)
+                  OUT = 32'b1;
+               end
+               else if ((tx_in.A & 32'h80000000)==0 && (tx_in.B & 32'h80000000)==0)
+               begin
+                 if (tx_in.A < tx_in.B)
+                  OUT = 32'b1;
+                  else OUT = 32'b0;
+               end
+            end
+5'b01010:   begin//sne
+               COUT = 1'b0;
+               VOUT = 1'b0;
+               if (tx_in.A != tx_in.B)
+               OUT = 32'b1;
+               else
+               OUT = 32'b0;
+            end
+5'b01011:   begin//sgt
+               COUT = 1'b0;
+               VOUT = 1'b0;
+               if ((tx_in.A & 32'h80000000)==0 && (tx_in.B & 32'h80000000)!=0)
+               OUT =  32'b1;
+               else if ((tx_in.A & 32'h80000000)!=0 && (tx_in.B & 32'h80000000)!=0)
+               begin
+                 if (~tx_in.A < ~tx_in.B)
+                  OUT = 32'b1;
+               end
+               else if ((tx_in.A & 32'h80000000)==0 && (tx_in.B & 32'h80000000)==0)
+               begin
+                 if (tx_in.A > tx_in.B)
+                  OUT = 32'b1;
+               end
+            end
+5'b01100:   begin//sle
+               COUT = 1'b0;
+               VOUT = 1'b0;
+               if ((tx_in.A & 32'h80000000)!=0 && (tx_in.B & 32'h80000000)==0)
+               OUT =  32'b1;
+               else if ((tx_in.A & 32'h80000000)!=0 && (tx_in.B & 32'h80000000)!=0)
+               begin
+                 if (~tx_in.A >= ~tx_in.B)
+                  OUT = 32'b1;
+               end
+               else if ((tx_in.A & 32'h80000000)==0 && (tx_in.B & 32'h80000000)==0)
+               begin
+                 if (tx_in.A <= tx_in.B)
+                  OUT = 32'b1;
+               end
+            end  
+5'b01101:   begin
+  OUT = 32'b0;
+  COUT = 1'b0;
+  VOUT = 1'b0;
+ end          
+5'b01110:   begin//sge
+               COUT = 1'b0;
+               VOUT = 1'b0;
+               if ((tx_in.A & 32'h80000000)==0 && (tx_in.B & 32'h80000000)!=0)
+               OUT =  32'b1;
+               else if ((tx_in.A & 32'h80000000)!=0 && (tx_in.B & 32'h80000000)!=0)
+               begin
+                 if (~tx_in.A <= ~tx_in.B)
+                  OUT = 32'b1;
+               end
+               else if ((tx_in.A & 32'h80000000)==0 && (tx_in.B & 32'h80000000)==0)
+               begin
+                 if (tx_in.A >= tx_in.B)
+                  OUT = 32'b1;
+               end
+            end            
+5'b01111:   begin//seq
+               COUT = 1'b0;
+               VOUT = 1'b0;
+               if (tx_in.A == tx_in.B)
+               OUT = 32'b1;
+               else 
+               OUT = 32'b0;
+            end              
+5'b10000:   begin//subu
+               COUT = 1'b1;
+               VOUT = 0;
+               OUT = tx_in.A - tx_in.B;
+            end
+5'b10001:   begin//addu
+               {COUT,OUT} = tx_in.A + tx_in.B + tx_in.CIN;
+               if (COUT == 1)
+               VOUT = 1;
+               else 
+               VOUT = 0;
+            end
+5'b10010:   begin
+  OUT = 32'b0;
+  COUT = 1'b0;
+  VOUT = 1'b0;
+ end  
+5'b10011:   begin
+  OUT = 32'b0;
+  COUT = 1'b0;
+  VOUT = 1'b0;
+ end        
+5'b10100:   begin//sub
+               {COUT,OUT} = tx_in.A + ~tx_in.B + tx_in.CIN;
+               COUT = ~COUT;
+               if (((tx_in.A & 32'h80000000) == 0) && ((tx_in.B & 32'h80000000)!=0) && ((OUT & 32'h80000000)!=0))
+               VOUT = 1;
+               else if (((tx_in.A & 32'h80000000) != 0) && ((tx_in.B & 32'h80000000)==0) && ((OUT & 32'h80000000)==0))
+               VOUT = 1;
+               else 
+               VOUT = 0;
+             end
+5'b10101:   begin//add
+               {COUT,OUT} = tx_in.A + tx_in.B + tx_in.CIN;
+               if (((tx_in.A & 32'h80000000) == 0) && ((tx_in.B & 32'h80000000)==0) && ((OUT & 32'h80000000)!=0))
+               VOUT = 1;
+               else if (((tx_in.A & 32'h80000000) != 0) && ((tx_in.B & 32'h80000000)!=0) && ((OUT & 32'h80000000)==0))
+               VOUT = 1;
+               else 
+               VOUT = 0;
+             end
+5'b10110:    begin//dec
+               {COUT,OUT} = tx_in.A + 32'hFFFFFFFF;
+               if (tx_in.A == 32'h80000000)
+               VOUT = 1;
+               else VOUT = 0;
+             end
+5'b10111:    begin//inc
+               {COUT,OUT} = tx_in.A + 1;
+               if (tx_in.A == 32'h7FFFFFFF)
+               VOUT = 1;
+               else VOUT = 0;
+             end
+5'b11000:    begin//slr
+               COUT = 0;
+               VOUT = 0;
+               OUT = (tx_in.A << shf) | (tx_in.A >> (32-shf));
+             end
+5'b11001:    begin//srr
+               COUT = 0;
+               VOUT = 0;
+               OUT = (tx_in.A >> shf) | (tx_in.A << (32-shf));
+             end
+5'b11010:    begin//sll
+               COUT = 0;
+               VOUT = 0;
+               OUT = tx_in.A << shf;
+             end
+5'b11011:    begin//srl
+               COUT = 0;
+               VOUT = 0;
+               OUT = tx_in.A >> shf;
+             end
+5'b11100:    begin//sla
+               COUT = 0;
+               OUT = tx_in.A << shf;
+               temp = tx_in.A >> (32-shf);
+               if ((tx_in.A & 32'h80000000) == 0)
+               begin
+                 temp = temp ^ 32'hFFFFFFFF;
+                 if (temp != 0)
+                 VOUT = 1;
+                 else
+                 VOUT = 0;
+               end
+               if ((tx_in.A & 32'h80000000) != 0)
+               begin
+                 temp = temp ^ 32'hFFFFFFFF;
+                 temp = temp << (32-shf);
+                 if (temp != 0)
+                 VOUT = 1;
+                 else
+                 VOUT = 0;
+               end
+               end
+5'b11101:      begin//sra
+                COUT = 0;
+                if((tx_in.A & 32'h1) == 1)
+                 VOUT = 1;
+                else 
+                 VOUT = 0;
+                if((tx_in.A & 32'h80000000) !=0)
+                begin
+                temp = 32'hFFFFFFFF<<(32-shf);
+                OUT = (tx_in.A >> shf) | temp;
+                end
+                if((tx_in.A & 32'h80000000) == 0)
+                 begin
+                  OUT = tx_in.A >>shf;
+                 end
+               end              
+5'b11110:   begin
+  OUT = 32'b0;
+  COUT = 1'b0;
+  VOUT = 1'b0;
+ end                            
+5'b11111:   begin
+  OUT = 32'b0;
+  COUT = 1'b0;
+  VOUT = 1'b0;
+ end
+endcase  
+end
+
+return {VOUT,COUT,OUT};
+endfunction
+
+endpackage: scoreboard
